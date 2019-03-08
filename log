@@ -2,6 +2,203 @@
   CALL    scripts/atomic/check-atomics.sh
   DESCEND  objtool
   CHK     include/generated/compile.h
-  CC      net/netfilter/nf_conntrack_netlink.o
-  CC      net/netfilter/nf_conntrack_ftp.o
-  CC      net/netfilter/nf_conntrack_irc.o
+  CC      lib/glob.o
+  CC      lib/strncpy_from_user.o
+  CC      lib/strnlen_user.o
+  CC      lib/net_utils.o
+  CC      lib/sg_pool.o
+  CC      lib/asn1_decoder.o
+  CC      lib/oid_registry.o
+  CC      lib/ucs2_string.o
+  CC      lib/sbitmap.o
+  CC      lib/argv_split.o
+  CC      lib/bug.o
+  CC      lib/chacha.o
+  CC      lib/clz_tab.o
+  CC      lib/cmdline.o
+  CC      lib/cpumask.o
+  CC      lib/ctype.o
+  CC      lib/dec_and_lock.o
+  CC      lib/decompress.o
+  CC      lib/decompress_bunzip2.o
+  CC      lib/decompress_inflate.o
+  CC      lib/decompress_unlz4.o
+  CC      lib/decompress_unlzma.o
+  CC      lib/decompress_unlzo.o
+  CC      lib/decompress_unxz.o
+  CC      lib/dump_stack.o
+  CC      lib/earlycpio.o
+  CC      lib/extable.o
+  CC      lib/flex_proportions.o
+  CC      lib/idr.o
+  CC      lib/int_sqrt.o
+  CC      lib/ioremap.o
+  CC      lib/irq_regs.o
+  CC      lib/is_single_threaded.o
+  CC      lib/klist.o
+  CC      lib/kobject.o
+  CC      lib/kobject_uevent.o
+  CC      lib/memcat_p.o
+  CC      lib/nmi_backtrace.o
+  CC      lib/nodemask.o
+  CC      lib/plist.o
+  CC      lib/radix-tree.o
+  CC      lib/ratelimit.o
+  CC      lib/rbtree.o
+  CC      lib/seq_buf.o
+  CC      lib/sha1.o
+  CC      lib/show_mem.o
+  CC      lib/siphash.o
+  CC      lib/string.o
+  CC      lib/timerqueue.o
+  CC      lib/vsprintf.o
+  CC      lib/win_minmax.o
+  CC      lib/xarray.o
+  AR      lib/lib.a
+  EXPORTS lib/lib-ksyms.o
+  AR      lib/built-in.a
+  CC      arch/x86/lib/msr-smp.o
+  CC      arch/x86/lib/cache-smp.o
+  CC      arch/x86/lib/msr.o
+  AS      arch/x86/lib/msr-reg.o
+  CC      arch/x86/lib/msr-reg-export.o
+  AS      arch/x86/lib/hweight.o
+  CC      arch/x86/lib/iomem.o
+  AS      arch/x86/lib/iomap_copy_64.o
+  AS      arch/x86/lib/clear_page_64.o
+  CC      arch/x86/lib/cmdline.o
+  AS      arch/x86/lib/cmpxchg16b_emu.o
+  AS      arch/x86/lib/copy_page_64.o
+  AS      arch/x86/lib/copy_user_64.o
+  CC      arch/x86/lib/cpu.o
+  AS      arch/x86/lib/csum-copy_64.o
+  CC      arch/x86/lib/csum-partial_64.o
+  CC      arch/x86/lib/csum-wrappers_64.o
+  CC      arch/x86/lib/delay.o
+  CC      arch/x86/lib/error-inject.o
+  AS      arch/x86/lib/getuser.o
+  CC      arch/x86/lib/inat.o
+  CC      arch/x86/lib/insn-eval.o
+  CC      arch/x86/lib/insn.o
+  CC      arch/x86/lib/kaslr.o
+  AS      arch/x86/lib/memcpy_64.o
+  AS      arch/x86/lib/memmove_64.o
+  AS      arch/x86/lib/memset_64.o
+  CC      arch/x86/lib/misc.o
+  AS      arch/x86/lib/putuser.o
+  AS      arch/x86/lib/retpoline.o
+  AS      arch/x86/lib/rwsem.o
+  CC      arch/x86/lib/usercopy.o
+  CC      arch/x86/lib/usercopy_64.o
+  AR      arch/x86/lib/lib.a
+  EXPORTS arch/x86/lib/lib-ksyms.o
+  AR      arch/x86/lib/built-in.a
+  CC      virt/lib/irqbypass.o
+  AR      virt/lib/built-in.a
+  AR      virt/built-in.a
+  INSTALL usr/include/linux/ (505 files)
+  HOSTCC  samples/hidraw/hid-example
+  CC [M]  samples/hw_breakpoint/data_breakpoint.o
+  CC [M]  samples/kobject/kobject-example.o
+  CC [M]  samples/kobject/kset-example.o
+  CC [M]  samples/kprobes/kprobe_example.o
+  CC [M]  samples/kprobes/kretprobe_example.o
+  CC [M]  samples/trace_events/trace-events-sample.o
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  AR      init/built-in.a
+  AR      built-in.a
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  CC      arch/x86/boot/cpucheck.o
+  CC      arch/x86/boot/edd.o
+  LDS     arch/x86/boot/compressed/vmlinux.lds
+  AS      arch/x86/boot/compressed/head_64.o
+  VOFFSET arch/x86/boot/compressed/../voffset.h
+  CC      arch/x86/boot/compressed/misc.o
+  CC      arch/x86/boot/compressed/string.o
+  CC      arch/x86/boot/compressed/cmdline.o
+  CC      arch/x86/boot/compressed/error.o
+  OBJCOPY arch/x86/boot/compressed/vmlinux.bin
+  RELOCS  arch/x86/boot/compressed/vmlinux.relocs
+  GZIP    arch/x86/boot/compressed/vmlinux.bin.gz
+  MKPIGGY arch/x86/boot/compressed/piggy.S
+  AS      arch/x86/boot/compressed/piggy.o
+  CC      arch/x86/boot/compressed/early_serial_console.o
+  CC      arch/x86/boot/compressed/kaslr.o
+  CC      arch/x86/boot/compressed/kaslr_64.o
+  CC      arch/x86/boot/compressed/pgtable_64.o
+  CC      arch/x86/boot/compressed/acpi.o
+  LD      arch/x86/boot/compressed/vmlinux
+  ZOFFSET arch/x86/boot/zoffset.h
+  AS      arch/x86/boot/header.o
+  CC      arch/x86/boot/main.o
+  CC      arch/x86/boot/regs.o
+  CC      arch/x86/boot/string.o
+  CC      arch/x86/boot/version.o
+  CC      arch/x86/boot/video-vesa.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  BUILD   arch/x86/boot/bzImage
+Setup is 16540 bytes (padded to 16896 bytes).
+System is 9385 kB
+CRC 210f2c10
+Kernel: arch/x86/boot/bzImage is ready  (#25)
+  Building modules, stage 2.
+  MODPOST 24 modules
+  CC      drivers/gpu/drm/radeon/radeon.mod.o
+  LD [M]  drivers/gpu/drm/radeon/radeon.ko
+  CC      drivers/gpu/drm/ttm/ttm.mod.o
+  LD [M]  drivers/gpu/drm/ttm/ttm.ko
+  CC      drivers/thermal/intel/x86_pkg_temp_thermal.mod.o
+  LD [M]  drivers/thermal/intel/x86_pkg_temp_thermal.ko
+  CC      fs/efivarfs/efivarfs.mod.o
+  LD [M]  fs/efivarfs/efivarfs.ko
+  CC      net/ipv4/netfilter/ipt_MASQUERADE.mod.o
+  LD [M]  net/ipv4/netfilter/ipt_MASQUERADE.ko
+  CC      net/ipv4/netfilter/iptable_nat.mod.o
+  LD [M]  net/ipv4/netfilter/iptable_nat.ko
+  CC      net/ipv4/netfilter/nf_log_arp.mod.o
+  LD [M]  net/ipv4/netfilter/nf_log_arp.ko
+  CC      net/ipv4/netfilter/nf_log_ipv4.mod.o
+  LD [M]  net/ipv4/netfilter/nf_log_ipv4.ko
+  CC      net/ipv6/netfilter/nf_log_ipv6.mod.o
+  LD [M]  net/ipv6/netfilter/nf_log_ipv6.ko
+  CC      net/netfilter/nf_log_common.mod.o
+  LD [M]  net/netfilter/nf_log_common.ko
+  CC      net/netfilter/nf_nat.mod.o
+  LD [M]  net/netfilter/nf_nat.ko
+  CC      net/netfilter/nf_nat_ftp.mod.o
+  LD [M]  net/netfilter/nf_nat_ftp.ko
+  CC      net/netfilter/nf_nat_irc.mod.o
+  LD [M]  net/netfilter/nf_nat_irc.ko
+  CC      net/netfilter/nf_nat_sip.mod.o
+  LD [M]  net/netfilter/nf_nat_sip.ko
+  CC      net/netfilter/xt_LOG.mod.o
+  LD [M]  net/netfilter/xt_LOG.ko
+  CC      net/netfilter/xt_addrtype.mod.o
+  LD [M]  net/netfilter/xt_addrtype.ko
+  CC      net/netfilter/xt_mark.mod.o
+  LD [M]  net/netfilter/xt_mark.ko
+  CC      net/netfilter/xt_nat.mod.o
+  LD [M]  net/netfilter/xt_nat.ko
+  CC      samples/hw_breakpoint/data_breakpoint.mod.o
+  LD [M]  samples/hw_breakpoint/data_breakpoint.ko
+  CC      samples/kobject/kobject-example.mod.o
+  LD [M]  samples/kobject/kobject-example.ko
+  CC      samples/kobject/kset-example.mod.o
+  LD [M]  samples/kobject/kset-example.ko
+  CC      samples/kprobes/kprobe_example.mod.o
+  LD [M]  samples/kprobes/kprobe_example.ko
+  CC      samples/kprobes/kretprobe_example.mod.o
+  LD [M]  samples/kprobes/kretprobe_example.ko
+  CC      samples/trace_events/trace-events-sample.mod.o
+  LD [M]  samples/trace_events/trace-events-sample.ko
