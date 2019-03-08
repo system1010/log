@@ -2,3 +2,6 @@
   CALL    scripts/atomic/check-atomics.sh
   DESCEND  objtool
   CHK     include/generated/compile.h
+  CC      net/netfilter/nf_conntrack_netlink.o
+  CC      net/netfilter/nf_conntrack_ftp.o
+  CC      net/netfilter/nf_conntrack_irc.o

@@ -67,3 +67,56 @@ build/genpreds -h ../../gcc/common.md ../../gcc/config/i386/i386.md > tmp-preds.
 /bin/sh ../../gcc/../move-if-change tmp-preds.h tm-preds.h
 echo timestamp > s-preds-h
 build/genconditions ../../gcc/common.md ../../gcc/config/i386/i386.md > tmp-condmd.c
+/bin/sh ../../gcc/../move-if-change tmp-condmd.c build/gencondmd.c
+echo timestamp > s-conditions
+build/genpreds -c ../../gcc/common.md ../../gcc/config/i386/i386.md > tmp-constrs.h
+/bin/sh ../../gcc/../move-if-change tmp-constrs.h tm-constrs.h
+echo timestamp > s-constrs-h
+g++ -c   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -DGENERATOR_FILE -fno-PIE -I. -Ibuild -I../../gcc -I../../gcc/build -I../../gcc/../include  -I../../gcc/../libcpp/include  \
+	-o build/gencondmd.o build/gencondmd.c
+g++   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -DGENERATOR_FILE -fno-PIE -static-libstdc++ -static-libgcc  -no-pie -o build/gencondmd \
+    build/gencondmd.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+build/gencondmd > tmp-cond.md
+/bin/sh ../../gcc/../move-if-change tmp-cond.md insn-conditions.md
+echo timestamp > s-condmd
+build/genflags ../../gcc/common.md ../../gcc/config/i386/i386.md \
+  insn-conditions.md > tmp-flags.h
+/bin/sh ../../gcc/../move-if-change tmp-flags.h insn-flags.h
+echo timestamp > s-flags
+build/genattr ../../gcc/common.md ../../gcc/config/i386/i386.md \
+  insn-conditions.md > tmp-attr.h
+/bin/sh ../../gcc/../move-if-change tmp-attr.h insn-attr.h
+echo timestamp > s-attr
+build/genattr-common ../../gcc/common.md ../../gcc/config/i386/i386.md \
+  insn-conditions.md > tmp-attr-common.h
+/bin/sh ../../gcc/../move-if-change tmp-attr-common.h insn-attr-common.h
+echo timestamp > s-attr-common
+build/gencodes ../../gcc/common.md ../../gcc/config/i386/i386.md \
+  insn-conditions.md > tmp-codes.h
+/bin/sh ../../gcc/../move-if-change tmp-codes.h insn-codes.h
+echo timestamp > s-codes
+build/genconfig ../../gcc/common.md ../../gcc/config/i386/i386.md \
+  insn-conditions.md > tmp-config.h
+/bin/sh ../../gcc/../move-if-change tmp-config.h insn-config.h
+echo timestamp > s-config
+build/gentarget-def ../../gcc/common.md ../../gcc/config/i386/i386.md \
+  insn-conditions.md > tmp-target-def.h
+/bin/sh ../../gcc/../move-if-change tmp-target-def.h insn-target-def.h
+echo timestamp > s-target-def
+g++ -c   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -DGENERATOR_FILE -fno-PIE -I. -Ibuild -I../../gcc -I../../gcc/build -I../../gcc/../include  -I../../gcc/../libcpp/include  \
+	-o build/gcov-iov.o ../../gcc/gcov-iov.c
+g++   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -DGENERATOR_FILE -fno-PIE -static-libstdc++ -static-libgcc  -no-pie \
+	build/gcov-iov.o -o build/gcov-iov
+build/gcov-iov '9.0.1' 'experimental' \
+    > tmp-gcov-iov.h
+/bin/sh ../../gcc/../move-if-change tmp-gcov-iov.h gcov-iov.h
+echo timestamp > s-iov
+build/genopinit ../../gcc/common.md ../../gcc/config/i386/i386.md \
+  insn-conditions.md -htmp-opinit.h -ctmp-opinit.c
+/bin/sh ../../gcc/../move-if-change tmp-opinit.h insn-opinit.h
+/bin/sh ../../gcc/../move-if-change tmp-opinit.c insn-opinit.c
+echo timestamp > s-opinit
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -I. -I../../gcc -I../../gcc/. -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o attribs.o -MT attribs.o -MMD -MP -MF ./.deps/attribs.TPo ../../gcc/attribs.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-errors.o -MT c/c-errors.o -MMD -MP -MF c/.deps/c-errors.TPo ../../gcc/c/c-errors.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-decl.o -MT c/c-decl.o -MMD -MP -MF c/.deps/c-decl.TPo ../../gcc/c/c-decl.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-typeck.o -MT c/c-typeck.o -MMD -MP -MF c/.deps/c-typeck.TPo ../../gcc/c/c-typeck.c
