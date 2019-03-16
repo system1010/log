@@ -1,0 +1,1115 @@
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  DESCEND  objtool
+  CC      init/main.o
+  CHK     include/generated/compile.h
+  CC      init/do_mounts.o
+  CC      init/do_mounts_initrd.o
+  CC      init/do_mounts_md.o
+  CC      init/initramfs.o
+  AR      init/built-in.a
+  CC      arch/x86/entry/common.o
+  CC      arch/x86/entry/vsyscall/vsyscall_64.o
+  AR      arch/x86/entry/vsyscall/built-in.a
+  AR      arch/x86/entry/built-in.a
+  CC      arch/x86/events/core.o
+  AR      arch/x86/events/built-in.a
+  CC      arch/x86/ia32/sys_ia32.o
+  AR      arch/x86/ia32/built-in.a
+  CC      arch/x86/kernel/process_64.o
+  CC      arch/x86/kernel/signal.o
+  CC      arch/x86/kernel/traps.o
+  CC      arch/x86/kernel/irq.o
+  CC      arch/x86/kernel/ioport.o
+  CC      arch/x86/kernel/nmi.o
+  CC      arch/x86/kernel/ldt.o
+  CC      arch/x86/kernel/setup.o
+  CC      arch/x86/kernel/sys_x86_64.o
+  CC      arch/x86/kernel/espfix_64.o
+  CC      arch/x86/kernel/process.o
+  CC      arch/x86/kernel/apic/apic.o
+  CC      arch/x86/kernel/apic/ipi.o
+  AR      arch/x86/kernel/apic/built-in.a
+  CC      arch/x86/kernel/cpu/common.o
+  CC      arch/x86/kernel/cpu/mce/core.o
+  AR      arch/x86/kernel/cpu/mce/built-in.a
+  AR      arch/x86/kernel/cpu/built-in.a
+  CC      arch/x86/kernel/fpu/core.o
+  AR      arch/x86/kernel/fpu/built-in.a
+  CC      arch/x86/kernel/ptrace.o
+  CC      arch/x86/kernel/tls.o
+  CC      arch/x86/kernel/step.o
+  CC      arch/x86/kernel/reboot.o
+  CC      arch/x86/kernel/smp.o
+  CC      arch/x86/kernel/mpparse.o
+  CC      arch/x86/kernel/machine_kexec_64.o
+  CC      arch/x86/kernel/early_printk.o
+  CC      arch/x86/kernel/uprobes.o
+  CC      arch/x86/kernel/sysfb_efi.o
+  AR      arch/x86/kernel/built-in.a
+  CC      arch/x86/kvm/../../../virt/kvm/kvm_main.o
+  CC      arch/x86/kvm/../../../virt/kvm/coalesced_mmio.o
+  CC      arch/x86/kvm/../../../virt/kvm/eventfd.o
+  CC      arch/x86/kvm/../../../virt/kvm/irqchip.o
+  CC      arch/x86/kvm/../../../virt/kvm/vfio.o
+  CC      arch/x86/kvm/../../../virt/kvm/async_pf.o
+  CC      arch/x86/kvm/x86.o
+  CC      arch/x86/kvm/mmu.o
+  CC      arch/x86/kvm/emulate.o
+  CC      arch/x86/kvm/i8259.o
+  CC      arch/x86/kvm/irq.o
+  CC      arch/x86/kvm/lapic.o
+  CC      arch/x86/kvm/i8254.o
+  CC      arch/x86/kvm/ioapic.o
+  CC      arch/x86/kvm/irq_comm.o
+  CC      arch/x86/kvm/cpuid.o
+  CC      arch/x86/kvm/pmu.o
+  CC      arch/x86/kvm/mtrr.o
+  CC      arch/x86/kvm/hyperv.o
+  CC      arch/x86/kvm/page_track.o
+  CC      arch/x86/kvm/debugfs.o
+  CC      arch/x86/kvm/vmx/vmx.o
+  AS      arch/x86/kvm/vmx/vmenter.o
+  CC      arch/x86/kvm/vmx/pmu_intel.o
+  CC      arch/x86/kvm/vmx/vmcs12.o
+  CC      arch/x86/kvm/vmx/evmcs.o
+  CC      arch/x86/kvm/vmx/nested.o
+  CC      arch/x86/kvm/svm.o
+  CC      arch/x86/kvm/pmu_amd.o
+  AR      arch/x86/kvm/built-in.a
+  CC      arch/x86/mm/init.o
+  CC      arch/x86/mm/init_64.o
+  CC      arch/x86/mm/fault.o
+  CC      arch/x86/mm/ioremap.o
+  CC      arch/x86/mm/pageattr.o
+  CC      arch/x86/mm/pgtable.o
+  CC      arch/x86/mm/tlb.o
+  CC      arch/x86/mm/hugetlbpage.o
+  CC      arch/x86/mm/pkeys.o
+  CC      arch/x86/mm/kaslr.o
+  CC      arch/x86/mm/pti.o
+  AR      arch/x86/mm/built-in.a
+  CC      arch/x86/platform/efi/quirks.o
+  CC      arch/x86/platform/efi/efi.o
+  CC      arch/x86/platform/efi/efi_64.o
+  AR      arch/x86/platform/efi/built-in.a
+  AR      arch/x86/platform/built-in.a
+  AR      arch/x86/built-in.a
+  CC      kernel/fork.o
+  CC      kernel/exec_domain.o
+  CC      kernel/cpu.o
+  CC      kernel/exit.o
+  CC      kernel/softirq.o
+  CC      kernel/sysctl.o
+  CC      kernel/sysctl_binary.o
+  CC      kernel/capability.o
+  CC      kernel/ptrace.o
+  CC      kernel/signal.o
+  CC      kernel/sys.o
+  CC      kernel/umh.o
+  CC      kernel/workqueue.o
+  CC      kernel/pid.o
+  CC      kernel/task_work.o
+  CC      kernel/nsproxy.o
+  CC      kernel/reboot.o
+  CC      kernel/kmod.o
+  CC      kernel/groups.o
+  CC      kernel/bpf/core.o
+  AR      kernel/bpf/built-in.a
+  CC      kernel/cgroup/cgroup.o
+  CC      kernel/cgroup/cpuset.o
+  AR      kernel/cgroup/built-in.a
+  CC      kernel/dma/swiotlb.o
+  AR      kernel/dma/built-in.a
+  CC      kernel/events/core.o
+  CC      kernel/events/uprobes.o
+  AR      kernel/events/built-in.a
+  CC      kernel/irq/matrix.o
+  AR      kernel/irq/built-in.a
+  CC      kernel/power/qos.o
+  CC      kernel/power/process.o
+  CC      kernel/power/suspend.o
+  CC      kernel/power/hibernate.o
+  CC      kernel/power/snapshot.o
+  CC      kernel/power/swap.o
+  CC      kernel/power/user.o
+  AR      kernel/power/built-in.a
+  CC      kernel/printk/printk.o
+  AR      kernel/printk/built-in.a
+  CC      kernel/rcu/update.o
+  CC      kernel/rcu/tree.o
+  AR      kernel/rcu/built-in.a
+  CC      kernel/sched/core.o
+  CC      kernel/sched/loadavg.o
+  CC      kernel/sched/clock.o
+  CC      kernel/sched/cputime.o
+  CC      kernel/sched/idle.o
+  CC      kernel/sched/fair.o
+  CC      kernel/sched/rt.o
+  CC      kernel/sched/deadline.o
+  CC      kernel/sched/wait.o
+  CC      kernel/sched/wait_bit.o
+  CC      kernel/sched/swait.o
+  CC      kernel/sched/completion.o
+  CC      kernel/sched/cpupri.o
+  CC      kernel/sched/cpudeadline.o
+  CC      kernel/sched/topology.o
+  CC      kernel/sched/stop_task.o
+  CC      kernel/sched/pelt.o
+  CC      kernel/sched/stats.o
+  CC      kernel/sched/cpufreq.o
+  CC      kernel/sched/membarrier.o
+  CC      kernel/sched/isolation.o
+  AR      kernel/sched/built-in.a
+  CC      kernel/time/time.o
+  CC      kernel/time/timer.o
+  CC      kernel/time/hrtimer.o
+  CC      kernel/time/alarmtimer.o
+  CC      kernel/time/posix-timers.o
+  CC      kernel/time/posix-clock.o
+  CC      kernel/time/itimer.o
+  CC      kernel/time/tick-common.o
+  AR      kernel/time/built-in.a
+  CC      kernel/trace/ring_buffer.o
+  CC      kernel/trace/trace.o
+  CC      kernel/trace/trace_output.o
+  CC      kernel/trace/trace_stat.o
+  CC      kernel/trace/trace_printk.o
+  CC      kernel/trace/trace_sched_switch.o
+  CC      kernel/trace/trace_nop.o
+  CC      kernel/trace/blktrace.o
+  CC      kernel/trace/trace_events.o
+  CC      kernel/trace/trace_export.o
+  CC      kernel/trace/trace_event_perf.o
+  CC      kernel/trace/trace_events_filter.o
+  CC      kernel/trace/trace_events_trigger.o
+  CC      kernel/trace/trace_kprobe.o
+  CC      kernel/trace/power-traces.o
+  CC      kernel/trace/rpm-traces.o
+  CC      kernel/trace/trace_dynevent.o
+  CC      kernel/trace/trace_probe.o
+  CC      kernel/trace/trace_uprobe.o
+  AR      kernel/trace/built-in.a
+  CC      kernel/freezer.o
+  CC      kernel/futex.o
+  CC      kernel/uid16.o
+  CC      kernel/module.o
+  CC      kernel/acct.o
+  CC      kernel/kexec_core.o
+  CC      kernel/kexec.o
+  CC      kernel/compat.o
+  CC      kernel/pid_namespace.o
+  CC      kernel/audit.o
+  CC      kernel/auditsc.o
+  CC      kernel/seccomp.o
+  CC      kernel/rseq.o
+  AR      kernel/built-in.a
+  CC      mm/filemap.o
+  CC      mm/mempool.o
+  CC      mm/oom_kill.o
+  CC      mm/fadvise.o
+  CC      mm/page_alloc.o
+  CC      mm/page-writeback.o
+  CC      mm/readahead.o
+  CC      mm/swap.o
+  CC      mm/truncate.o
+  CC      mm/vmscan.o
+  CC      mm/shmem.o
+  CC      mm/util.o
+  CC      mm/vmstat.o
+  CC      mm/backing-dev.o
+  CC      mm/mm_init.o
+  CC      mm/mmu_context.o
+  CC      mm/percpu.o
+  CC      mm/slab_common.o
+  CC      mm/compaction.o
+  CC      mm/workingset.o
+  CC      mm/debug.o
+  CC      mm/gup.o
+  CC      mm/highmem.o
+  CC      mm/memory.o
+  CC      mm/mincore.o
+  CC      mm/mlock.o
+  CC      mm/mmap.o
+  CC      mm/mmu_gather.o
+  CC      mm/mprotect.o
+  CC      mm/mremap.o
+  CC      mm/msync.o
+  CC      mm/page_vma_mapped.o
+  CC      mm/pagewalk.o
+  CC      mm/pgtable-generic.o
+  CC      mm/rmap.o
+  CC      mm/vmalloc.o
+  CC      mm/process_vm_access.o
+  CC      mm/memblock.o
+  CC      mm/madvise.o
+  CC      mm/page_io.o
+  CC      mm/swap_state.o
+  CC      mm/swapfile.o
+  CC      mm/hugetlb.o
+  CC      mm/mempolicy.o
+  CC      mm/sparse.o
+  CC      mm/sparse-vmemmap.o
+  CC      mm/slub.o
+  CC      mm/migrate.o
+  CC      mm/memfd.o
+  AR      mm/built-in.a
+  CC      fs/open.o
+  CC      fs/read_write.o
+  CC      fs/super.o
+  CC      fs/char_dev.o
+  CC      fs/stat.o
+  CC      fs/exec.o
+  CC      fs/pipe.o
+  CC      fs/namei.o
+  CC      fs/fcntl.o
+  CC      fs/ioctl.o
+  CC      fs/readdir.o
+  CC      fs/select.o
+  CC      fs/inode.o
+  CC      fs/file.o
+  CC      fs/filesystems.o
+  CC      fs/namespace.o
+  CC      fs/xattr.o
+  CC      fs/libfs.o
+  CC      fs/fs-writeback.o
+  CC      fs/splice.o
+  CC      fs/sync.o
+  CC      fs/utimes.o
+  CC      fs/d_path.o
+  CC      fs/statfs.o
+  CC      fs/buffer.o
+  CC      fs/block_dev.o
+  CC      fs/direct-io.o
+  CC      fs/mpage.o
+  CC      fs/autofs/inode.o
+  CC      fs/autofs/dev-ioctl.o
+  AR      fs/autofs/built-in.a
+  CC      fs/debugfs/inode.o
+  CC      fs/debugfs/file.o
+  AR      fs/debugfs/built-in.a
+  CC [M]  fs/efivarfs/super.o
+  LD [M]  fs/efivarfs/efivarfs.o
+  CC      fs/ext4/balloc.o
+  CC      fs/ext4/bitmap.o
+  CC      fs/ext4/block_validity.o
+  CC      fs/ext4/dir.o
+  CC      fs/ext4/ext4_jbd2.o
+  CC      fs/ext4/extents.o
+  CC      fs/ext4/extents_status.o
+  CC      fs/ext4/file.o
+  CC      fs/ext4/fsmap.o
+  CC      fs/ext4/fsync.o
+  CC      fs/ext4/hash.o
+  CC      fs/ext4/ialloc.o
+  CC      fs/ext4/indirect.o
+  CC      fs/ext4/inline.o
+  CC      fs/ext4/inode.o
+  CC      fs/ext4/ioctl.o
+  CC      fs/ext4/mballoc.o
+  CC      fs/ext4/migrate.o
+  CC      fs/ext4/mmp.o
+  CC      fs/ext4/move_extent.o
+  CC      fs/ext4/namei.o
+  CC      fs/ext4/page-io.o
+  CC      fs/ext4/readpage.o
+  CC      fs/ext4/resize.o
+  CC      fs/ext4/super.o
+  CC      fs/ext4/symlink.o
+  CC      fs/ext4/sysfs.o
+  CC      fs/ext4/xattr.o
+  CC      fs/ext4/xattr_trusted.o
+  CC      fs/ext4/xattr_user.o
+  CC      fs/ext4/acl.o
+  CC      fs/ext4/xattr_security.o
+  AR      fs/ext4/built-in.a
+  CC      fs/fat/cache.o
+  CC      fs/fat/dir.o
+  CC      fs/fat/fatent.o
+  CC      fs/fat/file.o
+  CC      fs/fat/inode.o
+  CC      fs/fat/misc.o
+  CC      fs/fat/nfs.o
+  CC      fs/fat/namei_vfat.o
+  CC      fs/fat/namei_msdos.o
+  AR      fs/fat/built-in.a
+  CC      fs/fuse/dev.o
+  CC      fs/fuse/dir.o
+  CC      fs/fuse/file.o
+  CC      fs/fuse/inode.o
+  CC      fs/fuse/control.o
+  CC      fs/fuse/xattr.o
+  CC      fs/fuse/acl.o
+  CC      fs/fuse/readdir.o
+  AR      fs/fuse/built-in.a
+  CC      fs/hugetlbfs/inode.o
+  AR      fs/hugetlbfs/built-in.a
+  CC      fs/isofs/namei.o
+  CC      fs/isofs/inode.o
+  CC      fs/isofs/dir.o
+  CC      fs/isofs/util.o
+  CC      fs/isofs/rock.o
+  CC      fs/isofs/export.o
+  CC      fs/isofs/joliet.o
+  CC      fs/isofs/compress.o
+  AR      fs/isofs/built-in.a
+  CC      fs/jbd2/transaction.o
+  CC      fs/jbd2/commit.o
+  CC      fs/jbd2/recovery.o
+  CC      fs/jbd2/checkpoint.o
+  CC      fs/jbd2/revoke.o
+  CC      fs/jbd2/journal.o
+  AR      fs/jbd2/built-in.a
+  CC      fs/kernfs/mount.o
+  CC      fs/kernfs/inode.o
+  CC      fs/kernfs/file.o
+  AR      fs/kernfs/built-in.a
+  CC      fs/lockd/clntlock.o
+  CC      fs/lockd/clntproc.o
+  AR      fs/lockd/built-in.a
+  CC      fs/nfs/client.o
+  CC      fs/nfs/dir.o
+  CC      fs/nfs/file.o
+  CC      fs/nfs/getroot.o
+  CC      fs/nfs/inode.o
+  CC      fs/nfs/super.o
+  CC      fs/nfs/io.o
+  CC      fs/nfs/direct.o
+  CC      fs/nfs/pagelist.o
+  CC      fs/nfs/read.o
+  CC      fs/nfs/symlink.o
+  CC      fs/nfs/unlink.o
+  CC      fs/nfs/write.o
+  CC      fs/nfs/namespace.o
+  CC      fs/nfs/mount_clnt.o
+  CC      fs/nfs/nfstrace.o
+  CC      fs/nfs/export.o
+  CC      fs/nfs/nfsroot.o
+  CC      fs/nfs/sysctl.o
+  CC      fs/nfs/nfs2super.o
+  CC      fs/nfs/proc.o
+  CC      fs/nfs/nfs2xdr.o
+  CC      fs/nfs/nfs3super.o
+  CC      fs/nfs/nfs3client.o
+  CC      fs/nfs/nfs3proc.o
+  CC      fs/nfs/nfs3xdr.o
+  CC      fs/nfs/nfs3acl.o
+  AR      fs/nfs/built-in.a
+  CC      fs/notify/inotify/inotify_user.o
+  AR      fs/notify/inotify/built-in.a
+  AR      fs/notify/built-in.a
+  CC      fs/proc/task_mmu.o
+  CC      fs/proc/base.o
+  CC      fs/proc/array.o
+  CC      fs/proc/meminfo.o
+  CC      fs/proc/vmcore.o
+  CC      fs/proc/page.o
+  AR      fs/proc/built-in.a
+  CC      fs/quota/quota.o
+  CC      fs/quota/compat.o
+  AR      fs/quota/built-in.a
+  CC      fs/ramfs/inode.o
+  AR      fs/ramfs/built-in.a
+  CC      fs/eventpoll.o
+  CC      fs/signalfd.o
+  CC      fs/timerfd.o
+  CC      fs/eventfd.o
+  CC      fs/aio.o
+  CC      fs/io_uring.o
+  CC      fs/locks.o
+  CC      fs/compat.o
+  CC      fs/compat_ioctl.o
+  CC      fs/binfmt_misc.o
+  CC      fs/binfmt_elf.o
+  CC      fs/compat_binfmt_elf.o
+  CC      fs/coredump.o
+  CC      fs/fhandle.o
+  CC      fs/iomap.o
+  CC      fs/dcookies.o
+  AR      fs/built-in.a
+  CC      ipc/compat.o
+  CC      ipc/msg.o
+  CC      ipc/sem.o
+  CC      ipc/shm.o
+  CC      ipc/syscall.o
+  AR      ipc/built-in.a
+  CC      security/keys/keyctl.o
+  CC      security/keys/compat.o
+  AR      security/keys/built-in.a
+  CC      security/selinux/hooks.o
+  CC      security/selinux/selinuxfs.o
+  AR      security/selinux/built-in.a
+  CC      security/commoncap.o
+  CC      security/security.o
+  AR      security/built-in.a
+  CC      block/bio.o
+  CC      block/elevator.o
+  CC      block/blk-core.o
+  CC      block/blk-sysfs.o
+  CC      block/blk-flush.o
+  CC      block/blk-settings.o
+  CC      block/blk-ioc.o
+  CC      block/blk-map.o
+  CC      block/blk-exec.o
+  CC      block/blk-merge.o
+  CC      block/blk-softirq.o
+  CC      block/blk-timeout.o
+  CC      block/blk-lib.o
+  CC      block/blk-mq.o
+  CC      block/blk-mq-tag.o
+  CC      block/blk-stat.o
+  CC      block/blk-mq-sysfs.o
+  CC      block/blk-mq-cpumap.o
+  CC      block/blk-mq-sched.o
+  CC      block/ioctl.o
+  CC      block/genhd.o
+  CC      block/partition-generic.o
+  CC      block/ioprio.o
+  CC      block/partitions/check.o
+  CC      block/partitions/amiga.o
+  CC      block/partitions/mac.o
+  CC      block/partitions/msdos.o
+  CC      block/partitions/osf.o
+  CC      block/partitions/sgi.o
+  CC      block/partitions/sun.o
+  CC      block/partitions/efi.o
+  CC      block/partitions/karma.o
+  AR      block/partitions/built-in.a
+  CC      block/blk-rq-qos.o
+  CC      block/bounce.o
+  CC      block/scsi_ioctl.o
+  CC      block/bsg.o
+  CC      block/mq-deadline.o
+  CC      block/kyber-iosched.o
+  CC      block/compat_ioctl.o
+  CC      block/blk-mq-pci.o
+  CC      block/blk-mq-debugfs.o
+  CC      block/blk-pm.o
+  AR      block/built-in.a
+  CC      drivers/acpi/sleep.o
+  AR      drivers/acpi/built-in.a
+  CC      drivers/ata/libata-core.o
+  CC      drivers/ata/libata-scsi.o
+  CC      drivers/ata/libata-eh.o
+  CC      drivers/ata/libata-transport.o
+  CC      drivers/ata/libata-trace.o
+  CC      drivers/ata/libata-sff.o
+  CC      drivers/ata/libata-pmp.o
+  CC      drivers/ata/libata-acpi.o
+  CC      drivers/ata/ahci.o
+  CC      drivers/ata/libahci.o
+  CC      drivers/ata/ata_piix.o
+  CC      drivers/ata/pata_amd.o
+  CC      drivers/ata/pata_oldpiix.o
+  CC      drivers/ata/pata_sch.o
+  AR      drivers/ata/built-in.a
+  CC      drivers/base/syscore.o
+  CC      drivers/base/devtmpfs.o
+  CC      drivers/base/power/qos.o
+  CC      drivers/base/power/main.o
+  CC      drivers/base/power/wakeup.o
+  AR      drivers/base/power/built-in.a
+  CC      drivers/base/regmap/regmap.o
+  AR      drivers/base/regmap/built-in.a
+  CC      drivers/base/node.o
+  AR      drivers/base/built-in.a
+  CC      drivers/block/loop.o
+  AR      drivers/block/built-in.a
+  CC      drivers/cdrom/cdrom.o
+  AR      drivers/cdrom/built-in.a
+  CC      drivers/char/mem.o
+  CC      drivers/char/random.o
+  CC      drivers/char/nvram.o
+  CC      drivers/char/agp/backend.o
+  CC      drivers/char/agp/generic.o
+  CC      drivers/char/agp/intel-agp.o
+  CC      drivers/char/agp/intel-gtt.o
+  AR      drivers/char/agp/built-in.a
+  AR      drivers/char/built-in.a
+  CC      drivers/clk/clk.o
+  AR      drivers/clk/built-in.a
+  CC      drivers/cpufreq/cpufreq.o
+  CC      drivers/cpufreq/intel_pstate.o
+  AR      drivers/cpufreq/built-in.a
+  CC      drivers/cpuidle/cpuidle.o
+  AR      drivers/cpuidle/built-in.a
+  CC      drivers/dax/super.o
+  AR      drivers/dax/built-in.a
+  CC      drivers/dma-buf/dma-fence.o
+  AR      drivers/dma-buf/built-in.a
+  CC      drivers/firmware/efi/runtime-wrappers.o
+  AR      drivers/firmware/efi/built-in.a
+  AR      drivers/firmware/built-in.a
+  CC      drivers/gpio/gpiolib.o
+  AR      drivers/gpio/built-in.a
+  CC      drivers/gpu/drm/drm_crtc_helper.o
+  CC      drivers/gpu/drm/drm_dp_helper.o
+  CC      drivers/gpu/drm/drm_probe_helper.o
+  CC      drivers/gpu/drm/drm_plane_helper.o
+  CC      drivers/gpu/drm/drm_dp_mst_topology.o
+  CC      drivers/gpu/drm/drm_atomic_helper.o
+  CC      drivers/gpu/drm/drm_kms_helper_common.o
+  CC      drivers/gpu/drm/drm_dp_dual_mode_helper.o
+  CC      drivers/gpu/drm/drm_simple_kms_helper.o
+  CC      drivers/gpu/drm/drm_modeset_helper.o
+  CC      drivers/gpu/drm/drm_scdc_helper.o
+  CC      drivers/gpu/drm/drm_gem_framebuffer_helper.o
+  CC      drivers/gpu/drm/bridge/panel.o
+  CC      drivers/gpu/drm/drm_fb_helper.o
+  CC      drivers/gpu/drm/drm_auth.o
+  CC      drivers/gpu/drm/drm_bufs.o
+  CC      drivers/gpu/drm/drm_context.o
+  CC      drivers/gpu/drm/drm_dma.o
+  CC      drivers/gpu/drm/drm_file.o
+  CC      drivers/gpu/drm/drm_gem.o
+  CC      drivers/gpu/drm/drm_ioctl.o
+  CC      drivers/gpu/drm/drm_irq.o
+  CC      drivers/gpu/drm/drm_lock.o
+  CC      drivers/gpu/drm/drm_memory.o
+  CC      drivers/gpu/drm/drm_drv.o
+  CC      drivers/gpu/drm/drm_scatter.o
+  CC      drivers/gpu/drm/drm_pci.o
+  CC      drivers/gpu/drm/drm_sysfs.o
+  CC      drivers/gpu/drm/drm_hashtab.o
+  CC      drivers/gpu/drm/drm_mm.o
+  CC      drivers/gpu/drm/drm_fourcc.o
+  CC      drivers/gpu/drm/drm_modes.o
+  CC      drivers/gpu/drm/drm_edid.o
+  CC      drivers/gpu/drm/drm_trace_points.o
+  CC      drivers/gpu/drm/drm_prime.o
+  CC      drivers/gpu/drm/drm_rect.o
+  CC      drivers/gpu/drm/drm_vma_manager.o
+  CC      drivers/gpu/drm/drm_flip_work.o
+  CC      drivers/gpu/drm/drm_modeset_lock.o
+  CC      drivers/gpu/drm/drm_atomic.o
+  CC      drivers/gpu/drm/drm_framebuffer.o
+  CC      drivers/gpu/drm/drm_blend.o
+  CC      drivers/gpu/drm/drm_encoder.o
+  CC      drivers/gpu/drm/drm_mode_object.o
+  CC      drivers/gpu/drm/drm_property.o
+  CC      drivers/gpu/drm/drm_color_mgmt.o
+  CC      drivers/gpu/drm/drm_print.o
+  CC      drivers/gpu/drm/drm_dumb_buffers.o
+  CC      drivers/gpu/drm/drm_mode_config.o
+  CC      drivers/gpu/drm/drm_vblank.o
+  CC      drivers/gpu/drm/drm_syncobj.o
+  CC      drivers/gpu/drm/drm_lease.o
+  CC      drivers/gpu/drm/drm_writeback.o
+  CC      drivers/gpu/drm/drm_client.o
+  CC      drivers/gpu/drm/drm_ioc32.o
+  CC      drivers/gpu/drm/ati_pcigart.o
+  CC      drivers/gpu/drm/drm_agpsupport.o
+  CC      drivers/gpu/drm/drm_debugfs.o
+  CC      drivers/gpu/drm/drm_debugfs_crc.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_drv.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_device.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_asic.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_kms.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_atombios.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_agp.o
+  CC [M]  drivers/gpu/drm/radeon/atombios_crtc.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_combios.o
+  CC [M]  drivers/gpu/drm/radeon/atom.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_fence.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_ttm.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_object.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_gart.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_legacy_crtc.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_legacy_encoders.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_connectors.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_encoders.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_display.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_cursor.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_i2c.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_clocks.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_fb.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_gem.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_ring.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_irq_kms.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_cs.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_bios.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_benchmark.o
+  CC [M]  drivers/gpu/drm/radeon/r100.o
+  CC [M]  drivers/gpu/drm/radeon/r300.o
+  CC [M]  drivers/gpu/drm/radeon/r420.o
+  CC [M]  drivers/gpu/drm/radeon/rs400.o
+  CC [M]  drivers/gpu/drm/radeon/rs600.o
+  CC [M]  drivers/gpu/drm/radeon/rs690.o
+  CC [M]  drivers/gpu/drm/radeon/rv515.o
+  CC [M]  drivers/gpu/drm/radeon/r520.o
+  CC [M]  drivers/gpu/drm/radeon/r600.o
+  CC [M]  drivers/gpu/drm/radeon/rv770.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_test.o
+  CC [M]  drivers/gpu/drm/radeon/r200.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_legacy_tv.o
+  CC [M]  drivers/gpu/drm/radeon/r600_cs.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_pm.o
+  CC [M]  drivers/gpu/drm/radeon/atombios_dp.o
+  CC [M]  drivers/gpu/drm/radeon/r600_hdmi.o
+  CC [M]  drivers/gpu/drm/radeon/dce3_1_afmt.o
+  CC [M]  drivers/gpu/drm/radeon/evergreen.o
+  CC [M]  drivers/gpu/drm/radeon/evergreen_cs.o
+  CC [M]  drivers/gpu/drm/radeon/evergreen_hdmi.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_trace_points.o
+  CC [M]  drivers/gpu/drm/radeon/ni.o
+  CC [M]  drivers/gpu/drm/radeon/atombios_encoders.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_semaphore.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_sa.o
+  CC [M]  drivers/gpu/drm/radeon/atombios_i2c.o
+  CC [M]  drivers/gpu/drm/radeon/si.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_prime.o
+  CC [M]  drivers/gpu/drm/radeon/cik.o
+  CC [M]  drivers/gpu/drm/radeon/r600_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rs780_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rv6xx_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rv770_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rv730_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rv740_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rv770_smc.o
+  CC [M]  drivers/gpu/drm/radeon/cypress_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/btc_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/sumo_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/sumo_smc.o
+  CC [M]  drivers/gpu/drm/radeon/trinity_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/trinity_smc.o
+  CC [M]  drivers/gpu/drm/radeon/ni_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/si_smc.o
+  CC [M]  drivers/gpu/drm/radeon/si_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/kv_smc.o
+  CC [M]  drivers/gpu/drm/radeon/kv_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/ci_smc.o
+  CC [M]  drivers/gpu/drm/radeon/ci_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/dce6_afmt.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_vm.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_ucode.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_ib.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_sync.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_audio.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_dp_auxch.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_dp_mst.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_mn.o
+  CC [M]  drivers/gpu/drm/radeon/r600_dma.o
+  CC [M]  drivers/gpu/drm/radeon/rv770_dma.o
+  CC [M]  drivers/gpu/drm/radeon/evergreen_dma.o
+  CC [M]  drivers/gpu/drm/radeon/ni_dma.o
+  CC [M]  drivers/gpu/drm/radeon/si_dma.o
+  CC [M]  drivers/gpu/drm/radeon/cik_sdma.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_uvd.o
+  CC [M]  drivers/gpu/drm/radeon/uvd_v1_0.o
+  CC [M]  drivers/gpu/drm/radeon/uvd_v2_2.o
+  CC [M]  drivers/gpu/drm/radeon/uvd_v3_1.o
+  CC [M]  drivers/gpu/drm/radeon/uvd_v4_2.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_vce.o
+  CC [M]  drivers/gpu/drm/radeon/vce_v1_0.o
+  CC [M]  drivers/gpu/drm/radeon/vce_v2_0.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_acpi.o
+  LD [M]  drivers/gpu/drm/radeon/radeon.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_tt.o
+  LD [M]  drivers/gpu/drm/ttm/ttm.o
+  AR      drivers/gpu/drm/built-in.a
+  CC      drivers/gpu/vga/vgaarb.o
+  AR      drivers/gpu/vga/built-in.a
+  AR      drivers/gpu/built-in.a
+  CC      drivers/hwmon/hwmon.o
+  AR      drivers/hwmon/built-in.a
+  CC      drivers/i2c/i2c-core-base.o
+  CC      drivers/i2c/i2c-core-smbus.o
+  AR      drivers/i2c/built-in.a
+  CC      drivers/iommu/iommu-traces.o
+  CC      drivers/iommu/amd_iommu.o
+  AR      drivers/iommu/built-in.a
+  CC      drivers/md/md.o
+  CC      drivers/md/md-bitmap.o
+  CC      drivers/md/dm.o
+  CC      drivers/md/dm-table.o
+  CC      drivers/md/dm-target.o
+  CC      drivers/md/dm-linear.o
+  CC      drivers/md/dm-stripe.o
+  CC      drivers/md/dm-ioctl.o
+  CC      drivers/md/dm-io.o
+  CC      drivers/md/dm-kcopyd.o
+  CC      drivers/md/dm-sysfs.o
+  CC      drivers/md/dm-stats.o
+  CC      drivers/md/dm-rq.o
+  CC      drivers/md/dm-builtin.o
+  CC      drivers/md/dm-bufio.o
+  CC      drivers/md/dm-crypt.o
+  CC      drivers/md/dm-snap.o
+  CC      drivers/md/dm-exception-store.o
+  CC      drivers/md/dm-snap-transient.o
+  CC      drivers/md/dm-snap-persistent.o
+  CC      drivers/md/dm-raid1.o
+  CC      drivers/md/dm-log.o
+  CC      drivers/md/dm-region-hash.o
+  CC      drivers/md/dm-zero.o
+  AR      drivers/md/built-in.a
+  CC      drivers/net/ethernet/intel/e1000/e1000_main.o
+  CC      drivers/net/ethernet/intel/e1000/e1000_hw.o
+  CC      drivers/net/ethernet/intel/e1000/e1000_ethtool.o
+  CC      drivers/net/ethernet/intel/e1000/e1000_param.o
+  AR      drivers/net/ethernet/intel/e1000/built-in.a
+  CC      drivers/net/ethernet/intel/e1000e/netdev.o
+  AR      drivers/net/ethernet/intel/e1000e/built-in.a
+  AR      drivers/net/ethernet/intel/built-in.a
+  AR      drivers/net/ethernet/built-in.a
+  CC      drivers/net/phy/mdio_bus.o
+  AR      drivers/net/phy/built-in.a
+  AR      drivers/net/built-in.a
+  CC      drivers/pci/pci-driver.o
+  CC      drivers/pci/pci-sysfs.o
+  CC      drivers/pci/quirks.o
+  CC      drivers/pci/hotplug/pci_hotplug_core.o
+  AR      drivers/pci/hotplug/built-in.a
+  AR      drivers/pci/built-in.a
+  CC      drivers/ptp/ptp_clock.o
+  AR      drivers/ptp/built-in.a
+  CC      drivers/ras/ras.o
+  AR      drivers/ras/built-in.a
+  CC      drivers/rtc/interface.o
+  AR      drivers/rtc/built-in.a
+  CC      drivers/scsi/scsi.o
+  CC      drivers/scsi/hosts.o
+  CC      drivers/scsi/scsi_ioctl.o
+  CC      drivers/scsi/scsicam.o
+  CC      drivers/scsi/scsi_error.o
+  CC      drivers/scsi/scsi_lib.o
+  CC      drivers/scsi/constants.o
+  CC      drivers/scsi/scsi_lib_dma.o
+  CC      drivers/scsi/scsi_scan.o
+  CC      drivers/scsi/scsi_sysfs.o
+  CC      drivers/scsi/scsi_devinfo.o
+  CC      drivers/scsi/scsi_sysctl.o
+  CC      drivers/scsi/scsi_proc.o
+  CC      drivers/scsi/scsi_debugfs.o
+  CC      drivers/scsi/scsi_trace.o
+  CC      drivers/scsi/scsi_logging.o
+  CC      drivers/scsi/scsi_pm.o
+  CC      drivers/scsi/scsi_transport_spi.o
+  CC      drivers/scsi/sd.o
+  CC      drivers/scsi/sr.o
+  CC      drivers/scsi/sr_ioctl.o
+  CC      drivers/scsi/sr_vendor.o
+  CC      drivers/scsi/sg.o
+  AR      drivers/scsi/built-in.a
+  CC      drivers/thermal/thermal_core.o
+  AR      drivers/thermal/built-in.a
+  CC      drivers/tty/sysrq.o
+  AR      drivers/tty/built-in.a
+  CC      drivers/usb/storage/scsiglue.o
+  CC      drivers/usb/storage/protocol.o
+  CC      drivers/usb/storage/transport.o
+  CC      drivers/usb/storage/usb.o
+  CC      drivers/usb/storage/initializers.o
+  CC      drivers/usb/storage/sierra_ms.o
+  CC      drivers/usb/storage/option_ms.o
+  AR      drivers/usb/storage/built-in.a
+  AR      drivers/usb/built-in.a
+  CC      drivers/video/fbdev/aty/radeon_pm.o
+  AR      drivers/video/fbdev/aty/built-in.a
+  CC      drivers/video/fbdev/core/fb_cmdline.o
+  CC      drivers/video/fbdev/core/fbmem.o
+  CC      drivers/video/fbdev/core/fbmon.o
+  CC      drivers/video/fbdev/core/fb_defio.o
+  CC      drivers/video/fbdev/core/fbcon.o
+  AR      drivers/video/fbdev/core/built-in.a
+  CC      drivers/video/fbdev/efifb.o
+  AR      drivers/video/fbdev/built-in.a
+  AR      drivers/video/built-in.a
+  AR      drivers/built-in.a
+  CC      sound/core/pcm.o
+  CC      sound/core/pcm_native.o
+  CC      sound/core/pcm_lib.o
+  CC      sound/core/pcm_misc.o
+  CC      sound/core/pcm_memory.o
+  CC      sound/core/pcm_timer.o
+  CC      sound/core/oss/pcm_oss.o
+  CC      sound/core/oss/pcm_plugin.o
+  CC      sound/core/oss/io.o
+  CC      sound/core/oss/copy.o
+  CC      sound/core/oss/linear.o
+  CC      sound/core/oss/mulaw.o
+  CC      sound/core/oss/route.o
+  CC      sound/core/oss/rate.o
+  AR      sound/core/oss/built-in.a
+  AR      sound/core/built-in.a
+  CC      sound/drivers/vx/vx_core.o
+  CC      sound/drivers/vx/vx_hwdep.o
+  CC      sound/drivers/vx/vx_pcm.o
+  CC      sound/drivers/vx/vx_mixer.o
+  CC      sound/drivers/vx/vx_cmd.o
+  CC      sound/drivers/vx/vx_uer.o
+  AR      sound/drivers/vx/built-in.a
+  AR      sound/drivers/built-in.a
+  CC      sound/hda/hda_bus_type.o
+  CC      sound/hda/hdac_bus.o
+  CC      sound/hda/hdac_device.o
+  CC      sound/hda/hdac_sysfs.o
+  CC      sound/hda/hdac_regmap.o
+  CC      sound/hda/hdac_controller.o
+  CC      sound/hda/hdac_stream.o
+  CC      sound/hda/array.o
+  CC      sound/hda/hdmi_chmap.o
+  CC      sound/hda/trace.o
+  AR      sound/hda/built-in.a
+  CC      sound/i2c/other/ak4114.o
+  CC      sound/i2c/other/ak4113.o
+  AR      sound/i2c/other/built-in.a
+  CC      sound/i2c/cs8427.o
+  AR      sound/i2c/built-in.a
+  CC      sound/isa/sb/sb_common.o
+  CC      sound/isa/sb/sb_mixer.o
+  AR      sound/isa/sb/built-in.a
+  AR      sound/isa/built-in.a
+  CC      sound/pci/ad1889.o
+  CC      sound/pci/als300.o
+  CC      sound/pci/als4000.o
+  CC      sound/pci/atiixp.o
+  CC      sound/pci/atiixp_modem.o
+  CC      sound/pci/azt3328.o
+  CC      sound/pci/bt87x.o
+  CC      sound/pci/cmipci.o
+  CC      sound/pci/cs4281.o
+  CC      sound/pci/ens1370.o
+  CC      sound/pci/ens1371.o
+  CC      sound/pci/es1938.o
+  CC      sound/pci/es1968.o
+  CC      sound/pci/fm801.o
+  CC      sound/pci/intel8x0.o
+  CC      sound/pci/intel8x0m.o
+  CC      sound/pci/maestro3.o
+  CC      sound/pci/rme32.o
+  CC      sound/pci/rme96.o
+  CC      sound/pci/sonicvibes.o
+  CC      sound/pci/via82xx.o
+  CC      sound/pci/via82xx_modem.o
+  CC      sound/pci/ac97/ac97_codec.o
+  CC      sound/pci/ac97/ac97_pcm.o
+  CC      sound/pci/ac97/ac97_proc.o
+  AR      sound/pci/ac97/built-in.a
+  CC      sound/pci/ali5451/ali5451.o
+  AR      sound/pci/ali5451/built-in.a
+  CC      sound/pci/au88x0/au8810.o
+  CC      sound/pci/au88x0/au8820.o
+  CC      sound/pci/au88x0/au8830.o
+  AR      sound/pci/au88x0/built-in.a
+  CC      sound/pci/aw2/aw2-alsa.o
+  CC      sound/pci/aw2/aw2-saa7146.o
+  AR      sound/pci/aw2/built-in.a
+  CC      sound/pci/ca0106/ca0106_main.o
+  CC      sound/pci/ca0106/ca0106_mixer.o
+  CC      sound/pci/ca0106/ca0106_proc.o
+  AR      sound/pci/ca0106/built-in.a
+  CC      sound/pci/cs46xx/cs46xx.o
+  CC      sound/pci/cs46xx/cs46xx_lib.o
+  CC      sound/pci/cs46xx/dsp_spos.o
+  CC      sound/pci/cs46xx/dsp_spos_scb_lib.o
+  AR      sound/pci/cs46xx/built-in.a
+  CC      sound/pci/ctxfi/ctatc.o
+  CC      sound/pci/ctxfi/ctvmem.o
+  CC      sound/pci/ctxfi/ctpcm.o
+  CC      sound/pci/ctxfi/ctmixer.o
+  CC      sound/pci/ctxfi/cttimer.o
+  AR      sound/pci/ctxfi/built-in.a
+  CC      sound/pci/echoaudio/darla20.o
+  CC      sound/pci/echoaudio/gina20.o
+  CC      sound/pci/echoaudio/layla20.o
+  CC      sound/pci/echoaudio/darla24.o
+  CC      sound/pci/echoaudio/gina24.o
+  CC      sound/pci/echoaudio/layla24.o
+  CC      sound/pci/echoaudio/mona.o
+  CC      sound/pci/echoaudio/mia.o
+  CC      sound/pci/echoaudio/echo3g.o
+  CC      sound/pci/echoaudio/indigo.o
+  CC      sound/pci/echoaudio/indigoio.o
+  CC      sound/pci/echoaudio/indigodj.o
+  CC      sound/pci/echoaudio/indigoiox.o
+  CC      sound/pci/echoaudio/indigodjx.o
+  AR      sound/pci/echoaudio/built-in.a
+  CC      sound/pci/emu10k1/emu10k1.o
+  CC      sound/pci/emu10k1/emu10k1_main.o
+  CC      sound/pci/emu10k1/irq.o
+  CC      sound/pci/emu10k1/memory.o
+  CC      sound/pci/emu10k1/voice.o
+  CC      sound/pci/emu10k1/emumpu401.o
+  CC      sound/pci/emu10k1/emupcm.o
+  CC      sound/pci/emu10k1/io.o
+  CC      sound/pci/emu10k1/emumixer.o
+  CC      sound/pci/emu10k1/emufx.o
+  CC      sound/pci/emu10k1/timer.o
+  CC      sound/pci/emu10k1/p16v.o
+  CC      sound/pci/emu10k1/emuproc.o
+  CC      sound/pci/emu10k1/emu10k1_synth.o
+  CC      sound/pci/emu10k1/emu10k1_callback.o
+  CC      sound/pci/emu10k1/emu10k1_patch.o
+  CC      sound/pci/emu10k1/emu10k1x.o
+  AR      sound/pci/emu10k1/built-in.a
+  CC      sound/pci/hda/hda_bind.o
+  CC      sound/pci/hda/hda_codec.o
+  CC      sound/pci/hda/hda_jack.o
+  CC      sound/pci/hda/hda_auto_parser.o
+  CC      sound/pci/hda/hda_sysfs.o
+  CC      sound/pci/hda/hda_controller.o
+  CC      sound/pci/hda/hda_proc.o
+  CC      sound/pci/hda/hda_hwdep.o
+  CC      sound/pci/hda/hda_beep.o
+  CC      sound/pci/hda/hda_generic.o
+  CC      sound/pci/hda/patch_realtek.o
+  CC      sound/pci/hda/patch_cmedia.o
+  CC      sound/pci/hda/patch_analog.o
+  CC      sound/pci/hda/patch_sigmatel.o
+  CC      sound/pci/hda/patch_si3054.o
+  CC      sound/pci/hda/patch_cirrus.o
+  CC      sound/pci/hda/patch_ca0110.o
+  CC      sound/pci/hda/patch_conexant.o
+  CC      sound/pci/hda/patch_via.o
+  CC      sound/pci/hda/hda_intel.o
+  AR      sound/pci/hda/built-in.a
+  CC      sound/pci/ice1712/ice1712.o
+  CC      sound/pci/ice1712/delta.o
+  CC      sound/pci/ice1712/hoontech.o
+  CC      sound/pci/ice1712/ews.o
+  CC      sound/pci/ice1712/ak4xxx.o
+  CC      sound/pci/ice1712/ice1724.o
+  CC      sound/pci/ice1712/amp.o
+  CC      sound/pci/ice1712/revo.o
+  CC      sound/pci/ice1712/aureon.o
+  CC      sound/pci/ice1712/vt1720_mobo.o
+  CC      sound/pci/ice1712/pontis.o
+  CC      sound/pci/ice1712/prodigy192.o
+  CC      sound/pci/ice1712/prodigy_hifi.o
+  CC      sound/pci/ice1712/juli.o
+  CC      sound/pci/ice1712/phase.o
+  CC      sound/pci/ice1712/wtm.o
+  CC      sound/pci/ice1712/se.o
+  CC      sound/pci/ice1712/maya44.o
+  CC      sound/pci/ice1712/quartet.o
+  CC      sound/pci/ice1712/psc724.o
+  AR      sound/pci/ice1712/built-in.a
+  CC      sound/pci/korg1212/korg1212.o
+  AR      sound/pci/korg1212/built-in.a
+  CC      sound/pci/lx6464es/lx6464es.o
+  CC      sound/pci/lx6464es/lx_core.o
+  AR      sound/pci/lx6464es/built-in.a
+  CC      sound/pci/mixart/mixart.o
+  CC      sound/pci/mixart/mixart_core.o
+  CC      sound/pci/mixart/mixart_hwdep.o
+  CC      sound/pci/mixart/mixart_mixer.o
+  AR      sound/pci/mixart/built-in.a
+  CC      sound/pci/nm256/nm256.o
+  AR      sound/pci/nm256/built-in.a
+  CC      sound/pci/oxygen/oxygen_lib.o
+  CC      sound/pci/oxygen/oxygen_mixer.o
+  CC      sound/pci/oxygen/oxygen_pcm.o
+  CC      sound/pci/oxygen/oxygen.o
+  CC      sound/pci/oxygen/xonar_dg_mixer.o
+  CC      sound/pci/oxygen/xonar_dg.o
+  CC      sound/pci/oxygen/virtuoso.o
+  CC      sound/pci/oxygen/xonar_lib.o
+  CC      sound/pci/oxygen/xonar_pcm179x.o
+  CC      sound/pci/oxygen/xonar_cs43xx.o
+  CC      sound/pci/oxygen/xonar_wm87x6.o
+  CC      sound/pci/oxygen/xonar_hdmi.o
+  AR      sound/pci/oxygen/built-in.a
+  CC      sound/pci/pcxhr/pcxhr.o
+  CC      sound/pci/pcxhr/pcxhr_hwdep.o
+  CC      sound/pci/pcxhr/pcxhr_mixer.o
+  CC      sound/pci/pcxhr/pcxhr_core.o
+  CC      sound/pci/pcxhr/pcxhr_mix22.o
+  AR      sound/pci/pcxhr/built-in.a
+  CC      sound/pci/riptide/riptide.o
+  AR      sound/pci/riptide/built-in.a
+  CC      sound/pci/rme9652/rme9652.o
+  CC      sound/pci/rme9652/hdsp.o
+  CC      sound/pci/rme9652/hdspm.o
+  AR      sound/pci/rme9652/built-in.a
+  CC      sound/pci/trident/trident.o
+  CC      sound/pci/trident/trident_main.o
+  CC      sound/pci/trident/trident_memory.o
+  AR      sound/pci/trident/built-in.a
+  CC      sound/pci/vx222/vx222.o
+  CC      sound/pci/vx222/vx222_ops.o
+  AR      sound/pci/vx222/built-in.a
+  CC      sound/pci/ymfpci/ymfpci.o
+  CC      sound/pci/ymfpci/ymfpci_main.o
+  AR      sound/pci/ymfpci/built-in.a
+  AR      sound/pci/built-in.a
+  CC      sound/ac97_bus.o
+  AR      sound/built-in.a
+  CC      arch/x86/pci/fixup.o
+  AR      arch/x86/pci/built-in.a
+  CC      arch/x86/power/cpu.o
+  AR      arch/x86/power/built-in.a
+  CC      arch/x86/video/fbdev.o
+  AR      arch/x86/video/built-in.a
+  CC      net/socket.o
+  CC      net/core/datagram.o
+  CC      net/core/net-traces.o
+  AR      net/core/built-in.a
+  CC      net/ipv4/ipconfig.o
+  AR      net/ipv4/built-in.a
+  CC      net/ipv6/route.o
+  AR      net/ipv6/built-in.a
+  CC      net/mac80211/trace.o
+  AR      net/mac80211/built-in.a
+  CC      net/sunrpc/socklib.o
+  CC      net/sunrpc/xprtsock.o
+  CC      net/sunrpc/sched.o
+  CC      net/sunrpc/xdr.o
+  CC      net/sunrpc/cache.o
+  CC      net/sunrpc/rpc_pipe.o
+  AR      net/sunrpc/built-in.a
+  CC      net/wireless/trace.o
+  AR      net/wireless/built-in.a
+  CC      net/compat.o
+  AR      net/built-in.a
+  CC      lib/iov_iter.o
+  CC      lib/vsprintf.o
+  AR      lib/lib.a
+  EXPORTS lib/lib-ksyms.o
+  AR      lib/built-in.a
+  CC      arch/x86/lib/msr.o
+  CC      arch/x86/lib/insn-eval.o
+  AR      arch/x86/lib/lib.a
+  EXPORTS arch/x86/lib/lib-ksyms.o
+  AR      arch/x86/lib/built-in.a
+  CC [M]  samples/trace_events/trace-events-sample.o
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  AR      init/built-in.a
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  VOFFSET arch/x86/boot/compressed/../voffset.h
+  CC      arch/x86/boot/compressed/misc.o
+  OBJCOPY arch/x86/boot/compressed/vmlinux.bin
+  RELOCS  arch/x86/boot/compressed/vmlinux.relocs
+  GZIP    arch/x86/boot/compressed/vmlinux.bin.gz
+  MKPIGGY arch/x86/boot/compressed/piggy.S
+  AS      arch/x86/boot/compressed/piggy.o
+  CC      arch/x86/boot/compressed/kaslr.o
+  CC      arch/x86/boot/compressed/pgtable_64.o
+  CC      arch/x86/boot/compressed/acpi.o
+  LD      arch/x86/boot/compressed/vmlinux
+  ZOFFSET arch/x86/boot/zoffset.h
+  AS      arch/x86/boot/header.o
+  CC      arch/x86/boot/version.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  BUILD   arch/x86/boot/bzImage
+Setup is 16540 bytes (padded to 16896 bytes).
+System is 9425 kB
+CRC 49e3b10b
+Kernel: arch/x86/boot/bzImage is ready  (#34)
+  Building modules, stage 2.
+  MODPOST 24 modules
+  LD [M]  drivers/gpu/drm/radeon/radeon.ko
+  LD [M]  drivers/gpu/drm/ttm/ttm.ko
+  LD [M]  fs/efivarfs/efivarfs.ko
+  LD [M]  samples/trace_events/trace-events-sample.ko
