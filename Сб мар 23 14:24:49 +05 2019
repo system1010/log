@@ -1,0 +1,75 @@
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  DESCEND  objtool
+  CHK     include/generated/compile.h
+  CC      drivers/acpi/utils.o
+  AR      drivers/acpi/built-in.a
+  CC      drivers/base/swnode.o
+  AR      drivers/base/built-in.a
+  CC      drivers/iommu/iova.o
+  CC      drivers/iommu/amd_iommu.o
+  AR      drivers/iommu/built-in.a
+  AR      drivers/built-in.a
+  CC      sound/drivers/opl3/opl3_lib.o
+  CC      sound/drivers/opl3/opl3_synth.o
+  CC      sound/drivers/opl3/opl3_seq.o
+  CC      sound/drivers/opl3/opl3_midi.o
+  CC      sound/drivers/opl3/opl3_drums.o
+  CC      sound/drivers/opl3/opl3_oss.o
+  AR      sound/drivers/opl3/built-in.a
+  AR      sound/drivers/built-in.a
+  CC      sound/pci/echoaudio/darla20.o
+  CC      sound/pci/echoaudio/gina20.o
+  CC      sound/pci/echoaudio/layla20.o
+  CC      sound/pci/echoaudio/darla24.o
+  CC      sound/pci/echoaudio/gina24.o
+  CC      sound/pci/echoaudio/layla24.o
+  CC      sound/pci/echoaudio/mona.o
+  CC      sound/pci/echoaudio/mia.o
+  CC      sound/pci/echoaudio/echo3g.o
+  CC      sound/pci/echoaudio/indigo.o
+  CC      sound/pci/echoaudio/indigoio.o
+  CC      sound/pci/echoaudio/indigodj.o
+  CC      sound/pci/echoaudio/indigoiox.o
+  CC      sound/pci/echoaudio/indigodjx.o
+  AR      sound/pci/echoaudio/built-in.a
+  CC      sound/pci/hda/hda_codec.o
+  CC      sound/pci/hda/patch_realtek.o
+  CC      sound/pci/hda/hda_intel.o
+  AR      sound/pci/hda/built-in.a
+  AR      sound/pci/built-in.a
+  AR      sound/built-in.a
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  AR      init/built-in.a
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  VOFFSET arch/x86/boot/compressed/../voffset.h
+  CC      arch/x86/boot/compressed/misc.o
+  OBJCOPY arch/x86/boot/compressed/vmlinux.bin
+  RELOCS  arch/x86/boot/compressed/vmlinux.relocs
+  GZIP    arch/x86/boot/compressed/vmlinux.bin.gz
+  MKPIGGY arch/x86/boot/compressed/piggy.S
+  AS      arch/x86/boot/compressed/piggy.o
+  CC      arch/x86/boot/compressed/kaslr.o
+  LD      arch/x86/boot/compressed/vmlinux
+  ZOFFSET arch/x86/boot/zoffset.h
+  AS      arch/x86/boot/header.o
+  CC      arch/x86/boot/version.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  BUILD   arch/x86/boot/bzImage
+Setup is 16540 bytes (padded to 16896 bytes).
+System is 9429 kB
+CRC 9a2cb13b
+Kernel: arch/x86/boot/bzImage is ready  (#39)
+  Building modules, stage 2.
+  MODPOST 24 modules
