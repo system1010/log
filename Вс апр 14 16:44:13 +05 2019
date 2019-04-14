@@ -35,4 +35,15 @@ make do_upload
 make[1]: вход в каталог «/media/sda3/src/Arduino-Scetch/Blink»
 /usr/src/arduino-1.8.5/hardware/tools/avr/bin/avrdude -q -V -p atmega328p -C /usr/src/arduino-1.8.5/hardware/tools/avr/etc/avrdude.conf -D -c arduino -b 115200 -P /dev/ttyUSB0 \
 		-U flash:w:build-uno/Blink.hex:i
+
+avrdude: AVR device initialized and ready to accept instructions
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: reading input file "build-uno/Blink.hex"
+avrdude: writing flash (796 bytes):
+avrdude: 796 bytes of flash written
+
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
 make[1]: выход из каталога «/media/sda3/src/Arduino-Scetch/Blink»
