@@ -1,0 +1,60 @@
+-------------------------
+Arduino.mk Configuration:
+- [AUTODETECTED]       CURRENT_OS = LINUX 
+- [USER]               ARDUINO_DIR = usr/src/arduino-1.8.5 
+- [COMPUTED]           ARDMK_DIR = /media/sda3/src/Arduino-Makefile (relative to Common.mk)
+- [DEFAULT]            ARDUINO_VERSION = 100 
+- [DEFAULT]            ARCHITECTURE =  
+- [DEFAULT]            ARDMK_VENDOR = arduino 
+- [DEFAULT]            ARDUINO_SKETCHBOOK =  
+- [USER]               AVR_TOOLS_DIR = /usr/src/arduino-1.8.5/hardware/tools/avr 
+- [COMPUTED]           ARDUINO_LIB_PATH = usr/src/arduino-1.8.5/libraries (from ARDUINO_DIR)
+- [USER]               ARDUINO_VAR_PATH = /usr/src/arduino-1.8.5/hardware/arduino/avr/variants 
+- [USER]               BOARDS_TXT = /usr/src/arduino-1.8.5/hardware/arduino/avr/boards.txt 
+- [USER]               USER_LIB_PATH = /usr/src/arduino-1.8.5/libraries 
+- [DEFAULT]            PRE_BUILD_HOOK = pre-build-hook.sh 
+- [USER]               BOARD_TAG = uno 
+- [COMPUTED]           CORE = arduino (from build.core)
+- [COMPUTED]           VARIANT = standard (from build.variant)
+- [COMPUTED]           OBJDIR = build-uno (from BOARD_TAG)
+- [USER]               ARDUINO_CORE_PATH = /usr/src/arduino-1.8.5/hardware/arduino/avr/cores/arduino 
+- [ASSUMED]            MONITOR_BAUDRATE = 9600 
+- [DEFAULT]            OPTIMIZATION_LEVEL = s 
+- [DEFAULT]            MCU_FLAG_NAME = mmcu 
+- [DEFAULT]            CFLAGS_STD = -std=gnu11 
+- [DEFAULT]            CXXFLAGS_STD = -std=gnu++11 
+- [COMPUTED]           DEVICE_PATH = /dev/ttyUSB0 (from MONITOR_PORT)
+- [DEFAULT]            FORCE_MONITOR_PORT =  
+- [AUTODETECTED]       Size utility: AVR-aware for enhanced output
+-
+-                      ARDUINO_LIBS =
+- [USER]                 SPI
+- [USER]                 SeeedTouchScreen
+- [USER]                 SoftwareSerial
+- [USER]                 TFT
+- [USER]                 TFTv2
+- [USER]                 TimerOne
+- [USER]                 UI_ArduinoPhone
+- [USER]                 Wire
+- [USER]                 phone
+- [COMPUTED]           BOOTLOADER_PARENT = usr/src/arduino-1.8.5/hardware/arduino//bootloaders (from ARDUINO_DIR)
+- [COMPUTED]           ARDMK_VERSION = 1.6 
+- [COMPUTED]           CC_VERSION = 4.9.2 (avr-gcc)
+-------------------------
+mkdir -p build-uno
+make do_upload
+make[1]: вход в каталог «/media/sda3/src/Arduino-Scetch/ArduinoPhone»
+/usr/src/arduino-1.8.5/hardware/tools/avr/bin/avrdude -q -V -p atmega328p -C /usr/src/arduino-1.8.5/hardware/tools/avr/etc/avrdude.conf -D -c arduino -b 115200 -P /dev/ttyUSB0 \
+		-U flash:w:build-uno/ArduinoPhone.hex:i
+
+avrdude: AVR device initialized and ready to accept instructions
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: reading input file "build-uno/ArduinoPhone.hex"
+avrdude: writing flash (18552 bytes):
+avrdude: 18552 bytes of flash written
+
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+make[1]: выход из каталога «/media/sda3/src/Arduino-Scetch/ArduinoPhone»
