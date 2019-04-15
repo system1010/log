@@ -1,0 +1,12 @@
+LEDControlwithWEB.ino
+Linking /tmp/mkESP/LEDControlwithWEB_generic/LEDControlwithWEB.bin
+  Versions: Unknown, 2.5.0-42-g82da5c76-dirty
+Creating BIN file "/tmp/mkESP/LEDControlwithWEB_generic/LEDControlwithWEB.bin" using "/tmp/mkESP/LEDControlwithWEB_generic/LEDControlwithWEB.elf"
+
+Memory usage
+  Ram:    31348 bytes
+  Flash: 273220 bytes
+
+LwIPVariant: v2 Lower Memory
+Build complete. Elapsed time: 9 seconds
+
