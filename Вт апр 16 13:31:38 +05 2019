@@ -1,0 +1,2269 @@
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  DESCEND  objtool
+  CHK     include/generated/compile.h
+  CC      arch/x86/kvm/emulate.o
+arch/x86/kvm/emulate.c: В функции «em_lgdt_lidt»:
+arch/x86/kvm/emulate.c:3828:9: предупреждение: taking address of packed member of «struct desc_ptr» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 3828 |         &desc_ptr.size, &desc_ptr.address,
+      |         ^~~~~~~~~~~~~~
+arch/x86/kvm/emulate.c:3828:25: предупреждение: taking address of packed member of «struct desc_ptr» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 3828 |         &desc_ptr.size, &desc_ptr.address,
+      |                         ^~~~~~~~~~~~~~~~~
+  CC      arch/x86/kvm/i8259.o
+  CC      arch/x86/kvm/irq.o
+  CC      arch/x86/kvm/lapic.o
+  CC      arch/x86/kvm/i8254.o
+  CC      arch/x86/kvm/ioapic.o
+  CC      arch/x86/kvm/irq_comm.o
+  CC      arch/x86/kvm/cpuid.o
+  CC      arch/x86/kvm/pmu.o
+  CC      arch/x86/kvm/mtrr.o
+  CC      arch/x86/kvm/hyperv.o
+  CC      arch/x86/kvm/page_track.o
+  CC      arch/x86/kvm/debugfs.o
+  CC      arch/x86/kvm/vmx/vmx.o
+In file included from ./arch/x86/include/asm/atomic.h:265,
+                 from ./include/linux/atomic.h:7,
+                 from ./include/linux/jump_label.h:246,
+                 from ./arch/x86/include/asm/string_64.h:6,
+                 from ./arch/x86/include/asm/string.h:5,
+                 from ./include/linux/string.h:20,
+                 from ./include/linux/bitmap.h:9,
+                 from ./include/linux/cpumask.h:12,
+                 from ./arch/x86/include/asm/cpumask.h:5,
+                 from ./arch/x86/include/asm/msr.h:11,
+                 from ./arch/x86/include/asm/processor.h:21,
+                 from ./arch/x86/include/asm/cpufeature.h:5,
+                 from ./arch/x86/include/asm/thread_info.h:53,
+                 from ./include/linux/thread_info.h:38,
+                 from ./arch/x86/include/asm/preempt.h:7,
+                 from ./include/linux/preempt.h:78,
+                 from ./include/linux/spinlock.h:51,
+                 from ./include/linux/wait.h:9,
+                 from ./include/linux/wait_bit.h:8,
+                 from ./include/linux/fs.h:6,
+                 from ./include/linux/highmem.h:5,
+                 from arch/x86/kvm/vmx/vmx.c:20:
+./arch/x86/include/asm/mshyperv.h: В функции «vmbus_signal_eom»:
+./arch/x86/include/asm/mshyperv.h:61:14: предупреждение: taking address of packed member of «struct hv_message_header» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   61 |  if (cmpxchg(&msg->header.message_type, old_msg_type,
+./include/asm-generic/atomic-instrumented.h:1682:26: замечание: в определении макроса «cmpxchg»
+ 1682 |  typeof(ptr) __ai_ptr = (ptr);     \
+      |                          ^~~
+  CC      arch/x86/kvm/vmx/pmu_intel.o
+  CC      arch/x86/kvm/vmx/vmcs12.o
+  CC      arch/x86/kvm/vmx/evmcs.o
+In file included from ./arch/x86/include/asm/atomic.h:265,
+                 from ./include/linux/atomic.h:7,
+                 from ./include/linux/jump_label.h:246,
+                 from ./arch/x86/include/asm/string_64.h:6,
+                 from ./arch/x86/include/asm/string.h:5,
+                 from ./include/linux/string.h:20,
+                 from ./include/linux/bitmap.h:9,
+                 from ./include/linux/cpumask.h:12,
+                 from ./include/linux/smp.h:13,
+                 from arch/x86/kvm/vmx/evmcs.c:4:
+./arch/x86/include/asm/mshyperv.h: В функции «vmbus_signal_eom»:
+./arch/x86/include/asm/mshyperv.h:61:14: предупреждение: taking address of packed member of «struct hv_message_header» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   61 |  if (cmpxchg(&msg->header.message_type, old_msg_type,
+./include/asm-generic/atomic-instrumented.h:1682:26: замечание: в определении макроса «cmpxchg»
+ 1682 |  typeof(ptr) __ai_ptr = (ptr);     \
+      |                          ^~~
+  CC      arch/x86/kvm/vmx/nested.o
+In file included from ./arch/x86/include/asm/atomic.h:265,
+                 from ./include/linux/atomic.h:7,
+                 from ./include/linux/jump_label.h:246,
+                 from ./arch/x86/include/asm/string_64.h:6,
+                 from ./arch/x86/include/asm/string.h:5,
+                 from ./include/linux/string.h:20,
+                 from ./include/linux/bitmap.h:9,
+                 from ./include/linux/cpumask.h:12,
+                 from ./arch/x86/include/asm/cpumask.h:5,
+                 from ./arch/x86/include/asm/msr.h:11,
+                 from ./arch/x86/include/asm/processor.h:21,
+                 from ./arch/x86/include/asm/cpufeature.h:5,
+                 from ./arch/x86/include/asm/thread_info.h:53,
+                 from ./include/linux/thread_info.h:38,
+                 from ./arch/x86/include/asm/preempt.h:7,
+                 from ./include/linux/preempt.h:78,
+                 from ./include/linux/percpu.h:6,
+                 from arch/x86/kvm/vmx/nested.c:4:
+./arch/x86/include/asm/mshyperv.h: В функции «vmbus_signal_eom»:
+./arch/x86/include/asm/mshyperv.h:61:14: предупреждение: taking address of packed member of «struct hv_message_header» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   61 |  if (cmpxchg(&msg->header.message_type, old_msg_type,
+./include/asm-generic/atomic-instrumented.h:1682:26: замечание: в определении макроса «cmpxchg»
+ 1682 |  typeof(ptr) __ai_ptr = (ptr);     \
+      |                          ^~~
+arch/x86/kvm/vmx/nested.c: В функции «sync_vmcs12»:
+arch/x86/kvm/vmx/nested.c:3502:40: предупреждение: taking address of packed member of «struct vmcs12» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 3502 |   kvm_get_dr(vcpu, 7, (unsigned long *)&vmcs12->guest_dr7);
+      |                                        ^~~~~~~~~~~~~~~~~~
+  CC      arch/x86/kvm/svm.o
+arch/x86/kvm/svm.c: В функции «update_cr0_intercept»:
+arch/x86/kvm/svm.c:2505:14: предупреждение: taking address of packed member of «struct vmcb_save_area» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 2505 |  u64 *hcr0 = &svm->vmcb->save.cr0;
+      |              ^~~~~~~~~~~~~~~~~~~~
+  CC      arch/x86/kvm/pmu_amd.o
+  AR      arch/x86/kvm/built-in.a
+  CC      arch/x86/mm/init.o
+  CC      arch/x86/mm/init_64.o
+  CC      arch/x86/mm/fault.o
+  CC      arch/x86/mm/ioremap.o
+  CC      arch/x86/mm/extable.o
+  CC      arch/x86/mm/pageattr.o
+  CC      arch/x86/mm/mmap.o
+  CC      arch/x86/mm/pat.o
+  CC      arch/x86/mm/pgtable.o
+  CC      arch/x86/mm/physaddr.o
+  CC      arch/x86/mm/tlb.o
+  CC      arch/x86/mm/cpu_entry_area.o
+  CC      arch/x86/mm/hugetlbpage.o
+  CC      arch/x86/mm/numa.o
+  CC      arch/x86/mm/numa_64.o
+  CC      arch/x86/mm/amdtopology.o
+  CC      arch/x86/mm/srat.o
+  CC      arch/x86/mm/pkeys.o
+  CC      arch/x86/mm/kaslr.o
+  CC      arch/x86/mm/pti.o
+  AR      arch/x86/mm/built-in.a
+  CC      arch/x86/platform/efi/quirks.o
+  CC      arch/x86/platform/efi/efi.o
+arch/x86/platform/efi/efi.c: В функции «efi_memblock_x86_reserve_range»:
+arch/x86/platform/efi/efi.c:175:23: предупреждение: taking address of packed member of «struct boot_params» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  175 |  struct efi_info *e = &boot_params.efi_info;
+      |                       ^~~~~~~~~~~~~~~~~~~~~
+  CC      arch/x86/platform/efi/efi_64.o
+  AR      arch/x86/platform/efi/built-in.a
+  AR      arch/x86/platform/built-in.a
+  CC      arch/x86/realmode/init.o
+  AR      arch/x86/realmode/built-in.a
+  AR      arch/x86/built-in.a
+  CC      kernel/fork.o
+  CC      kernel/exec_domain.o
+  CC      kernel/panic.o
+  CC      kernel/cpu.o
+  CC      kernel/exit.o
+  CC      kernel/softirq.o
+  CC      kernel/resource.o
+  CC      kernel/sysctl.o
+  CC      kernel/sysctl_binary.o
+  CC      kernel/capability.o
+  CC      kernel/ptrace.o
+  CC      kernel/signal.o
+  CC      kernel/sys.o
+  CC      kernel/umh.o
+  CC      kernel/workqueue.o
+  CC      kernel/pid.o
+  CC      kernel/task_work.o
+  CC      kernel/extable.o
+  CC      kernel/kthread.o
+  CC      kernel/nsproxy.o
+  CC      kernel/notifier.o
+  CC      kernel/ksysfs.o
+  CC      kernel/cred.o
+  CC      kernel/reboot.o
+  CC      kernel/kmod.o
+  CC      kernel/groups.o
+  CC      kernel/bpf/core.o
+  AR      kernel/bpf/built-in.a
+  CC      kernel/cgroup/cgroup.o
+  CC      kernel/cgroup/rstat.o
+  CC      kernel/cgroup/namespace.o
+  CC      kernel/cgroup/cgroup-v1.o
+  CC      kernel/cgroup/cpuset.o
+  AR      kernel/cgroup/built-in.a
+  CC      kernel/dma/mapping.o
+  CC      kernel/dma/direct.o
+  CC      kernel/dma/dummy.o
+  CC      kernel/dma/swiotlb.o
+  AR      kernel/dma/built-in.a
+  CC      kernel/events/core.o
+  CC      kernel/events/ring_buffer.o
+  CC      kernel/events/callchain.o
+  CC      kernel/events/hw_breakpoint.o
+  CC      kernel/events/uprobes.o
+  AR      kernel/events/built-in.a
+  CC      kernel/irq/pm.o
+  CC      kernel/irq/matrix.o
+  AR      kernel/irq/built-in.a
+  CC      kernel/locking/semaphore.o
+  AR      kernel/locking/built-in.a
+  CC      kernel/power/qos.o
+  CC      kernel/power/main.o
+  CC      kernel/power/console.o
+  CC      kernel/power/process.o
+  CC      kernel/power/suspend.o
+  CC      kernel/power/hibernate.o
+  CC      kernel/power/snapshot.o
+  CC      kernel/power/swap.o
+  CC      kernel/power/user.o
+  AR      kernel/power/built-in.a
+  CC      kernel/printk/printk.o
+  AR      kernel/printk/built-in.a
+  CC      kernel/rcu/update.o
+  CC      kernel/rcu/tree.o
+  AR      kernel/rcu/built-in.a
+  CC      kernel/sched/core.o
+  CC      kernel/sched/loadavg.o
+  CC      kernel/sched/clock.o
+  CC      kernel/sched/cputime.o
+  CC      kernel/sched/idle.o
+  CC      kernel/sched/fair.o
+  CC      kernel/sched/rt.o
+  CC      kernel/sched/deadline.o
+  CC      kernel/sched/wait.o
+  CC      kernel/sched/wait_bit.o
+  CC      kernel/sched/swait.o
+  CC      kernel/sched/completion.o
+  CC      kernel/sched/cpupri.o
+  CC      kernel/sched/cpudeadline.o
+  CC      kernel/sched/topology.o
+  CC      kernel/sched/stop_task.o
+  CC      kernel/sched/pelt.o
+  CC      kernel/sched/stats.o
+  CC      kernel/sched/cpufreq.o
+  CC      kernel/sched/membarrier.o
+  CC      kernel/sched/isolation.o
+  AR      kernel/sched/built-in.a
+  CC      kernel/time/time.o
+  CC      kernel/time/timer.o
+  CC      kernel/time/hrtimer.o
+  CC      kernel/time/timekeeping.o
+  CC      kernel/time/ntp.o
+  CC      kernel/time/timer_list.o
+  CC      kernel/time/alarmtimer.o
+  CC      kernel/time/posix-timers.o
+  CC      kernel/time/posix-clock.o
+  CC      kernel/time/itimer.o
+  CC      kernel/time/tick-common.o
+  CC      kernel/time/tick-sched.o
+  CC      kernel/time/timekeeping_debug.o
+  AR      kernel/time/built-in.a
+  CC      kernel/trace/ring_buffer.o
+  CC      kernel/trace/trace.o
+В функции «ftrace_dump»,
+    включённом из «ftrace_dump» в kernel/trace/trace.c:8550:6:
+kernel/trace/trace.c:8628:3: предупреждение: «memset» offset [8377, 8432] from the object at «iter» is out of the bounds of referenced subobject «seq» with type «struct trace_seq» at offset 4240 [-Warray-bounds]
+ 8628 |   memset(&iter.seq, 0,
+      |   ^~~~~~~~~~~~~~~~~~~~
+ 8629 |          sizeof(struct trace_iterator) -
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 8630 |          offsetof(struct trace_iterator, seq));
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      kernel/trace/trace_output.o
+  CC      kernel/trace/trace_stat.o
+  CC      kernel/trace/trace_printk.o
+  CC      kernel/trace/trace_sched_switch.o
+  CC      kernel/trace/trace_nop.o
+  CC      kernel/trace/blktrace.o
+  CC      kernel/trace/trace_events.o
+  CC      kernel/trace/trace_export.o
+  CC      kernel/trace/trace_event_perf.o
+  CC      kernel/trace/trace_events_filter.o
+  CC      kernel/trace/trace_events_trigger.o
+  CC      kernel/trace/trace_kprobe.o
+  CC      kernel/trace/power-traces.o
+  CC      kernel/trace/rpm-traces.o
+  CC      kernel/trace/trace_dynevent.o
+  CC      kernel/trace/trace_probe.o
+  CC      kernel/trace/trace_uprobe.o
+  AR      kernel/trace/built-in.a
+  CC      kernel/freezer.o
+  CC      kernel/profile.o
+  CC      kernel/stacktrace.o
+  CC      kernel/futex.o
+  CC      kernel/uid16.o
+  CC      kernel/module.o
+  CC      kernel/kallsyms.o
+  CC      kernel/acct.o
+  CC      kernel/crash_core.o
+  CC      kernel/kexec_core.o
+  CC      kernel/kexec.o
+  CC      kernel/compat.o
+  CC      kernel/pid_namespace.o
+  CC      kernel/stop_machine.o
+  CC      kernel/audit.o
+  CC      kernel/auditfilter.o
+  CC      kernel/auditsc.o
+  CC      kernel/audit_watch.o
+  CC      kernel/audit_fsnotify.o
+  CC      kernel/audit_tree.o
+  CC      kernel/kprobes.o
+  CC      kernel/seccomp.o
+  CC      kernel/relay.o
+  CC      kernel/taskstats.o
+  CC      kernel/tsacct.o
+  CC      kernel/elfcore.o
+  CC      kernel/crash_dump.o
+  CC      kernel/iomem.o
+  CC      kernel/rseq.o
+  AR      kernel/built-in.a
+  CC      mm/filemap.o
+  CC      mm/mempool.o
+  CC      mm/oom_kill.o
+  CC      mm/fadvise.o
+  CC      mm/maccess.o
+  CC      mm/page_alloc.o
+  CC      mm/page-writeback.o
+  CC      mm/readahead.o
+  CC      mm/swap.o
+  CC      mm/truncate.o
+  CC      mm/vmscan.o
+  CC      mm/shmem.o
+  CC      mm/util.o
+  CC      mm/mmzone.o
+  CC      mm/vmstat.o
+  CC      mm/backing-dev.o
+  CC      mm/mm_init.o
+  CC      mm/mmu_context.o
+  CC      mm/percpu.o
+  CC      mm/slab_common.o
+  CC      mm/compaction.o
+  CC      mm/vmacache.o
+  CC      mm/interval_tree.o
+  CC      mm/list_lru.o
+  CC      mm/workingset.o
+  CC      mm/debug.o
+  CC      mm/gup.o
+  CC      mm/highmem.o
+  CC      mm/memory.o
+  CC      mm/mincore.o
+  CC      mm/mlock.o
+  CC      mm/mmap.o
+  CC      mm/mmu_gather.o
+  CC      mm/mprotect.o
+  CC      mm/mremap.o
+  CC      mm/msync.o
+  CC      mm/page_vma_mapped.o
+  CC      mm/pagewalk.o
+  CC      mm/pgtable-generic.o
+  CC      mm/rmap.o
+  CC      mm/vmalloc.o
+  CC      mm/process_vm_access.o
+  CC      mm/memblock.o
+  CC      mm/madvise.o
+  CC      mm/page_io.o
+  CC      mm/swap_state.o
+  CC      mm/swapfile.o
+  CC      mm/swap_slots.o
+  CC      mm/dmapool.o
+  CC      mm/hugetlb.o
+  CC      mm/mempolicy.o
+  CC      mm/sparse.o
+  CC      mm/sparse-vmemmap.o
+  CC      mm/mmu_notifier.o
+  CC      mm/slub.o
+  CC      mm/migrate.o
+  CC      mm/early_ioremap.o
+  CC      mm/memfd.o
+  AR      mm/built-in.a
+  CC      fs/open.o
+  CC      fs/read_write.o
+  CC      fs/file_table.o
+  CC      fs/super.o
+  CC      fs/char_dev.o
+  CC      fs/stat.o
+  CC      fs/exec.o
+  CC      fs/pipe.o
+  CC      fs/namei.o
+  CC      fs/fcntl.o
+  CC      fs/ioctl.o
+  CC      fs/readdir.o
+  CC      fs/select.o
+  CC      fs/dcache.o
+  CC      fs/inode.o
+  CC      fs/attr.o
+  CC      fs/file.o
+  CC      fs/filesystems.o
+  CC      fs/namespace.o
+  CC      fs/seq_file.o
+  CC      fs/xattr.o
+  CC      fs/libfs.o
+  CC      fs/fs-writeback.o
+  CC      fs/splice.o
+  CC      fs/sync.o
+  CC      fs/utimes.o
+  CC      fs/d_path.o
+  CC      fs/statfs.o
+  CC      fs/fs_context.o
+  CC      fs/fs_parser.o
+  CC      fs/buffer.o
+  CC      fs/block_dev.o
+  CC      fs/direct-io.o
+  CC      fs/mpage.o
+  CC      fs/proc_namespace.o
+  CC      fs/autofs/inode.o
+  CC      fs/autofs/dev-ioctl.o
+  AR      fs/autofs/built-in.a
+  CC      fs/debugfs/inode.o
+  CC      fs/debugfs/file.o
+  AR      fs/debugfs/built-in.a
+  CC      fs/devpts/inode.o
+  AR      fs/devpts/built-in.a
+  CC [M]  fs/efivarfs/super.o
+fs/efivarfs/super.c: В функции «efivarfs_callback»:
+fs/efivarfs/super.c:130:32: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  130 |  len = ucs2_utf8size(entry->var.VariableName);
+      |                      ~~~~~~~~~~^~~~~~~~~~~~~
+fs/efivarfs/super.c:137:31: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  137 |  ucs2_as_utf8(name, entry->var.VariableName, len);
+      |                     ~~~~~~~~~~^~~~~~~~~~~~~
+fs/efivarfs/super.c:144:18: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  144 |  efi_guid_to_str(&entry->var.VendorGuid, name + len + 1);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~
+  LD [M]  fs/efivarfs/efivarfs.o
+  CC      fs/ext4/balloc.o
+  CC      fs/ext4/bitmap.o
+  CC      fs/ext4/block_validity.o
+  CC      fs/ext4/dir.o
+  CC      fs/ext4/ext4_jbd2.o
+  CC      fs/ext4/extents.o
+  CC      fs/ext4/extents_status.o
+  CC      fs/ext4/file.o
+  CC      fs/ext4/fsmap.o
+  CC      fs/ext4/fsync.o
+  CC      fs/ext4/hash.o
+  CC      fs/ext4/ialloc.o
+  CC      fs/ext4/indirect.o
+  CC      fs/ext4/inline.o
+  CC      fs/ext4/inode.o
+  CC      fs/ext4/ioctl.o
+  CC      fs/ext4/mballoc.o
+  CC      fs/ext4/migrate.o
+  CC      fs/ext4/mmp.o
+  CC      fs/ext4/move_extent.o
+  CC      fs/ext4/namei.o
+  CC      fs/ext4/page-io.o
+  CC      fs/ext4/readpage.o
+  CC      fs/ext4/resize.o
+  CC      fs/ext4/super.o
+  CC      fs/ext4/symlink.o
+  CC      fs/ext4/sysfs.o
+  CC      fs/ext4/xattr.o
+  CC      fs/ext4/xattr_trusted.o
+  CC      fs/ext4/xattr_user.o
+  CC      fs/ext4/acl.o
+  CC      fs/ext4/xattr_security.o
+  AR      fs/ext4/built-in.a
+  CC      fs/fat/cache.o
+  CC      fs/fat/dir.o
+  CC      fs/fat/fatent.o
+  CC      fs/fat/file.o
+  CC      fs/fat/inode.o
+  CC      fs/fat/misc.o
+  CC      fs/fat/nfs.o
+  CC      fs/fat/namei_vfat.o
+  CC      fs/fat/namei_msdos.o
+  AR      fs/fat/built-in.a
+  CC      fs/fuse/dev.o
+  CC      fs/fuse/dir.o
+  CC      fs/fuse/file.o
+  CC      fs/fuse/inode.o
+  CC      fs/fuse/control.o
+  CC      fs/fuse/xattr.o
+  CC      fs/fuse/acl.o
+  CC      fs/fuse/readdir.o
+  AR      fs/fuse/built-in.a
+  CC      fs/hugetlbfs/inode.o
+  AR      fs/hugetlbfs/built-in.a
+  CC      fs/isofs/namei.o
+  CC      fs/isofs/inode.o
+  CC      fs/isofs/dir.o
+  CC      fs/isofs/util.o
+  CC      fs/isofs/rock.o
+  CC      fs/isofs/export.o
+  CC      fs/isofs/joliet.o
+  CC      fs/isofs/compress.o
+  AR      fs/isofs/built-in.a
+  CC      fs/jbd2/transaction.o
+  CC      fs/jbd2/commit.o
+  CC      fs/jbd2/recovery.o
+  CC      fs/jbd2/checkpoint.o
+  CC      fs/jbd2/revoke.o
+  CC      fs/jbd2/journal.o
+  AR      fs/jbd2/built-in.a
+  CC      fs/kernfs/mount.o
+  CC      fs/kernfs/inode.o
+  CC      fs/kernfs/dir.o
+  CC      fs/kernfs/file.o
+  CC      fs/kernfs/symlink.o
+  AR      fs/kernfs/built-in.a
+  CC      fs/lockd/clntlock.o
+  CC      fs/lockd/clntproc.o
+  CC      fs/lockd/clntxdr.o
+  CC      fs/lockd/host.o
+  CC      fs/lockd/svc.o
+  CC      fs/lockd/svclock.o
+  CC      fs/lockd/svcshare.o
+  CC      fs/lockd/svcproc.o
+  CC      fs/lockd/svcsubs.o
+  CC      fs/lockd/mon.o
+  CC      fs/lockd/xdr.o
+  CC      fs/lockd/clnt4xdr.o
+  CC      fs/lockd/xdr4.o
+  CC      fs/lockd/svc4proc.o
+  CC      fs/lockd/procfs.o
+  AR      fs/lockd/built-in.a
+  CC      fs/nfs/client.o
+  CC      fs/nfs/dir.o
+  CC      fs/nfs/file.o
+  CC      fs/nfs/getroot.o
+  CC      fs/nfs/inode.o
+  CC      fs/nfs/super.o
+  CC      fs/nfs/io.o
+  CC      fs/nfs/direct.o
+  CC      fs/nfs/pagelist.o
+  CC      fs/nfs/read.o
+  CC      fs/nfs/symlink.o
+  CC      fs/nfs/unlink.o
+  CC      fs/nfs/write.o
+  CC      fs/nfs/namespace.o
+  CC      fs/nfs/mount_clnt.o
+  CC      fs/nfs/nfstrace.o
+  CC      fs/nfs/export.o
+  CC      fs/nfs/nfsroot.o
+  CC      fs/nfs/sysctl.o
+  CC      fs/nfs/nfs2super.o
+  CC      fs/nfs/proc.o
+  CC      fs/nfs/nfs2xdr.o
+  CC      fs/nfs/nfs3super.o
+  CC      fs/nfs/nfs3client.o
+  CC      fs/nfs/nfs3proc.o
+  CC      fs/nfs/nfs3xdr.o
+  CC      fs/nfs/nfs3acl.o
+  AR      fs/nfs/built-in.a
+  CC      fs/nfs_common/nfsacl.o
+  CC      fs/nfs_common/grace.o
+  AR      fs/nfs_common/built-in.a
+  CC      fs/notify/fsnotify.o
+  CC      fs/notify/notification.o
+  CC      fs/notify/group.o
+  CC      fs/notify/mark.o
+  CC      fs/notify/fdinfo.o
+  CC      fs/notify/inotify/inotify_user.o
+  AR      fs/notify/inotify/built-in.a
+  AR      fs/notify/built-in.a
+  CC      fs/proc/task_mmu.o
+  CC      fs/proc/inode.o
+  CC      fs/proc/root.o
+  CC      fs/proc/base.o
+  CC      fs/proc/generic.o
+  CC      fs/proc/array.o
+  CC      fs/proc/fd.o
+  CC      fs/proc/loadavg.o
+  CC      fs/proc/meminfo.o
+  CC      fs/proc/namespaces.o
+  CC      fs/proc/self.o
+  CC      fs/proc/thread_self.o
+  CC      fs/proc/proc_sysctl.o
+  CC      fs/proc/proc_net.o
+  CC      fs/proc/kcore.o
+  CC      fs/proc/vmcore.o
+  CC      fs/proc/page.o
+  AR      fs/proc/built-in.a
+  CC      fs/quota/dquot.o
+  CC      fs/quota/quota.o
+  CC      fs/quota/compat.o
+  CC      fs/quota/netlink.o
+  AR      fs/quota/built-in.a
+  CC      fs/ramfs/inode.o
+  CC      fs/ramfs/file-mmu.o
+  AR      fs/ramfs/built-in.a
+  CC      fs/sysfs/symlink.o
+  CC      fs/sysfs/mount.o
+  AR      fs/sysfs/built-in.a
+  CC      fs/tracefs/inode.o
+  AR      fs/tracefs/built-in.a
+  CC      fs/eventpoll.o
+  CC      fs/signalfd.o
+  CC      fs/timerfd.o
+  CC      fs/eventfd.o
+  CC      fs/aio.o
+  CC      fs/io_uring.o
+  CC      fs/locks.o
+  CC      fs/compat.o
+  CC      fs/compat_ioctl.o
+  CC      fs/binfmt_misc.o
+  CC      fs/binfmt_elf.o
+  CC      fs/compat_binfmt_elf.o
+  CC      fs/coredump.o
+  CC      fs/drop_caches.o
+  CC      fs/fhandle.o
+  CC      fs/iomap.o
+  CC      fs/dcookies.o
+  AR      fs/built-in.a
+  CC      ipc/compat.o
+  CC      ipc/util.o
+  CC      ipc/msgutil.o
+  CC      ipc/msg.o
+  CC      ipc/sem.o
+  CC      ipc/shm.o
+  CC      ipc/syscall.o
+  AR      ipc/built-in.a
+  CC      security/integrity/iint.o
+  CC      security/integrity/integrity_audit.o
+  AR      security/integrity/built-in.a
+  CC      security/keys/gc.o
+  CC      security/keys/key.o
+  CC      security/keys/keyring.o
+  CC      security/keys/keyctl.o
+  CC      security/keys/permission.o
+  CC      security/keys/process_keys.o
+  CC      security/keys/compat.o
+  AR      security/keys/built-in.a
+  CC      security/selinux/avc.o
+  CC      security/selinux/hooks.o
+  CC      security/selinux/selinuxfs.o
+  CC      security/selinux/netlink.o
+  CC      security/selinux/nlmsgtab.o
+  CC      security/selinux/netif.o
+  CC      security/selinux/netnode.o
+  CC      security/selinux/netport.o
+  CC      security/selinux/ibpkey.o
+  CC      security/selinux/ss/ebitmap.o
+  CC      security/selinux/ss/sidtab.o
+  CC      security/selinux/ss/avtab.o
+  CC      security/selinux/ss/policydb.o
+  CC      security/selinux/ss/services.o
+  CC      security/selinux/ss/conditional.o
+  CC      security/selinux/ss/mls.o
+  CC      security/selinux/ss/status.o
+  CC      security/selinux/netlabel.o
+  AR      security/selinux/built-in.a
+  CC      security/commoncap.o
+  CC      security/min_addr.o
+  CC      security/security.o
+  CC      security/lsm_audit.o
+  AR      security/built-in.a
+  CC      crypto/api.o
+  CC      crypto/cipher.o
+  CC      crypto/compress.o
+  CC      crypto/memneq.o
+  CC      crypto/crypto_wq.o
+  CC      crypto/algapi.o
+  CC      crypto/scatterwalk.o
+  CC      crypto/proc.o
+  CC      crypto/aead.o
+  CC      crypto/ablkcipher.o
+  CC      crypto/blkcipher.o
+  CC      crypto/skcipher.o
+  CC      crypto/seqiv.o
+  CC      crypto/echainiv.o
+  CC      crypto/ahash.o
+  CC      crypto/shash.o
+  CC      crypto/akcipher.o
+  CC      crypto/kpp.o
+  CC      crypto/rsa.o
+  CC      crypto/rsa-pkcs1pad.o
+  CC      crypto/acompress.o
+  CC      crypto/scompress.o
+  CC      crypto/algboss.o
+  CC      crypto/testmgr.o
+  CC      crypto/cmac.o
+  CC      crypto/hmac.o
+  CC      crypto/crypto_null.o
+  CC      crypto/md5.o
+  CC      crypto/sha1_generic.o
+  CC      crypto/sha256_generic.o
+  CC      crypto/ecb.o
+  CC      crypto/cbc.o
+  CC      crypto/ctr.o
+  CC      crypto/gcm.o
+  CC      crypto/ccm.o
+  CC      crypto/arc4.o
+  CC      crypto/crc32c_generic.o
+  CC      crypto/authenc.o
+  CC      crypto/authencesn.o
+  CC      crypto/rng.o
+  CC      crypto/drbg.o
+  CC      crypto/jitterentropy-kcapi.o
+  CC      crypto/ghash-generic.o
+  CC      crypto/asymmetric_keys/public_key.o
+  AR      crypto/asymmetric_keys/built-in.a
+  AR      crypto/built-in.a
+  CC      block/bio.o
+  CC      block/elevator.o
+  CC      block/blk-core.o
+  CC      block/blk-sysfs.o
+  CC      block/blk-flush.o
+  CC      block/blk-settings.o
+  CC      block/blk-ioc.o
+  CC      block/blk-map.o
+  CC      block/blk-exec.o
+  CC      block/blk-merge.o
+  CC      block/blk-softirq.o
+  CC      block/blk-timeout.o
+  CC      block/blk-lib.o
+  CC      block/blk-mq.o
+  CC      block/blk-mq-tag.o
+  CC      block/blk-stat.o
+  CC      block/blk-mq-sysfs.o
+  CC      block/blk-mq-cpumap.o
+  CC      block/blk-mq-sched.o
+  CC      block/ioctl.o
+  CC      block/genhd.o
+  CC      block/partition-generic.o
+  CC      block/ioprio.o
+  CC      block/partitions/check.o
+  CC      block/partitions/amiga.o
+  CC      block/partitions/mac.o
+  CC      block/partitions/msdos.o
+  CC      block/partitions/osf.o
+  CC      block/partitions/sgi.o
+  CC      block/partitions/sun.o
+  CC      block/partitions/efi.o
+block/partitions/efi.c: В функции «efi_partition»:
+block/partitions/efi.c:725:19: предупреждение: taking address of packed member of «struct _gpt_entry» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  725 |   efi_guid_to_str(&ptes[i].unique_partition_guid, info->uuid);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      block/partitions/karma.o
+block/partitions/karma.c: В функции «karma_partition»:
+block/partitions/karma.c:44:6: предупреждение: taking address of packed member of «struct disklabel» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   44 |  p = label->d_partitions;
+      |      ^~~~~
+  AR      block/partitions/built-in.a
+  CC      block/blk-rq-qos.o
+  CC      block/bounce.o
+  CC      block/scsi_ioctl.o
+  CC      block/bsg.o
+  CC      block/mq-deadline.o
+  CC      block/kyber-iosched.o
+  CC      block/compat_ioctl.o
+  CC      block/blk-mq-pci.o
+  CC      block/blk-mq-debugfs.o
+  CC      block/blk-pm.o
+  AR      block/built-in.a
+  CC      drivers/acpi/tables.o
+  CC      drivers/acpi/osl.o
+  CC      drivers/acpi/reboot.o
+  CC      drivers/acpi/nvs.o
+  CC      drivers/acpi/sleep.o
+  CC      drivers/acpi/device_pm.o
+  CC      drivers/acpi/proc.o
+  CC      drivers/acpi/bus.o
+  CC      drivers/acpi/glue.o
+  CC      drivers/acpi/scan.o
+  CC      drivers/acpi/acpi_processor.o
+  CC      drivers/acpi/pci_root.o
+  CC      drivers/acpi/pci_link.o
+  CC      drivers/acpi/pci_irq.o
+  CC      drivers/acpi/acpi_lpss.o
+  CC      drivers/acpi/acpi_platform.o
+  CC      drivers/acpi/event.o
+  CC      drivers/acpi/numa.o
+  CC      drivers/acpi/ioapic.o
+  CC      drivers/acpi/battery.o
+  AR      drivers/acpi/built-in.a
+  CC      drivers/ata/libata-core.o
+  CC      drivers/ata/libata-scsi.o
+  CC      drivers/ata/libata-eh.o
+  CC      drivers/ata/libata-transport.o
+  CC      drivers/ata/libata-trace.o
+  CC      drivers/ata/libata-sff.o
+  CC      drivers/ata/libata-pmp.o
+  CC      drivers/ata/libata-acpi.o
+  CC      drivers/ata/ahci.o
+  CC      drivers/ata/libahci.o
+  CC      drivers/ata/ata_piix.o
+  CC      drivers/ata/pata_amd.o
+  CC      drivers/ata/pata_oldpiix.o
+  CC      drivers/ata/pata_sch.o
+  AR      drivers/ata/built-in.a
+  CC      drivers/base/core.o
+  CC      drivers/base/dd.o
+  CC      drivers/base/syscore.o
+  CC      drivers/base/class.o
+  CC      drivers/base/platform.o
+  CC      drivers/base/cpu.o
+  CC      drivers/base/topology.o
+  CC      drivers/base/property.o
+  CC      drivers/base/devtmpfs.o
+  CC      drivers/base/firmware_loader/main.o
+  AR      drivers/base/firmware_loader/built-in.a
+  CC      drivers/base/power/qos.o
+  CC      drivers/base/power/main.o
+  CC      drivers/base/power/wakeup.o
+  AR      drivers/base/power/built-in.a
+  CC      drivers/base/regmap/regmap.o
+  AR      drivers/base/regmap/built-in.a
+  CC      drivers/base/node.o
+  AR      drivers/base/built-in.a
+  CC      drivers/block/loop.o
+  AR      drivers/block/built-in.a
+  CC      drivers/cdrom/cdrom.o
+  AR      drivers/cdrom/built-in.a
+  CC      drivers/char/mem.o
+  CC      drivers/char/random.o
+  CC      drivers/char/hpet.o
+  CC      drivers/char/nvram.o
+  CC      drivers/char/agp/backend.o
+  CC      drivers/char/agp/frontend.o
+  CC      drivers/char/agp/generic.o
+  CC      drivers/char/agp/isoch.o
+  CC      drivers/char/agp/compat_ioctl.o
+  CC      drivers/char/agp/amd64-agp.o
+  CC      drivers/char/agp/intel-agp.o
+  CC      drivers/char/agp/intel-gtt.o
+  AR      drivers/char/agp/built-in.a
+  AR      drivers/char/built-in.a
+  CC      drivers/clk/clk.o
+  AR      drivers/clk/built-in.a
+  CC      drivers/clocksource/acpi_pm.o
+  AR      drivers/clocksource/built-in.a
+  CC      drivers/connector/cn_queue.o
+  CC      drivers/connector/connector.o
+  CC      drivers/connector/cn_proc.o
+  AR      drivers/connector/built-in.a
+  CC      drivers/cpufreq/cpufreq.o
+  CC      drivers/cpufreq/intel_pstate.o
+  AR      drivers/cpufreq/built-in.a
+  CC      drivers/cpuidle/cpuidle.o
+  AR      drivers/cpuidle/built-in.a
+  CC      drivers/dax/super.o
+  CC      drivers/dax/bus.o
+  AR      drivers/dax/built-in.a
+  CC      drivers/dma/dmaengine.o
+  CC      drivers/dma/virt-dma.o
+  CC      drivers/dma/acpi-dma.o
+  CC      drivers/dma/dw/core.o
+  CC      drivers/dma/dw/dw.o
+  CC      drivers/dma/dw/idma32.o
+  AR      drivers/dma/dw/built-in.a
+  CC      drivers/dma/hsu/hsu.o
+  AR      drivers/dma/hsu/built-in.a
+  AR      drivers/dma/built-in.a
+  CC      drivers/dma-buf/dma-buf.o
+  CC      drivers/dma-buf/dma-fence.o
+  CC      drivers/dma-buf/seqno-fence.o
+  AR      drivers/dma-buf/built-in.a
+  CC      drivers/edac/edac_mc.o
+  CC      drivers/edac/edac_device.o
+  CC      drivers/edac/edac_mc_sysfs.o
+  CC      drivers/edac/edac_module.o
+  CC      drivers/edac/edac_device_sysfs.o
+  CC      drivers/edac/wq.o
+  CC      drivers/edac/edac_pci.o
+  CC      drivers/edac/edac_pci_sysfs.o
+  AR      drivers/edac/built-in.a
+  CC      drivers/firewire/init_ohci1394_dma.o
+  AR      drivers/firewire/built-in.a
+  CC      drivers/firmware/dmi_scan.o
+  CC      drivers/firmware/memmap.o
+  CC      drivers/firmware/efi/efi.o
+  CC      drivers/firmware/efi/vars.o
+drivers/firmware/efi/vars.c: В функции «variable_is_present»:
+drivers/firmware/efi/vars.c:346:37: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  346 |   strsize2 = ucs2_strsize(entry->var.VariableName, 1024);
+      |                           ~~~~~~~~~~^~~~~~~~~~~~~
+drivers/firmware/efi/vars.c: В функции «__efivar_entry_delete»:
+drivers/firmware/efi/vars.c:593:50: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  593 |  status = __efivars->ops->set_variable(entry->var.VariableName,
+      |                                        ~~~~~~~~~~^~~~~~~~~~~~~
+drivers/firmware/efi/vars.c:594:12: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  594 |            &entry->var.VendorGuid,
+      |            ^~~~~~~~~~~~~~~~~~~~~~
+drivers/firmware/efi/vars.c: В функции «efivar_entry_delete»:
+drivers/firmware/efi/vars.c:625:39: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  625 |  status = ops->set_variable(entry->var.VariableName,
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~
+drivers/firmware/efi/vars.c:626:8: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  626 |        &entry->var.VendorGuid,
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+drivers/firmware/efi/vars.c: В функции «efivar_entry_set»:
+drivers/firmware/efi/vars.c:664:23: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  664 |  efi_char16_t *name = entry->var.VariableName;
+      |                       ^~~~~
+drivers/firmware/efi/vars.c: В функции «efivar_entry_find»:
+drivers/firmware/efi/vars.c:823:37: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  823 |   strsize2 = ucs2_strsize(entry->var.VariableName, 1024);
+      |                           ~~~~~~~~~~^~~~~~~~~~~~~
+drivers/firmware/efi/vars.c: В функции «efivar_entry_size»:
+drivers/firmware/efi/vars.c:869:39: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  869 |  status = ops->get_variable(entry->var.VariableName,
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~
+drivers/firmware/efi/vars.c:870:8: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  870 |        &entry->var.VendorGuid, NULL, size, NULL);
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+drivers/firmware/efi/vars.c: В функции «__efivar_entry_get»:
+drivers/firmware/efi/vars.c:899:50: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  899 |  status = __efivars->ops->get_variable(entry->var.VariableName,
+      |                                        ~~~~~~~~~~^~~~~~~~~~~~~
+drivers/firmware/efi/vars.c:900:12: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  900 |            &entry->var.VendorGuid,
+      |            ^~~~~~~~~~~~~~~~~~~~~~
+drivers/firmware/efi/vars.c: В функции «efivar_entry_get»:
+drivers/firmware/efi/vars.c:927:50: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  927 |  status = __efivars->ops->get_variable(entry->var.VariableName,
+      |                                        ~~~~~~~~~~^~~~~~~~~~~~~
+drivers/firmware/efi/vars.c:928:12: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  928 |            &entry->var.VendorGuid,
+      |            ^~~~~~~~~~~~~~~~~~~~~~
+drivers/firmware/efi/vars.c: В функции «efivar_entry_set_get_size»:
+drivers/firmware/efi/vars.c:962:23: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  962 |  efi_char16_t *name = entry->var.VariableName;
+      |                       ^~~~~
+drivers/firmware/efi/vars.c:963:23: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  963 |  efi_guid_t *vendor = &entry->var.VendorGuid;
+      |                       ^~~~~~~~~~~~~~~~~~~~~~
+drivers/firmware/efi/vars.c:1018:39: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1018 |  status = ops->get_variable(entry->var.VariableName,
+      |                             ~~~~~~~~~~^~~~~~~~~~~~~
+drivers/firmware/efi/vars.c:1019:8: предупреждение: taking address of packed member of «struct efi_variable» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1019 |        &entry->var.VendorGuid,
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+  CC      drivers/firmware/efi/memattr.o
+  CC      drivers/firmware/efi/tpm.o
+  CC      drivers/firmware/efi/capsule.o
+  CC      drivers/firmware/efi/memmap.o
+  CC      drivers/firmware/efi/esrt.o
+  CC      drivers/firmware/efi/runtime-wrappers.o
+  AR      drivers/firmware/efi/built-in.a
+  AR      drivers/firmware/built-in.a
+  CC      drivers/gpio/gpiolib.o
+  AR      drivers/gpio/built-in.a
+  CC      drivers/gpu/drm/drm_crtc_helper.o
+  CC      drivers/gpu/drm/drm_dp_helper.o
+  CC      drivers/gpu/drm/drm_probe_helper.o
+  CC      drivers/gpu/drm/drm_plane_helper.o
+  CC      drivers/gpu/drm/drm_dp_mst_topology.o
+  CC      drivers/gpu/drm/drm_atomic_helper.o
+  CC      drivers/gpu/drm/drm_kms_helper_common.o
+  CC      drivers/gpu/drm/drm_dp_dual_mode_helper.o
+  CC      drivers/gpu/drm/drm_simple_kms_helper.o
+  CC      drivers/gpu/drm/drm_scdc_helper.o
+  CC      drivers/gpu/drm/drm_gem_framebuffer_helper.o
+  CC      drivers/gpu/drm/bridge/panel.o
+  CC      drivers/gpu/drm/drm_fb_helper.o
+  CC      drivers/gpu/drm/drm_auth.o
+  CC      drivers/gpu/drm/drm_bufs.o
+  CC      drivers/gpu/drm/drm_cache.o
+  CC      drivers/gpu/drm/drm_context.o
+  CC      drivers/gpu/drm/drm_dma.o
+  CC      drivers/gpu/drm/drm_file.o
+  CC      drivers/gpu/drm/drm_gem.o
+  CC      drivers/gpu/drm/drm_ioctl.o
+  CC      drivers/gpu/drm/drm_irq.o
+  CC      drivers/gpu/drm/drm_lock.o
+  CC      drivers/gpu/drm/drm_memory.o
+  CC      drivers/gpu/drm/drm_drv.o
+  CC      drivers/gpu/drm/drm_scatter.o
+  CC      drivers/gpu/drm/drm_pci.o
+  CC      drivers/gpu/drm/drm_sysfs.o
+  CC      drivers/gpu/drm/drm_hashtab.o
+  CC      drivers/gpu/drm/drm_mm.o
+  CC      drivers/gpu/drm/drm_crtc.o
+  CC      drivers/gpu/drm/drm_fourcc.o
+  CC      drivers/gpu/drm/drm_modes.o
+  CC      drivers/gpu/drm/drm_edid.o
+  CC      drivers/gpu/drm/drm_trace_points.o
+  CC      drivers/gpu/drm/drm_prime.o
+  CC      drivers/gpu/drm/drm_rect.o
+  CC      drivers/gpu/drm/drm_vma_manager.o
+  CC      drivers/gpu/drm/drm_flip_work.o
+  CC      drivers/gpu/drm/drm_modeset_lock.o
+  CC      drivers/gpu/drm/drm_atomic.o
+  CC      drivers/gpu/drm/drm_framebuffer.o
+  CC      drivers/gpu/drm/drm_connector.o
+  CC      drivers/gpu/drm/drm_blend.o
+  CC      drivers/gpu/drm/drm_encoder.o
+  CC      drivers/gpu/drm/drm_mode_object.o
+  CC      drivers/gpu/drm/drm_property.o
+  CC      drivers/gpu/drm/drm_plane.o
+  CC      drivers/gpu/drm/drm_color_mgmt.o
+  CC      drivers/gpu/drm/drm_print.o
+  CC      drivers/gpu/drm/drm_dumb_buffers.o
+  CC      drivers/gpu/drm/drm_mode_config.o
+  CC      drivers/gpu/drm/drm_vblank.o
+  CC      drivers/gpu/drm/drm_syncobj.o
+  CC      drivers/gpu/drm/drm_lease.o
+  CC      drivers/gpu/drm/drm_writeback.o
+  CC      drivers/gpu/drm/drm_client.o
+  CC      drivers/gpu/drm/drm_atomic_uapi.o
+  CC      drivers/gpu/drm/drm_ioc32.o
+  CC      drivers/gpu/drm/ati_pcigart.o
+  CC      drivers/gpu/drm/drm_agpsupport.o
+  CC      drivers/gpu/drm/drm_debugfs.o
+  CC      drivers/gpu/drm/drm_debugfs_crc.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_drv.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_device.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_asic.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_kms.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_atombios.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_agp.o
+  CC [M]  drivers/gpu/drm/radeon/atombios_crtc.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_combios.o
+  CC [M]  drivers/gpu/drm/radeon/atom.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_fence.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_ttm.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_object.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_gart.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_legacy_crtc.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_legacy_encoders.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_connectors.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_encoders.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_display.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_cursor.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_i2c.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_clocks.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_fb.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_gem.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_ring.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_irq_kms.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_cs.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_bios.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_benchmark.o
+  CC [M]  drivers/gpu/drm/radeon/r100.o
+  CC [M]  drivers/gpu/drm/radeon/r300.o
+  CC [M]  drivers/gpu/drm/radeon/r420.o
+  CC [M]  drivers/gpu/drm/radeon/rs400.o
+  CC [M]  drivers/gpu/drm/radeon/rs600.o
+  CC [M]  drivers/gpu/drm/radeon/rs690.o
+  CC [M]  drivers/gpu/drm/radeon/rv515.o
+  CC [M]  drivers/gpu/drm/radeon/r520.o
+  CC [M]  drivers/gpu/drm/radeon/r600.o
+  CC [M]  drivers/gpu/drm/radeon/rv770.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_test.o
+  CC [M]  drivers/gpu/drm/radeon/r200.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_legacy_tv.o
+  CC [M]  drivers/gpu/drm/radeon/r600_cs.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_pm.o
+  CC [M]  drivers/gpu/drm/radeon/atombios_dp.o
+  CC [M]  drivers/gpu/drm/radeon/r600_hdmi.o
+  CC [M]  drivers/gpu/drm/radeon/dce3_1_afmt.o
+  CC [M]  drivers/gpu/drm/radeon/evergreen.o
+  CC [M]  drivers/gpu/drm/radeon/evergreen_cs.o
+  CC [M]  drivers/gpu/drm/radeon/evergreen_hdmi.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_trace_points.o
+  CC [M]  drivers/gpu/drm/radeon/ni.o
+  CC [M]  drivers/gpu/drm/radeon/atombios_encoders.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_semaphore.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_sa.o
+  CC [M]  drivers/gpu/drm/radeon/atombios_i2c.o
+  CC [M]  drivers/gpu/drm/radeon/si.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_prime.o
+  CC [M]  drivers/gpu/drm/radeon/cik.o
+  CC [M]  drivers/gpu/drm/radeon/r600_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rs780_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rv6xx_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rv770_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rv730_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rv740_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/rv770_smc.o
+  CC [M]  drivers/gpu/drm/radeon/cypress_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/btc_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/sumo_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/sumo_smc.o
+  CC [M]  drivers/gpu/drm/radeon/trinity_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/trinity_smc.o
+  CC [M]  drivers/gpu/drm/radeon/ni_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/si_smc.o
+  CC [M]  drivers/gpu/drm/radeon/si_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/kv_smc.o
+  CC [M]  drivers/gpu/drm/radeon/kv_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/ci_smc.o
+  CC [M]  drivers/gpu/drm/radeon/ci_dpm.o
+  CC [M]  drivers/gpu/drm/radeon/dce6_afmt.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_vm.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_ucode.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_ib.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_sync.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_audio.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_dp_auxch.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_dp_mst.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_mn.o
+  CC [M]  drivers/gpu/drm/radeon/r600_dma.o
+  CC [M]  drivers/gpu/drm/radeon/rv770_dma.o
+  CC [M]  drivers/gpu/drm/radeon/evergreen_dma.o
+  CC [M]  drivers/gpu/drm/radeon/ni_dma.o
+  CC [M]  drivers/gpu/drm/radeon/si_dma.o
+  CC [M]  drivers/gpu/drm/radeon/cik_sdma.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_uvd.o
+  CC [M]  drivers/gpu/drm/radeon/uvd_v1_0.o
+  CC [M]  drivers/gpu/drm/radeon/uvd_v2_2.o
+  CC [M]  drivers/gpu/drm/radeon/uvd_v3_1.o
+  CC [M]  drivers/gpu/drm/radeon/uvd_v4_2.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_vce.o
+  CC [M]  drivers/gpu/drm/radeon/vce_v1_0.o
+  CC [M]  drivers/gpu/drm/radeon/vce_v2_0.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_acpi.o
+  LD [M]  drivers/gpu/drm/radeon/radeon.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_memory.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_tt.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_bo.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_bo_util.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_bo_vm.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_execbuf_util.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_page_alloc.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_bo_manager.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_page_alloc_dma.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_agp_backend.o
+  LD [M]  drivers/gpu/drm/ttm/ttm.o
+  AR      drivers/gpu/drm/built-in.a
+  CC      drivers/gpu/vga/vgaarb.o
+  AR      drivers/gpu/vga/built-in.a
+  AR      drivers/gpu/built-in.a
+  CC      drivers/hid/hid-core.o
+  CC      drivers/hid/hid-input.o
+  CC      drivers/hid/hid-debug.o
+  CC      drivers/hid/usbhid/hid-core.o
+  AR      drivers/hid/usbhid/built-in.a
+  AR      drivers/hid/built-in.a
+  CC      drivers/hwmon/hwmon.o
+  AR      drivers/hwmon/built-in.a
+  CC      drivers/i2c/i2c-core-base.o
+drivers/i2c/i2c-core-base.c: В функции «i2c_generic_scl_recovery»:
+drivers/i2c/i2c-core-base.c:235:5: предупреждение: «ret», возможно, используется без инициализации в данной функции [-Wmaybe-uninitialized]
+  235 |  if (ret == -EOPNOTSUPP)
+      |     ^
+  CC      drivers/i2c/i2c-core-smbus.o
+  CC      drivers/i2c/busses/i2c-i801.o
+  AR      drivers/i2c/busses/built-in.a
+  AR      drivers/i2c/built-in.a
+  CC      drivers/input/evdev.o
+  CC      drivers/input/mouse/synaptics.o
+  AR      drivers/input/mouse/built-in.a
+  AR      drivers/input/built-in.a
+  CC      drivers/input/serio/i8042.o
+  AR      drivers/input/serio/built-in.a
+  CC      drivers/iommu/iommu.o
+  CC      drivers/iommu/iommu-traces.o
+  CC      drivers/iommu/iommu-sysfs.o
+  CC      drivers/iommu/iova.o
+  CC      drivers/iommu/amd_iommu.o
+  CC      drivers/iommu/amd_iommu_init.o
+  AR      drivers/iommu/built-in.a
+  CC      drivers/md/md.o
+  CC      drivers/md/md-bitmap.o
+  CC      drivers/md/dm.o
+  CC      drivers/md/dm-table.o
+  CC      drivers/md/dm-target.o
+  CC      drivers/md/dm-linear.o
+  CC      drivers/md/dm-stripe.o
+  CC      drivers/md/dm-ioctl.o
+  CC      drivers/md/dm-io.o
+  CC      drivers/md/dm-kcopyd.o
+  CC      drivers/md/dm-sysfs.o
+  CC      drivers/md/dm-stats.o
+  CC      drivers/md/dm-rq.o
+  CC      drivers/md/dm-builtin.o
+  CC      drivers/md/dm-bufio.o
+  CC      drivers/md/dm-crypt.o
+  CC      drivers/md/dm-snap.o
+  CC      drivers/md/dm-exception-store.o
+  CC      drivers/md/dm-snap-transient.o
+  CC      drivers/md/dm-snap-persistent.o
+  CC      drivers/md/dm-raid1.o
+  CC      drivers/md/dm-log.o
+  CC      drivers/md/dm-region-hash.o
+  CC      drivers/md/dm-zero.o
+  AR      drivers/md/built-in.a
+  CC      drivers/net/Space.o
+  CC      drivers/net/loopback.o
+  CC      drivers/net/ethernet/broadcom/tg3.o
+  AR      drivers/net/ethernet/broadcom/built-in.a
+  CC      drivers/net/ethernet/intel/e1000/e1000_main.o
+  CC      drivers/net/ethernet/intel/e1000/e1000_hw.o
+  CC      drivers/net/ethernet/intel/e1000/e1000_ethtool.o
+  CC      drivers/net/ethernet/intel/e1000/e1000_param.o
+  AR      drivers/net/ethernet/intel/e1000/built-in.a
+  CC      drivers/net/ethernet/intel/e1000e/82571.o
+  CC      drivers/net/ethernet/intel/e1000e/ich8lan.o
+  CC      drivers/net/ethernet/intel/e1000e/80003es2lan.o
+  CC      drivers/net/ethernet/intel/e1000e/mac.o
+  CC      drivers/net/ethernet/intel/e1000e/manage.o
+  CC      drivers/net/ethernet/intel/e1000e/nvm.o
+  CC      drivers/net/ethernet/intel/e1000e/phy.o
+  CC      drivers/net/ethernet/intel/e1000e/param.o
+  CC      drivers/net/ethernet/intel/e1000e/ethtool.o
+  CC      drivers/net/ethernet/intel/e1000e/netdev.o
+  CC      drivers/net/ethernet/intel/e1000e/ptp.o
+  AR      drivers/net/ethernet/intel/e1000e/built-in.a
+  AR      drivers/net/ethernet/intel/built-in.a
+  CC      drivers/net/ethernet/marvell/sky2.o
+  AR      drivers/net/ethernet/marvell/built-in.a
+  CC      drivers/net/ethernet/realtek/r8169.o
+  AR      drivers/net/ethernet/realtek/built-in.a
+  AR      drivers/net/ethernet/built-in.a
+  CC      drivers/net/phy/mdio-boardinfo.o
+  CC      drivers/net/phy/phy.o
+  CC      drivers/net/phy/phy-c45.o
+  CC      drivers/net/phy/phy-core.o
+  CC      drivers/net/phy/phy_device.o
+  CC      drivers/net/phy/mdio_bus.o
+  CC      drivers/net/phy/mdio_device.o
+  CC      drivers/net/phy/realtek.o
+  AR      drivers/net/phy/built-in.a
+  CC      drivers/net/wireless/ath/ath9k/beacon.o
+  CC      drivers/net/wireless/ath/ath9k/gpio.o
+  CC      drivers/net/wireless/ath/ath9k/init.o
+  CC      drivers/net/wireless/ath/ath9k/main.o
+  CC      drivers/net/wireless/ath/ath9k/recv.o
+  CC      drivers/net/wireless/ath/ath9k/xmit.o
+  CC      drivers/net/wireless/ath/ath9k/link.o
+  CC      drivers/net/wireless/ath/ath9k/antenna.o
+  CC      drivers/net/wireless/ath/ath9k/channel.o
+  CC      drivers/net/wireless/ath/ath9k/mci.o
+  CC      drivers/net/wireless/ath/ath9k/pci.o
+  CC      drivers/net/wireless/ath/ath9k/ar9002_hw.o
+  CC      drivers/net/wireless/ath/ath9k/ar9003_hw.o
+  CC      drivers/net/wireless/ath/ath9k/hw.o
+  CC      drivers/net/wireless/ath/ath9k/ar9003_phy.o
+  CC      drivers/net/wireless/ath/ath9k/ar9002_phy.o
+  CC      drivers/net/wireless/ath/ath9k/ar5008_phy.o
+  CC      drivers/net/wireless/ath/ath9k/ar9002_calib.o
+  CC      drivers/net/wireless/ath/ath9k/ar9003_calib.o
+  CC      drivers/net/wireless/ath/ath9k/calib.o
+  CC      drivers/net/wireless/ath/ath9k/eeprom.o
+  CC      drivers/net/wireless/ath/ath9k/eeprom_def.o
+drivers/net/wireless/ath/ath9k/eeprom_def.c: В функции «__ath9k_hw_def_fill_eeprom»:
+drivers/net/wireless/ath/ath9k/eeprom_def.c:99:25: предупреждение: taking address of packed member of «union <anonymous>» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   99 |  u16 *eep_data = (u16 *)&ah->eeprom.def;
+      |                         ^~~~~~~~~~~~~~~
+drivers/net/wireless/ath/ath9k/eeprom_def.c: В функции «__ath9k_hw_usb_def_fill_eeprom»:
+drivers/net/wireless/ath/ath9k/eeprom_def.c:113:25: предупреждение: taking address of packed member of «union <anonymous>» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  113 |  u16 *eep_data = (u16 *)&ah->eeprom.def;
+      |                         ^~~~~~~~~~~~~~~
+  CC      drivers/net/wireless/ath/ath9k/eeprom_4k.o
+drivers/net/wireless/ath/ath9k/eeprom_4k.c: В функции «__ath9k_hw_4k_fill_eeprom»:
+drivers/net/wireless/ath/ath9k/eeprom_4k.c:40:25: предупреждение: taking address of packed member of «union <anonymous>» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   40 |  u16 *eep_data = (u16 *)&ah->eeprom.map4k;
+      |                         ^~~~~~~~~~~~~~~~~
+drivers/net/wireless/ath/ath9k/eeprom_4k.c: В функции «__ath9k_hw_usb_4k_fill_eeprom»:
+drivers/net/wireless/ath/ath9k/eeprom_4k.c:54:25: предупреждение: taking address of packed member of «union <anonymous>» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   54 |  u16 *eep_data = (u16 *)&ah->eeprom.map4k;
+      |                         ^~~~~~~~~~~~~~~~~
+  CC      drivers/net/wireless/ath/ath9k/eeprom_9287.o
+drivers/net/wireless/ath/ath9k/eeprom_9287.c: В функции «__ath9k_hw_ar9287_fill_eeprom»:
+drivers/net/wireless/ath/ath9k/eeprom_9287.c:43:2: предупреждение: converting a packed «struct ar9287_eeprom» pointer (alignment 1) to a «u16» {aka «short unsigned int»} pointer (alignment 2) may result in an unaligned pointer value [-Waddress-of-packed-member]
+   43 |  eep_data = (u16 *)eep;
+      |  ^~~~~~~~
+In file included from drivers/net/wireless/ath/ath9k/hw.h:27,
+                 from drivers/net/wireless/ath/ath9k/eeprom_9287.c:18:
+drivers/net/wireless/ath/ath9k/eeprom.h:617:8: замечание: defined here
+  617 | struct ar9287_eeprom {
+      |        ^~~~~~~~~~~~~
+drivers/net/wireless/ath/ath9k/eeprom_9287.c: В функции «__ath9k_hw_usb_ar9287_fill_eeprom»:
+drivers/net/wireless/ath/ath9k/eeprom_9287.c:56:25: предупреждение: taking address of packed member of «union <anonymous>» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   56 |  u16 *eep_data = (u16 *)&ah->eeprom.map9287;
+      |                         ^~~~~~~~~~~~~~~~~~~
+  CC      drivers/net/wireless/ath/ath9k/ani.o
+  CC      drivers/net/wireless/ath/ath9k/mac.o
+  CC      drivers/net/wireless/ath/ath9k/ar9002_mac.o
+  CC      drivers/net/wireless/ath/ath9k/ar9003_mac.o
+  CC      drivers/net/wireless/ath/ath9k/ar9003_eeprom.o
+  CC      drivers/net/wireless/ath/ath9k/ar9003_paprd.o
+  CC      drivers/net/wireless/ath/ath9k/btcoex.o
+  CC      drivers/net/wireless/ath/ath9k/ar9003_mci.o
+  CC      drivers/net/wireless/ath/ath9k/ar9003_aic.o
+  CC      drivers/net/wireless/ath/ath9k/ar9003_rtt.o
+  CC      drivers/net/wireless/ath/ath9k/common.o
+  CC      drivers/net/wireless/ath/ath9k/common-init.o
+  CC      drivers/net/wireless/ath/ath9k/common-beacon.o
+  AR      drivers/net/wireless/ath/ath9k/built-in.a
+  CC      drivers/net/wireless/ath/main.o
+  CC      drivers/net/wireless/ath/regd.o
+  CC      drivers/net/wireless/ath/hw.o
+  CC      drivers/net/wireless/ath/key.o
+  CC      drivers/net/wireless/ath/dfs_pattern_detector.o
+  CC      drivers/net/wireless/ath/dfs_pri_detector.o
+  AR      drivers/net/wireless/ath/built-in.a
+  AR      drivers/net/wireless/built-in.a
+  CC      drivers/net/tun.o
+  AR      drivers/net/built-in.a
+  CC      drivers/pci/access.o
+  CC      drivers/pci/bus.o
+  CC      drivers/pci/probe.o
+  CC      drivers/pci/host-bridge.o
+  CC      drivers/pci/remove.o
+  CC      drivers/pci/pci.o
+  CC      drivers/pci/pci-driver.o
+  CC      drivers/pci/search.o
+  CC      drivers/pci/pci-sysfs.o
+  CC      drivers/pci/rom.o
+  CC      drivers/pci/setup-res.o
+  CC      drivers/pci/irq.o
+  CC      drivers/pci/vpd.o
+  CC      drivers/pci/setup-bus.o
+  CC      drivers/pci/vc.o
+  CC      drivers/pci/mmap.o
+  CC      drivers/pci/setup-irq.o
+  CC      drivers/pci/proc.o
+  CC      drivers/pci/slot.o
+  CC      drivers/pci/pci-acpi.o
+  CC      drivers/pci/quirks.o
+  CC      drivers/pci/hotplug/pci_hotplug_core.o
+  CC      drivers/pci/hotplug/acpi_pcihp.o
+  AR      drivers/pci/hotplug/built-in.a
+  CC      drivers/pci/pcie/portdrv_core.o
+  CC      drivers/pci/pcie/portdrv_pci.o
+  CC      drivers/pci/pcie/err.o
+  CC      drivers/pci/pcie/bw_notification.o
+  CC      drivers/pci/pcie/aspm.o
+  CC      drivers/pci/pcie/aer.o
+  CC      drivers/pci/pcie/pme.o
+  AR      drivers/pci/pcie/built-in.a
+  CC      drivers/pci/msi.o
+  CC      drivers/pci/ats.o
+  CC      drivers/pci/pci-label.o
+  AR      drivers/pci/built-in.a
+  CC      drivers/pcmcia/cs.o
+  CC      drivers/pcmcia/socket_sysfs.o
+  CC      drivers/pcmcia/cardbus.o
+  CC      drivers/pcmcia/ds.o
+  CC      drivers/pcmcia/pcmcia_resource.o
+  CC      drivers/pcmcia/cistpl.o
+  CC      drivers/pcmcia/pcmcia_cis.o
+  CC      drivers/pcmcia/rsrc_mgr.o
+  CC      drivers/pcmcia/rsrc_nonstatic.o
+  CC      drivers/pcmcia/yenta_socket.o
+  AR      drivers/pcmcia/built-in.a
+  CC      drivers/platform/x86/pmc_atom.o
+  AR      drivers/platform/x86/built-in.a
+  AR      drivers/platform/built-in.a
+  CC      drivers/pnp/core.o
+  CC      drivers/pnp/card.o
+  CC      drivers/pnp/resource.o
+  CC      drivers/pnp/quirks.o
+  CC      drivers/pnp/pnpacpi/rsparser.o
+  AR      drivers/pnp/pnpacpi/built-in.a
+  AR      drivers/pnp/built-in.a
+  CC      drivers/ptp/ptp_clock.o
+  AR      drivers/ptp/built-in.a
+  CC      drivers/ras/ras.o
+  AR      drivers/ras/built-in.a
+  CC      drivers/rtc/interface.o
+  AR      drivers/rtc/built-in.a
+  CC      drivers/scsi/scsi.o
+  CC      drivers/scsi/hosts.o
+  CC      drivers/scsi/scsi_ioctl.o
+  CC      drivers/scsi/scsicam.o
+  CC      drivers/scsi/scsi_error.o
+  CC      drivers/scsi/scsi_lib.o
+  CC      drivers/scsi/constants.o
+  CC      drivers/scsi/scsi_lib_dma.o
+  CC      drivers/scsi/scsi_scan.o
+  CC      drivers/scsi/scsi_sysfs.o
+  CC      drivers/scsi/scsi_devinfo.o
+  CC      drivers/scsi/scsi_sysctl.o
+  CC      drivers/scsi/scsi_proc.o
+  CC      drivers/scsi/scsi_debugfs.o
+  CC      drivers/scsi/scsi_trace.o
+  CC      drivers/scsi/scsi_logging.o
+  CC      drivers/scsi/scsi_pm.o
+  CC      drivers/scsi/scsi_transport_spi.o
+  CC      drivers/scsi/sd.o
+  CC      drivers/scsi/sr.o
+  CC      drivers/scsi/sr_ioctl.o
+  CC      drivers/scsi/sr_vendor.o
+  CC      drivers/scsi/sg.o
+  AR      drivers/scsi/built-in.a
+  CC      drivers/thermal/thermal_core.o
+  AR      drivers/thermal/built-in.a
+  CC      drivers/tty/tty_io.o
+  CC      drivers/tty/n_tty.o
+  CC      drivers/tty/tty_ioctl.o
+  CC      drivers/tty/tty_ldisc.o
+  CC      drivers/tty/tty_mutex.o
+  CC      drivers/tty/pty.o
+  CC      drivers/tty/tty_audit.o
+  CC      drivers/tty/sysrq.o
+  CC      drivers/tty/serial/8250/8250_core.o
+  CC      drivers/tty/serial/8250/8250_pnp.o
+  CC      drivers/tty/serial/8250/8250_port.o
+  CC      drivers/tty/serial/8250/8250_dma.o
+  CC      drivers/tty/serial/8250/8250_pci.o
+  CC      drivers/tty/serial/8250/8250_exar.o
+  CC      drivers/tty/serial/8250/8250_lpss.o
+  CC      drivers/tty/serial/8250/8250_mid.o
+  AR      drivers/tty/serial/8250/built-in.a
+  AR      drivers/tty/serial/built-in.a
+  CC      drivers/tty/vt/vt_ioctl.o
+  CC      drivers/tty/vt/vc_screen.o
+  CC      drivers/tty/vt/selection.o
+  CC      drivers/tty/vt/keyboard.o
+  CC      drivers/tty/vt/consolemap.o
+  CC      drivers/tty/vt/vt.o
+  AR      drivers/tty/vt/built-in.a
+  AR      drivers/tty/built-in.a
+  CC      drivers/usb/core/usb.o
+  CC      drivers/usb/core/hcd.o
+  CC      drivers/usb/core/urb.o
+  CC      drivers/usb/core/message.o
+  CC      drivers/usb/core/buffer.o
+  CC      drivers/usb/core/devio.o
+drivers/usb/core/devio.c: В функции «proc_do_submiturb»:
+drivers/usb/core/devio.c:1489:43: предупреждение: taking address of packed member of «struct usb_ctrlrequest» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1489 |   if (uurb->buffer_length < (le16_to_cpup(&dr->wLength) + 8)) {
+      |                                           ^~~~~~~~~~~~
+drivers/usb/core/devio.c:1494:24: предупреждение: taking address of packed member of «struct usb_ctrlrequest» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1494 |           le16_to_cpup(&dr->wIndex));
+      |                        ^~~~~~~~~~~
+drivers/usb/core/devio.c:1497:38: предупреждение: taking address of packed member of «struct usb_ctrlrequest» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1497 |   uurb->buffer_length = le16_to_cpup(&dr->wLength);
+      |                                      ^~~~~~~~~~~~
+In file included from ./include/linux/usb/ch9.h:36,
+                 from ./include/linux/usb.h:6,
+                 from drivers/usb/core/devio.c:32:
+drivers/usb/core/devio.c:1512:19: предупреждение: taking address of packed member of «struct usb_ctrlrequest» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1512 |    __le16_to_cpup(&dr->wValue),
+      |                   ^~~~~~~~~~~
+./include/linux/device.h:1489:33: замечание: в определении макроса «dev_info»
+ 1489 |  _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+drivers/usb/core/devio.c:1508:3: замечание: в расширении макроса «snoop»
+ 1508 |   snoop(&ps->dev->dev, "control urb: bRequestType=%02x "
+      |   ^~~~~
+drivers/usb/core/devio.c:1513:19: предупреждение: taking address of packed member of «struct usb_ctrlrequest» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1513 |    __le16_to_cpup(&dr->wIndex),
+      |                   ^~~~~~~~~~~
+./include/linux/device.h:1489:33: замечание: в определении макроса «dev_info»
+ 1489 |  _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+drivers/usb/core/devio.c:1508:3: замечание: в расширении макроса «snoop»
+ 1508 |   snoop(&ps->dev->dev, "control urb: bRequestType=%02x "
+      |   ^~~~~
+drivers/usb/core/devio.c:1514:19: предупреждение: taking address of packed member of «struct usb_ctrlrequest» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 1514 |    __le16_to_cpup(&dr->wLength));
+      |                   ^~~~~~~~~~~~
+./include/linux/device.h:1489:33: замечание: в определении макроса «dev_info»
+ 1489 |  _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
+      |                                 ^~~~~~~~~~~
+drivers/usb/core/devio.c:1508:3: замечание: в расширении макроса «snoop»
+ 1508 |   snoop(&ps->dev->dev, "control urb: bRequestType=%02x "
+      |   ^~~~~
+  CC      drivers/usb/core/devices.o
+  CC      drivers/usb/core/hcd-pci.o
+  CC      drivers/usb/core/usb-acpi.o
+  AR      drivers/usb/core/built-in.a
+  CC      drivers/usb/host/pci-quirks.o
+  CC      drivers/usb/host/ehci-hcd.o
+  CC      drivers/usb/host/ehci-pci.o
+  CC      drivers/usb/host/ohci-hcd.o
+  CC      drivers/usb/host/ohci-pci.o
+  CC      drivers/usb/host/uhci-hcd.o
+  AR      drivers/usb/host/built-in.a
+  CC      drivers/usb/mon/mon_text.o
+  CC      drivers/usb/mon/mon_bin.o
+  AR      drivers/usb/mon/built-in.a
+  CC      drivers/usb/serial/usb-serial.o
+  CC      drivers/usb/serial/generic.o
+  CC      drivers/usb/serial/bus.o
+  CC      drivers/usb/serial/ch341.o
+  AR      drivers/usb/serial/built-in.a
+  CC      drivers/usb/storage/scsiglue.o
+  CC      drivers/usb/storage/protocol.o
+  CC      drivers/usb/storage/transport.o
+  CC      drivers/usb/storage/usb.o
+  CC      drivers/usb/storage/initializers.o
+  CC      drivers/usb/storage/sierra_ms.o
+  CC      drivers/usb/storage/option_ms.o
+  AR      drivers/usb/storage/built-in.a
+  AR      drivers/usb/built-in.a
+  CC      drivers/video/console/dummycon.o
+  CC      drivers/video/console/vgacon.o
+  AR      drivers/video/console/built-in.a
+  CC      drivers/video/fbdev/aty/radeon_base.o
+  CC      drivers/video/fbdev/aty/radeon_pm.o
+  CC      drivers/video/fbdev/aty/radeon_monitor.o
+  CC      drivers/video/fbdev/aty/radeon_accel.o
+  CC      drivers/video/fbdev/aty/radeon_i2c.o
+  CC      drivers/video/fbdev/aty/radeon_backlight.o
+  AR      drivers/video/fbdev/aty/built-in.a
+  CC      drivers/video/fbdev/core/fbmem.o
+  CC      drivers/video/fbdev/core/fbmon.o
+  CC      drivers/video/fbdev/core/fb_defio.o
+  CC      drivers/video/fbdev/core/fbcon.o
+  CC      drivers/video/fbdev/core/bitblit.o
+  CC      drivers/video/fbdev/core/softcursor.o
+  CC      drivers/video/fbdev/core/tileblit.o
+  AR      drivers/video/fbdev/core/built-in.a
+  CC      drivers/video/fbdev/uvesafb.o
+  CC      drivers/video/fbdev/vesafb.o
+  CC      drivers/video/fbdev/efifb.o
+  AR      drivers/video/fbdev/built-in.a
+  AR      drivers/video/built-in.a
+  AR      drivers/built-in.a
+  CC      sound/core/control.o
+  CC      sound/core/misc.o
+  CC      sound/core/info.o
+  CC      sound/core/pcm.o
+  CC      sound/core/pcm_native.o
+  CC      sound/core/pcm_lib.o
+  CC      sound/core/pcm_misc.o
+  CC      sound/core/pcm_memory.o
+  CC      sound/core/memalloc.o
+  CC      sound/core/pcm_timer.o
+  CC      sound/core/sgbuf.o
+  CC      sound/core/rawmidi.o
+  CC      sound/core/oss/pcm_oss.o
+  CC      sound/core/oss/pcm_plugin.o
+  CC      sound/core/oss/io.o
+  CC      sound/core/oss/copy.o
+  CC      sound/core/oss/linear.o
+  CC      sound/core/oss/mulaw.o
+  CC      sound/core/oss/route.o
+  CC      sound/core/oss/rate.o
+  AR      sound/core/oss/built-in.a
+  AR      sound/core/built-in.a
+  CC      sound/drivers/vx/vx_core.o
+  CC      sound/drivers/vx/vx_hwdep.o
+  CC      sound/drivers/vx/vx_pcm.o
+  CC      sound/drivers/vx/vx_mixer.o
+  CC      sound/drivers/vx/vx_cmd.o
+  CC      sound/drivers/vx/vx_uer.o
+  AR      sound/drivers/vx/built-in.a
+  AR      sound/drivers/built-in.a
+  CC      sound/hda/hda_bus_type.o
+  CC      sound/hda/hdac_bus.o
+  CC      sound/hda/hdac_device.o
+  CC      sound/hda/hdac_sysfs.o
+  CC      sound/hda/hdac_regmap.o
+  CC      sound/hda/hdac_controller.o
+  CC      sound/hda/hdac_stream.o
+  CC      sound/hda/array.o
+  CC      sound/hda/hdmi_chmap.o
+  CC      sound/hda/trace.o
+  AR      sound/hda/built-in.a
+  CC      sound/i2c/other/ak4114.o
+  CC      sound/i2c/other/ak4113.o
+  AR      sound/i2c/other/built-in.a
+  CC      sound/i2c/cs8427.o
+  AR      sound/i2c/built-in.a
+  CC      sound/isa/sb/sb_common.o
+  CC      sound/isa/sb/sb_mixer.o
+  AR      sound/isa/sb/built-in.a
+  AR      sound/isa/built-in.a
+  CC      sound/pci/ad1889.o
+  CC      sound/pci/als300.o
+  CC      sound/pci/als4000.o
+  CC      sound/pci/atiixp.o
+  CC      sound/pci/atiixp_modem.o
+  CC      sound/pci/azt3328.o
+  CC      sound/pci/bt87x.o
+  CC      sound/pci/cmipci.o
+  CC      sound/pci/cs4281.o
+  CC      sound/pci/ens1370.o
+  CC      sound/pci/ens1371.o
+  CC      sound/pci/es1938.o
+  CC      sound/pci/es1968.o
+  CC      sound/pci/fm801.o
+  CC      sound/pci/intel8x0.o
+  CC      sound/pci/intel8x0m.o
+  CC      sound/pci/maestro3.o
+  CC      sound/pci/rme32.o
+  CC      sound/pci/rme96.o
+  CC      sound/pci/sonicvibes.o
+  CC      sound/pci/via82xx.o
+  CC      sound/pci/via82xx_modem.o
+  CC      sound/pci/ac97/ac97_codec.o
+  CC      sound/pci/ac97/ac97_pcm.o
+  CC      sound/pci/ac97/ac97_proc.o
+  AR      sound/pci/ac97/built-in.a
+  CC      sound/pci/ali5451/ali5451.o
+  AR      sound/pci/ali5451/built-in.a
+  CC      sound/pci/au88x0/au8810.o
+  CC      sound/pci/au88x0/au8820.o
+  CC      sound/pci/au88x0/au8830.o
+  AR      sound/pci/au88x0/built-in.a
+  CC      sound/pci/aw2/aw2-alsa.o
+  CC      sound/pci/aw2/aw2-saa7146.o
+  AR      sound/pci/aw2/built-in.a
+  CC      sound/pci/ca0106/ca0106_main.o
+  CC      sound/pci/ca0106/ca0106_mixer.o
+  CC      sound/pci/ca0106/ca0106_proc.o
+  AR      sound/pci/ca0106/built-in.a
+  CC      sound/pci/cs46xx/cs46xx.o
+  CC      sound/pci/cs46xx/cs46xx_lib.o
+  CC      sound/pci/cs46xx/dsp_spos.o
+  CC      sound/pci/cs46xx/dsp_spos_scb_lib.o
+  AR      sound/pci/cs46xx/built-in.a
+  CC      sound/pci/ctxfi/xfi.o
+  CC      sound/pci/ctxfi/ctatc.o
+  CC      sound/pci/ctxfi/ctvmem.o
+  CC      sound/pci/ctxfi/ctpcm.o
+  CC      sound/pci/ctxfi/ctmixer.o
+  CC      sound/pci/ctxfi/ctresource.o
+  CC      sound/pci/ctxfi/ctsrc.o
+  CC      sound/pci/ctxfi/ctamixer.o
+  CC      sound/pci/ctxfi/ctdaio.o
+  CC      sound/pci/ctxfi/cthardware.o
+  CC      sound/pci/ctxfi/cttimer.o
+  CC      sound/pci/ctxfi/cthw20k2.o
+  CC      sound/pci/ctxfi/cthw20k1.o
+  AR      sound/pci/ctxfi/built-in.a
+  CC      sound/pci/echoaudio/darla20.o
+  CC      sound/pci/echoaudio/gina20.o
+  CC      sound/pci/echoaudio/layla20.o
+  CC      sound/pci/echoaudio/darla24.o
+  CC      sound/pci/echoaudio/gina24.o
+  CC      sound/pci/echoaudio/layla24.o
+  CC      sound/pci/echoaudio/mona.o
+  CC      sound/pci/echoaudio/mia.o
+  CC      sound/pci/echoaudio/echo3g.o
+  CC      sound/pci/echoaudio/indigo.o
+  CC      sound/pci/echoaudio/indigoio.o
+  CC      sound/pci/echoaudio/indigodj.o
+  CC      sound/pci/echoaudio/indigoiox.o
+  CC      sound/pci/echoaudio/indigodjx.o
+  AR      sound/pci/echoaudio/built-in.a
+  CC      sound/pci/emu10k1/emu10k1.o
+  CC      sound/pci/emu10k1/emu10k1_main.o
+  CC      sound/pci/emu10k1/irq.o
+  CC      sound/pci/emu10k1/memory.o
+  CC      sound/pci/emu10k1/voice.o
+  CC      sound/pci/emu10k1/emumpu401.o
+  CC      sound/pci/emu10k1/emupcm.o
+  CC      sound/pci/emu10k1/io.o
+  CC      sound/pci/emu10k1/emumixer.o
+  CC      sound/pci/emu10k1/emufx.o
+  CC      sound/pci/emu10k1/timer.o
+  CC      sound/pci/emu10k1/p16v.o
+  CC      sound/pci/emu10k1/emuproc.o
+  CC      sound/pci/emu10k1/emu10k1_synth.o
+  CC      sound/pci/emu10k1/emu10k1_callback.o
+  CC      sound/pci/emu10k1/emu10k1_patch.o
+  CC      sound/pci/emu10k1/emu10k1x.o
+  AR      sound/pci/emu10k1/built-in.a
+  CC      sound/pci/hda/hda_bind.o
+  CC      sound/pci/hda/hda_codec.o
+  CC      sound/pci/hda/hda_jack.o
+  CC      sound/pci/hda/hda_auto_parser.o
+  CC      sound/pci/hda/hda_sysfs.o
+  CC      sound/pci/hda/hda_controller.o
+  CC      sound/pci/hda/hda_proc.o
+  CC      sound/pci/hda/hda_hwdep.o
+  CC      sound/pci/hda/hda_beep.o
+  CC      sound/pci/hda/hda_generic.o
+  CC      sound/pci/hda/patch_realtek.o
+  CC      sound/pci/hda/patch_cmedia.o
+  CC      sound/pci/hda/patch_analog.o
+  CC      sound/pci/hda/patch_sigmatel.o
+  CC      sound/pci/hda/patch_si3054.o
+  CC      sound/pci/hda/patch_cirrus.o
+  CC      sound/pci/hda/patch_ca0110.o
+  CC      sound/pci/hda/patch_conexant.o
+  CC      sound/pci/hda/patch_via.o
+  CC      sound/pci/hda/hda_intel.o
+  AR      sound/pci/hda/built-in.a
+  CC      sound/pci/ice1712/ice1712.o
+  CC      sound/pci/ice1712/delta.o
+  CC      sound/pci/ice1712/hoontech.o
+  CC      sound/pci/ice1712/ews.o
+  CC      sound/pci/ice1712/ak4xxx.o
+  CC      sound/pci/ice1712/ice1724.o
+  CC      sound/pci/ice1712/amp.o
+  CC      sound/pci/ice1712/revo.o
+  CC      sound/pci/ice1712/aureon.o
+  CC      sound/pci/ice1712/vt1720_mobo.o
+  CC      sound/pci/ice1712/pontis.o
+  CC      sound/pci/ice1712/prodigy192.o
+  CC      sound/pci/ice1712/prodigy_hifi.o
+  CC      sound/pci/ice1712/juli.o
+  CC      sound/pci/ice1712/phase.o
+  CC      sound/pci/ice1712/wtm.o
+  CC      sound/pci/ice1712/se.o
+  CC      sound/pci/ice1712/maya44.o
+  CC      sound/pci/ice1712/quartet.o
+  CC      sound/pci/ice1712/psc724.o
+  AR      sound/pci/ice1712/built-in.a
+  CC      sound/pci/korg1212/korg1212.o
+  AR      sound/pci/korg1212/built-in.a
+  CC      sound/pci/lx6464es/lx6464es.o
+  CC      sound/pci/lx6464es/lx_core.o
+  AR      sound/pci/lx6464es/built-in.a
+  CC      sound/pci/mixart/mixart.o
+  CC      sound/pci/mixart/mixart_core.o
+  CC      sound/pci/mixart/mixart_hwdep.o
+  CC      sound/pci/mixart/mixart_mixer.o
+  AR      sound/pci/mixart/built-in.a
+  CC      sound/pci/nm256/nm256.o
+  AR      sound/pci/nm256/built-in.a
+  CC      sound/pci/oxygen/oxygen_lib.o
+  CC      sound/pci/oxygen/oxygen_mixer.o
+  CC      sound/pci/oxygen/oxygen_pcm.o
+  CC      sound/pci/oxygen/oxygen.o
+  CC      sound/pci/oxygen/xonar_dg_mixer.o
+  CC      sound/pci/oxygen/xonar_dg.o
+  CC      sound/pci/oxygen/virtuoso.o
+  CC      sound/pci/oxygen/xonar_lib.o
+  CC      sound/pci/oxygen/xonar_pcm179x.o
+  CC      sound/pci/oxygen/xonar_cs43xx.o
+  CC      sound/pci/oxygen/xonar_wm87x6.o
+  CC      sound/pci/oxygen/xonar_hdmi.o
+  AR      sound/pci/oxygen/built-in.a
+  CC      sound/pci/pcxhr/pcxhr.o
+  CC      sound/pci/pcxhr/pcxhr_hwdep.o
+  CC      sound/pci/pcxhr/pcxhr_mixer.o
+  CC      sound/pci/pcxhr/pcxhr_core.o
+  CC      sound/pci/pcxhr/pcxhr_mix22.o
+  AR      sound/pci/pcxhr/built-in.a
+  CC      sound/pci/riptide/riptide.o
+  AR      sound/pci/riptide/built-in.a
+  CC      sound/pci/rme9652/rme9652.o
+  CC      sound/pci/rme9652/hdsp.o
+  CC      sound/pci/rme9652/hdspm.o
+  AR      sound/pci/rme9652/built-in.a
+  CC      sound/pci/trident/trident.o
+  CC      sound/pci/trident/trident_main.o
+  CC      sound/pci/trident/trident_memory.o
+  AR      sound/pci/trident/built-in.a
+  CC      sound/pci/vx222/vx222.o
+  CC      sound/pci/vx222/vx222_ops.o
+  AR      sound/pci/vx222/built-in.a
+  CC      sound/pci/ymfpci/ymfpci.o
+  CC      sound/pci/ymfpci/ymfpci_main.o
+  AR      sound/pci/ymfpci/built-in.a
+  AR      sound/pci/built-in.a
+  CC      sound/ac97_bus.o
+  AR      sound/built-in.a
+  CC      arch/x86/pci/i386.o
+  CC      arch/x86/pci/init.o
+  CC      arch/x86/pci/mmconfig_64.o
+  CC      arch/x86/pci/direct.o
+  CC      arch/x86/pci/mmconfig-shared.o
+  CC      arch/x86/pci/fixup.o
+  CC      arch/x86/pci/acpi.o
+  CC      arch/x86/pci/legacy.o
+  CC      arch/x86/pci/irq.o
+  CC      arch/x86/pci/common.o
+  CC      arch/x86/pci/early.o
+  CC      arch/x86/pci/bus_numa.o
+  CC      arch/x86/pci/amd_bus.o
+  AR      arch/x86/pci/built-in.a
+  CC      arch/x86/power/cpu.o
+arch/x86/power/cpu.c: В функции «__save_processor_state»:
+arch/x86/power/cpu.c:130:13: предупреждение: taking address of packed member of «struct saved_context» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  130 |             &ctxt->misc_enable);
+      |             ^~~~~~~~~~~~~~~~~~
+  CC      arch/x86/power/hibernate_64.o
+  CC      arch/x86/power/hibernate.o
+  AR      arch/x86/power/built-in.a
+  CC      arch/x86/video/fbdev.o
+  AR      arch/x86/video/built-in.a
+  CC      net/socket.o
+  CC      net/802/p8022.o
+  CC      net/802/psnap.o
+  CC      net/802/fddi.o
+  CC      net/802/stp.o
+  AR      net/802/built-in.a
+  CC      net/bpf/test_run.o
+  AR      net/bpf/built-in.a
+  CC      net/bridge/br.o
+  CC      net/bridge/br_device.o
+  CC      net/bridge/br_fdb.o
+  CC      net/bridge/br_forward.o
+  CC      net/bridge/br_if.o
+  CC      net/bridge/br_input.o
+  CC      net/bridge/br_ioctl.o
+  CC      net/bridge/br_stp.o
+  CC      net/bridge/br_stp_bpdu.o
+  CC      net/bridge/br_stp_if.o
+  CC      net/bridge/br_stp_timer.o
+  CC      net/bridge/br_netlink.o
+  CC      net/bridge/br_netlink_tunnel.o
+  CC      net/bridge/br_arp_nd_proxy.o
+  CC      net/bridge/br_sysfs_if.o
+  CC      net/bridge/br_sysfs_br.o
+  CC      net/bridge/br_multicast.o
+  CC      net/bridge/br_mdb.o
+  AR      net/bridge/built-in.a
+  CC      net/core/sock.o
+  CC      net/core/request_sock.o
+  CC      net/core/skbuff.o
+  CC      net/core/datagram.o
+  CC      net/core/stream.o
+  CC      net/core/scm.o
+  CC      net/core/gen_stats.o
+  CC      net/core/gen_estimator.o
+  CC      net/core/net_namespace.o
+  CC      net/core/secure_seq.o
+  CC      net/core/flow_dissector.o
+  CC      net/core/sysctl_net_core.o
+  CC      net/core/dev.o
+  CC      net/core/ethtool.o
+  CC      net/core/dev_addr_lists.o
+  CC      net/core/dst.o
+  CC      net/core/netevent.o
+  CC      net/core/neighbour.o
+  CC      net/core/rtnetlink.o
+  CC      net/core/utils.o
+  CC      net/core/link_watch.o
+  CC      net/core/filter.o
+  CC      net/core/sock_diag.o
+  CC      net/core/dev_ioctl.o
+  CC      net/core/tso.o
+  CC      net/core/sock_reuseport.o
+  CC      net/core/fib_notifier.o
+  CC      net/core/xdp.o
+  CC      net/core/net-sysfs.o
+  CC      net/core/net-procfs.o
+  CC      net/core/fib_rules.o
+  CC      net/core/net-traces.o
+  CC      net/core/ptp_classifier.o
+  CC      net/core/dst_cache.o
+  CC      net/core/gro_cells.o
+  AR      net/core/built-in.a
+  CC      net/ethernet/eth.o
+  AR      net/ethernet/built-in.a
+  CC      net/ipv4/route.o
+  CC      net/ipv4/inetpeer.o
+  CC      net/ipv4/protocol.o
+  CC      net/ipv4/ip_input.o
+  CC      net/ipv4/ip_fragment.o
+  CC      net/ipv4/ip_forward.o
+  CC      net/ipv4/ip_options.o
+  CC      net/ipv4/ip_output.o
+  CC      net/ipv4/ip_sockglue.o
+  CC      net/ipv4/inet_hashtables.o
+  CC      net/ipv4/inet_timewait_sock.o
+  CC      net/ipv4/inet_connection_sock.o
+  CC      net/ipv4/tcp.o
+  CC      net/ipv4/tcp_input.o
+  CC      net/ipv4/tcp_output.o
+  CC      net/ipv4/tcp_timer.o
+  CC      net/ipv4/tcp_ipv4.o
+  CC      net/ipv4/tcp_minisocks.o
+  CC      net/ipv4/tcp_cong.o
+  CC      net/ipv4/tcp_metrics.o
+  CC      net/ipv4/tcp_fastopen.o
+  CC      net/ipv4/tcp_rate.o
+  CC      net/ipv4/tcp_recovery.o
+  CC      net/ipv4/tcp_ulp.o
+  CC      net/ipv4/tcp_offload.o
+  CC      net/ipv4/datagram.o
+  CC      net/ipv4/raw.o
+  CC      net/ipv4/udp.o
+  CC      net/ipv4/udplite.o
+  CC      net/ipv4/udp_offload.o
+  CC      net/ipv4/arp.o
+  CC      net/ipv4/icmp.o
+  CC      net/ipv4/devinet.o
+  CC      net/ipv4/af_inet.o
+  CC      net/ipv4/igmp.o
+  CC      net/ipv4/fib_frontend.o
+  CC      net/ipv4/fib_semantics.o
+  CC      net/ipv4/fib_trie.o
+  CC      net/ipv4/fib_notifier.o
+  CC      net/ipv4/inet_fragment.o
+  CC      net/ipv4/ping.o
+  CC      net/ipv4/ip_tunnel_core.o
+  CC      net/ipv4/gre_offload.o
+  CC      net/ipv4/metrics.o
+  CC      net/ipv4/netlink.o
+  CC      net/ipv4/ip_tunnel.o
+  CC      net/ipv4/sysctl_net_ipv4.o
+  CC      net/ipv4/proc.o
+  CC      net/ipv4/fib_rules.o
+  CC      net/ipv4/ipmr.o
+  CC      net/ipv4/ipmr_base.o
+  CC      net/ipv4/syncookies.o
+  CC      net/ipv4/tunnel4.o
+  CC      net/ipv4/ipconfig.o
+  CC      net/ipv4/netfilter.o
+  CC      net/ipv4/netfilter/nf_defrag_ipv4.o
+  CC      net/ipv4/netfilter/nf_reject_ipv4.o
+  CC      net/ipv4/netfilter/ip_tables.o
+  CC      net/ipv4/netfilter/iptable_filter.o
+  CC      net/ipv4/netfilter/iptable_mangle.o
+  CC      net/ipv4/netfilter/ipt_REJECT.o
+  AR      net/ipv4/netfilter/built-in.a
+  CC [M]  net/ipv4/netfilter/nf_log_arp.o
+  CC [M]  net/ipv4/netfilter/nf_log_ipv4.o
+  CC [M]  net/ipv4/netfilter/iptable_nat.o
+  CC [M]  net/ipv4/netfilter/ipt_MASQUERADE.o
+  CC      net/ipv4/tcp_cubic.o
+  CC      net/ipv4/cipso_ipv4.o
+  CC      net/ipv4/xfrm4_policy.o
+  CC      net/ipv4/xfrm4_state.o
+  CC      net/ipv4/xfrm4_input.o
+  CC      net/ipv4/xfrm4_output.o
+  CC      net/ipv4/xfrm4_protocol.o
+  AR      net/ipv4/built-in.a
+  CC      net/ipv6/af_inet6.o
+  CC      net/ipv6/anycast.o
+  CC      net/ipv6/ip6_output.o
+  CC      net/ipv6/ip6_input.o
+  CC      net/ipv6/addrconf.o
+  CC      net/ipv6/addrlabel.o
+  CC      net/ipv6/route.o
+  CC      net/ipv6/ip6_fib.o
+  CC      net/ipv6/ipv6_sockglue.o
+  CC      net/ipv6/ndisc.o
+  CC      net/ipv6/udp.o
+  CC      net/ipv6/udplite.o
+  CC      net/ipv6/raw.o
+  CC      net/ipv6/icmp.o
+  CC      net/ipv6/mcast.o
+  CC      net/ipv6/reassembly.o
+  CC      net/ipv6/tcp_ipv6.o
+  CC      net/ipv6/ping.o
+  CC      net/ipv6/exthdrs.o
+  CC      net/ipv6/datagram.o
+  CC      net/ipv6/ip6_flowlabel.o
+  CC      net/ipv6/inet6_connection_sock.o
+  CC      net/ipv6/udp_offload.o
+  CC      net/ipv6/seg6.o
+  CC      net/ipv6/fib6_notifier.o
+  CC      net/ipv6/sysctl_net_ipv6.o
+  CC      net/ipv6/xfrm6_policy.o
+  CC      net/ipv6/xfrm6_state.o
+  CC      net/ipv6/xfrm6_input.o
+  CC      net/ipv6/xfrm6_output.o
+  CC      net/ipv6/xfrm6_protocol.o
+  CC      net/ipv6/netfilter.o
+  CC      net/ipv6/proc.o
+  CC      net/ipv6/syncookies.o
+  CC      net/ipv6/calipso.o
+  CC      net/ipv6/ah6.o
+  CC      net/ipv6/esp6.o
+  CC      net/ipv6/xfrm6_mode_transport.o
+  CC      net/ipv6/xfrm6_mode_tunnel.o
+  CC      net/ipv6/xfrm6_mode_beet.o
+  CC      net/ipv6/netfilter/ip6_tables.o
+  CC      net/ipv6/netfilter/ip6table_filter.o
+  CC      net/ipv6/netfilter/ip6table_mangle.o
+  CC      net/ipv6/netfilter/nf_defrag_ipv6_hooks.o
+  CC      net/ipv6/netfilter/nf_conntrack_reasm.o
+  CC      net/ipv6/netfilter/nf_reject_ipv6.o
+  CC      net/ipv6/netfilter/ip6t_ipv6header.o
+  CC      net/ipv6/netfilter/ip6t_REJECT.o
+  AR      net/ipv6/netfilter/built-in.a
+  CC [M]  net/ipv6/netfilter/nf_log_ipv6.o
+  CC      net/ipv6/sit.o
+  CC      net/ipv6/addrconf_core.o
+  CC      net/ipv6/exthdrs_core.o
+  CC      net/ipv6/ip6_checksum.o
+  CC      net/ipv6/ip6_icmp.o
+  CC      net/ipv6/output_core.o
+  CC      net/ipv6/protocol.o
+  CC      net/ipv6/ip6_offload.o
+  CC      net/ipv6/tcpv6_offload.o
+  CC      net/ipv6/exthdrs_offload.o
+  CC      net/ipv6/inet6_hashtables.o
+  CC      net/ipv6/mcast_snoop.o
+  AR      net/ipv6/built-in.a
+  CC      net/llc/llc_core.o
+  CC      net/llc/llc_input.o
+  CC      net/llc/llc_output.o
+  AR      net/llc/built-in.a
+  CC      net/mac80211/main.o
+  CC      net/mac80211/status.o
+  CC      net/mac80211/driver-ops.o
+  CC      net/mac80211/sta_info.o
+  CC      net/mac80211/wep.o
+  CC      net/mac80211/aead_api.o
+  CC      net/mac80211/wpa.o
+  CC      net/mac80211/scan.o
+  CC      net/mac80211/offchannel.o
+  CC      net/mac80211/ht.o
+  CC      net/mac80211/agg-tx.o
+  CC      net/mac80211/agg-rx.o
+  CC      net/mac80211/vht.o
+  CC      net/mac80211/he.o
+  CC      net/mac80211/ibss.o
+  CC      net/mac80211/iface.o
+  CC      net/mac80211/rate.o
+  CC      net/mac80211/michael.o
+  CC      net/mac80211/tkip.o
+  CC      net/mac80211/aes_cmac.o
+  CC      net/mac80211/aes_gmac.o
+  CC      net/mac80211/fils_aead.o
+  CC      net/mac80211/cfg.o
+  CC      net/mac80211/ethtool.o
+  CC      net/mac80211/rx.o
+net/mac80211/rx.c: В функции «ieee80211_add_rx_radiotap_header»:
+net/mac80211/rx.c:340:15: предупреждение: taking address of packed member of «struct ieee80211_radiotap_header» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  340 |  it_present = &rthdr->it_present;
+      |               ^~~~~~~~~~~~~~~~~~
+  CC      net/mac80211/spectmgmt.o
+  CC      net/mac80211/tx.o
+  CC      net/mac80211/key.o
+  CC      net/mac80211/util.o
+  CC      net/mac80211/wme.o
+  CC      net/mac80211/chan.o
+  CC      net/mac80211/trace.o
+  CC      net/mac80211/mlme.o
+  CC      net/mac80211/tdls.o
+  CC      net/mac80211/ocb.o
+  CC      net/mac80211/led.o
+  CC      net/mac80211/pm.o
+  CC      net/mac80211/rc80211_minstrel.o
+  CC      net/mac80211/rc80211_minstrel_ht.o
+  AR      net/mac80211/built-in.a
+  CC      net/netfilter/core.o
+  CC      net/netfilter/nf_log.o
+  CC      net/netfilter/nf_queue.o
+  CC      net/netfilter/nf_sockopt.o
+  CC      net/netfilter/utils.o
+  CC      net/netfilter/nfnetlink.o
+  CC      net/netfilter/nfnetlink_log.o
+  CC      net/netfilter/nf_conntrack_core.o
+  CC      net/netfilter/nf_conntrack_standalone.o
+  CC      net/netfilter/nf_conntrack_expect.o
+  CC      net/netfilter/nf_conntrack_helper.o
+  CC      net/netfilter/nf_conntrack_proto.o
+  CC      net/netfilter/nf_conntrack_proto_generic.o
+  CC      net/netfilter/nf_conntrack_proto_tcp.o
+  CC      net/netfilter/nf_conntrack_proto_udp.o
+  CC      net/netfilter/nf_conntrack_proto_icmp.o
+  CC      net/netfilter/nf_conntrack_extend.o
+  CC      net/netfilter/nf_conntrack_acct.o
+  CC      net/netfilter/nf_conntrack_seqadj.o
+  CC      net/netfilter/nf_conntrack_proto_icmpv6.o
+  CC      net/netfilter/nf_conntrack_netlink.o
+  CC      net/netfilter/nf_conntrack_ftp.o
+  CC      net/netfilter/nf_conntrack_irc.o
+  CC      net/netfilter/nf_conntrack_sip.o
+  CC      net/netfilter/x_tables.o
+  CC      net/netfilter/xt_tcpudp.o
+  CC      net/netfilter/xt_CONNSECMARK.o
+  CC      net/netfilter/xt_NFLOG.o
+  CC      net/netfilter/xt_SECMARK.o
+  CC      net/netfilter/xt_TCPMSS.o
+  CC      net/netfilter/xt_conntrack.o
+  CC      net/netfilter/xt_policy.o
+  CC      net/netfilter/xt_state.o
+  AR      net/netfilter/built-in.a
+  CC [M]  net/netfilter/nf_log_common.o
+  CC [M]  net/netfilter/nf_nat_core.o
+  CC [M]  net/netfilter/nf_nat_proto.o
+  CC [M]  net/netfilter/nf_nat_helper.o
+  CC [M]  net/netfilter/nf_nat_masquerade.o
+  LD [M]  net/netfilter/nf_nat.o
+  CC [M]  net/netfilter/nf_nat_ftp.o
+  CC [M]  net/netfilter/nf_nat_irc.o
+  CC [M]  net/netfilter/nf_nat_sip.o
+  CC [M]  net/netfilter/xt_mark.o
+  CC [M]  net/netfilter/xt_nat.o
+  CC [M]  net/netfilter/xt_LOG.o
+  CC [M]  net/netfilter/xt_addrtype.o
+  CC      net/netlabel/netlabel_user.o
+  CC      net/netlabel/netlabel_kapi.o
+  CC      net/netlabel/netlabel_domainhash.o
+  CC      net/netlabel/netlabel_addrlist.o
+  CC      net/netlabel/netlabel_mgmt.o
+  CC      net/netlabel/netlabel_unlabeled.o
+  CC      net/netlabel/netlabel_cipso_v4.o
+  CC      net/netlabel/netlabel_calipso.o
+  AR      net/netlabel/built-in.a
+  CC      net/netlink/af_netlink.o
+  CC      net/netlink/genetlink.o
+  AR      net/netlink/built-in.a
+  CC      net/packet/af_packet.o
+  AR      net/packet/built-in.a
+  CC      net/sched/sch_generic.o
+  CC      net/sched/sch_mq.o
+  CC      net/sched/sch_api.o
+  CC      net/sched/sch_blackhole.o
+  CC      net/sched/cls_api.o
+  CC      net/sched/act_api.o
+  CC      net/sched/sch_fifo.o
+  CC      net/sched/ematch.o
+  AR      net/sched/built-in.a
+  CC      net/sunrpc/clnt.o
+  CC      net/sunrpc/xprt.o
+  CC      net/sunrpc/socklib.o
+  CC      net/sunrpc/xprtsock.o
+  CC      net/sunrpc/sched.o
+  CC      net/sunrpc/auth.o
+  CC      net/sunrpc/auth_null.o
+  CC      net/sunrpc/auth_unix.o
+  CC      net/sunrpc/svc.o
+  CC      net/sunrpc/svcsock.o
+  CC      net/sunrpc/svcauth.o
+  CC      net/sunrpc/svcauth_unix.o
+  CC      net/sunrpc/addr.o
+  CC      net/sunrpc/rpcb_clnt.o
+  CC      net/sunrpc/timer.o
+  CC      net/sunrpc/xdr.o
+  CC      net/sunrpc/sunrpc_syms.o
+  CC      net/sunrpc/cache.o
+  CC      net/sunrpc/rpc_pipe.o
+  CC      net/sunrpc/svc_xprt.o
+  CC      net/sunrpc/xprtmultipath.o
+  CC      net/sunrpc/stats.o
+  CC      net/sunrpc/sysctl.o
+  AR      net/sunrpc/built-in.a
+  CC      net/unix/af_unix.o
+  CC      net/unix/garbage.o
+  CC      net/unix/sysctl_net_unix.o
+  CC      net/unix/scm.o
+  AR      net/unix/built-in.a
+  CC      net/wireless/core.o
+  CC      net/wireless/sysfs.o
+  CC      net/wireless/radiotap.o
+net/wireless/radiotap.c: В функции «ieee80211_radiotap_iterator_init»:
+net/wireless/radiotap.c:119:27: предупреждение: taking address of packed member of «struct ieee80211_radiotap_header» may result in an unaligned pointer value [-Waddress-of-packed-member]
+  119 |  iterator->_next_bitmap = &radiotap_header->it_present;
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      net/wireless/util.o
+  CC      net/wireless/reg.o
+  CC      net/wireless/scan.o
+  CC      net/wireless/nl80211.o
+  CC      net/wireless/mlme.o
+  CC      net/wireless/ibss.o
+  CC      net/wireless/sme.o
+  CC      net/wireless/chan.o
+  CC      net/wireless/ethtool.o
+  CC      net/wireless/mesh.o
+  CC      net/wireless/ap.o
+  CC      net/wireless/trace.o
+  CC      net/wireless/ocb.o
+  CC      net/wireless/pmsr.o
+  CC      net/wireless/shipped-certs.o
+  AR      net/wireless/built-in.a
+  CC      net/xfrm/xfrm_policy.o
+  CC      net/xfrm/xfrm_state.o
+  CC      net/xfrm/xfrm_hash.o
+  CC      net/xfrm/xfrm_input.o
+  CC      net/xfrm/xfrm_output.o
+  CC      net/xfrm/xfrm_sysctl.o
+  CC      net/xfrm/xfrm_replay.o
+  CC      net/xfrm/xfrm_device.o
+  CC      net/xfrm/xfrm_algo.o
+  CC      net/xfrm/xfrm_user.o
+  AR      net/xfrm/built-in.a
+  CC      net/compat.o
+  CC      net/sysctl_net.o
+  AR      net/built-in.a
+  CC      lib/bust_spinlocks.o
+  CC      lib/bitmap.o
+  CC      lib/scatterlist.o
+  CC      lib/iov_iter.o
+  CC      lib/bsearch.o
+  CC      lib/kfifo.o
+  CC      lib/rhashtable.o
+  CC      lib/bucket_locks.o
+  CC      lib/string_helpers.o
+  CC      lib/iomap.o
+  CC      lib/pci_iomap.o
+  CC      lib/devres.o
+  CC      lib/logic_pio.o
+  CC      lib/mpi/generic_mpih-lshift.o
+  CC      lib/mpi/generic_mpih-mul1.o
+  CC      lib/mpi/generic_mpih-mul2.o
+  CC      lib/mpi/generic_mpih-mul3.o
+  CC      lib/mpi/generic_mpih-rshift.o
+  CC      lib/mpi/generic_mpih-sub1.o
+  CC      lib/mpi/generic_mpih-add1.o
+  CC      lib/mpi/mpicoder.o
+  CC      lib/mpi/mpi-bit.o
+  CC      lib/mpi/mpi-cmp.o
+  CC      lib/mpi/mpih-cmp.o
+  CC      lib/mpi/mpih-div.o
+  CC      lib/mpi/mpih-mul.o
+  CC      lib/mpi/mpi-pow.o
+  CC      lib/mpi/mpiutil.o
+  AR      lib/mpi/built-in.a
+  CC      lib/error-inject.o
+  CC      lib/syscall.o
+  CC      lib/nlattr.o
+  CC      lib/net_utils.o
+  CC      lib/sg_pool.o
+  CC      lib/cpumask.o
+  CC      lib/dump_stack.o
+  CC      lib/ioremap.o
+  CC      lib/kobject_uevent.o
+  CC      lib/nmi_backtrace.o
+  CC      lib/show_mem.o
+  CC      lib/vsprintf.o
+  AR      lib/lib.a
+  EXPORTS lib/lib-ksyms.o
+  AR      lib/built-in.a
+  CC      arch/x86/lib/msr.o
+  CC      arch/x86/lib/error-inject.o
+  CC      arch/x86/lib/insn-eval.o
+  CC      arch/x86/lib/usercopy.o
+  CC      arch/x86/lib/usercopy_64.o
+  AR      arch/x86/lib/lib.a
+  EXPORTS arch/x86/lib/lib-ksyms.o
+  AR      arch/x86/lib/built-in.a
+  CC [M]  samples/hw_breakpoint/data_breakpoint.o
+  CC [M]  samples/kprobes/kprobe_example.o
+  CC [M]  samples/kprobes/kretprobe_example.o
+  CC [M]  samples/trace_events/trace-events-sample.o
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  AR      init/built-in.a
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  VOFFSET arch/x86/boot/compressed/../voffset.h
+  CC      arch/x86/boot/compressed/misc.o
+  OBJCOPY arch/x86/boot/compressed/vmlinux.bin
+  RELOCS  arch/x86/boot/compressed/vmlinux.relocs
+  GZIP    arch/x86/boot/compressed/vmlinux.bin.gz
+  MKPIGGY arch/x86/boot/compressed/piggy.S
+  AS      arch/x86/boot/compressed/piggy.o
+  CC      arch/x86/boot/compressed/kaslr.o
+  CC      arch/x86/boot/compressed/pgtable_64.o
+  CC      arch/x86/boot/compressed/acpi.o
+  LD      arch/x86/boot/compressed/vmlinux
+  ZOFFSET arch/x86/boot/zoffset.h
+  AS      arch/x86/boot/header.o
+  CC      arch/x86/boot/version.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  BUILD   arch/x86/boot/bzImage
+Setup is 16540 bytes (padded to 16896 bytes).
+System is 9421 kB
+CRC 188d5851
+Kernel: arch/x86/boot/bzImage is ready  (#60)
+  Building modules, stage 2.
+  MODPOST 24 modules
+  CC      drivers/gpu/drm/radeon/radeon.mod.o
+  LD [M]  drivers/gpu/drm/radeon/radeon.ko
+  CC      drivers/gpu/drm/ttm/ttm.mod.o
+  LD [M]  drivers/gpu/drm/ttm/ttm.ko
+  CC      drivers/thermal/intel/x86_pkg_temp_thermal.mod.o
+  LD [M]  drivers/thermal/intel/x86_pkg_temp_thermal.ko
+  CC      fs/efivarfs/efivarfs.mod.o
+  LD [M]  fs/efivarfs/efivarfs.ko
+  CC      net/ipv4/netfilter/ipt_MASQUERADE.mod.o
+  LD [M]  net/ipv4/netfilter/ipt_MASQUERADE.ko
+  CC      net/ipv4/netfilter/iptable_nat.mod.o
+  LD [M]  net/ipv4/netfilter/iptable_nat.ko
+  CC      net/ipv4/netfilter/nf_log_arp.mod.o
+  LD [M]  net/ipv4/netfilter/nf_log_arp.ko
+  CC      net/ipv4/netfilter/nf_log_ipv4.mod.o
+  LD [M]  net/ipv4/netfilter/nf_log_ipv4.ko
+  CC      net/ipv6/netfilter/nf_log_ipv6.mod.o
+  LD [M]  net/ipv6/netfilter/nf_log_ipv6.ko
+  CC      net/netfilter/nf_log_common.mod.o
+  LD [M]  net/netfilter/nf_log_common.ko
+  CC      net/netfilter/nf_nat.mod.o
+  LD [M]  net/netfilter/nf_nat.ko
+  CC      net/netfilter/nf_nat_ftp.mod.o
+  LD [M]  net/netfilter/nf_nat_ftp.ko
+  CC      net/netfilter/nf_nat_irc.mod.o
+  LD [M]  net/netfilter/nf_nat_irc.ko
+  CC      net/netfilter/nf_nat_sip.mod.o
+  LD [M]  net/netfilter/nf_nat_sip.ko
+  CC      net/netfilter/xt_LOG.mod.o
+  LD [M]  net/netfilter/xt_LOG.ko
+  CC      net/netfilter/xt_addrtype.mod.o
+  LD [M]  net/netfilter/xt_addrtype.ko
+  CC      net/netfilter/xt_mark.mod.o
+  LD [M]  net/netfilter/xt_mark.ko
+  CC      net/netfilter/xt_nat.mod.o
+  LD [M]  net/netfilter/xt_nat.ko
+  CC      samples/hw_breakpoint/data_breakpoint.mod.o
+  LD [M]  samples/hw_breakpoint/data_breakpoint.ko
+  CC      samples/kobject/kobject-example.mod.o
+  LD [M]  samples/kobject/kobject-example.ko
+  CC      samples/kobject/kset-example.mod.o
+  LD [M]  samples/kobject/kset-example.ko
+  CC      samples/kprobes/kprobe_example.mod.o
+  LD [M]  samples/kprobes/kprobe_example.ko
+  CC      samples/kprobes/kretprobe_example.mod.o
+  LD [M]  samples/kprobes/kretprobe_example.ko
+  CC      samples/trace_events/trace-events-sample.mod.o
+  LD [M]  samples/trace_events/trace-events-sample.ko

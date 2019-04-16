@@ -1,0 +1,733 @@
+CONFIG_SHELL="/bin/sh" /bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure --prefix=/usr --disable-multilib --disable-bootstrap --disable-libmpx --with-system-zlib --enable-languages=c,c++,lto --no-create --no-recursion
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln works... yes
+checking whether ln -s works... yes
+checking for a sed that does not truncate output... /bin/sed
+checking for gawk... gawk
+checking for libatomic support... yes
+checking for libitm support... yes
+checking for libsanitizer support... yes
+checking for libvtv support... yes
+checking for libhsail-rt support... yes
+checking for libphobos support... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking whether g++ accepts -static-libstdc++ -static-libgcc... yes
+checking for gnatbind... no
+checking for gnatmake... no
+checking whether compiler driver understands Ada... no
+checking how to compare bootstrapped objects... cmp --ignore-initial=16 $$f1 $$f2
+checking for objdir... .libs
+checking for the correct version of gmp.h... yes
+checking for the correct version of mpfr.h... yes
+checking for the correct version of mpc.h... yes
+checking for the correct version of the gmp/mpfr/mpc libraries... yes
+checking for isl 0.15 or later... no
+required isl version is 0.15 or later
+*** This configuration is not supported in the following subdirectories:
+     zlib gnattools gotools target-libada target-libhsail-rt target-libphobos target-zlib target-libbacktrace target-libgfortran target-libgo target-libffi target-libobjc target-liboffloadmic
+    (Any other directories should still work fine.)
+checking for default BUILD_CONFIG... 
+checking for --enable-vtable-verify... no
+checking for bison... bison -y
+checking for bison... bison
+checking for gm4... no
+checking for gnum4... no
+checking for m4... m4
+checking for flex... flex
+checking for flex... flex
+checking for makeinfo... makeinfo
+checking for expect... no
+checking for runtest... no
+checking for ar... ar
+checking for as... as
+checking for dlltool... no
+checking for ld... ld
+checking for lipo... no
+checking for nm... nm
+checking for ranlib... ranlib
+checking for strip... strip
+checking for windres... no
+checking for windmc... no
+checking for objcopy... objcopy
+checking for objdump... objdump
+checking for otool... no
+checking for readelf... readelf
+checking for cc... cc
+checking for c++... c++
+checking for gcc... gcc
+checking for gfortran... no
+checking for gccgo... no
+checking for gdc... no
+checking for ar... no
+checking for ar... ar
+checking for as... no
+checking for as... as
+checking for dlltool... no
+checking for dlltool... no
+checking for ld... no
+checking for ld... ld
+checking for lipo... no
+checking for lipo... no
+checking for nm... no
+checking for nm... nm
+checking for objcopy... no
+checking for objcopy... objcopy
+checking for objdump... no
+checking for objdump... objdump
+checking for otool... no
+checking for otool... no
+checking for ranlib... no
+checking for ranlib... ranlib
+checking for readelf... no
+checking for readelf... readelf
+checking for strip... no
+checking for strip... strip
+checking for windres... no
+checking for windres... no
+checking for windmc... no
+checking for windmc... no
+checking where to find the target ar... host tool
+checking where to find the target as... host tool
+checking where to find the target cc... just compiled
+checking where to find the target c++... just compiled
+checking where to find the target c++ for libstdc++... just compiled
+checking where to find the target dlltool... host tool
+checking where to find the target gcc... just compiled
+checking where to find the target gfortran... host tool
+checking where to find the target gccgo... host tool
+checking where to find the target gdc... host tool
+checking where to find the target ld... host tool
+checking where to find the target lipo... host tool
+checking where to find the target nm... host tool
+checking where to find the target objcopy... host tool
+checking where to find the target objdump... host tool
+checking where to find the target otool... host tool
+checking where to find the target ranlib... host tool
+checking where to find the target readelf... host tool
+checking where to find the target strip... host tool
+checking where to find the target windres... host tool
+checking where to find the target windmc... host tool
+checking whether to enable maintainer-specific portions of Makefiles... no
+configure: creating ./config.status
+CONFIG_FILES=Makefile CONFIG_HEADERS= /bin/sh ./config.status
+config.status: creating Makefile
+make[1]: вход в каталог «/media/sda3/src/gcc/build»
+make[2]: вход в каталог «/media/sda3/src/gcc/build/libiberty»
+make[3]: вход в каталог «/media/sda3/src/gcc/build/libiberty/testsuite»
+make[3]: Цель «all» не требует выполнения команд.
+make[3]: выход из каталога «/media/sda3/src/gcc/build/libiberty/testsuite»
+make[2]: выход из каталога «/media/sda3/src/gcc/build/libiberty»
+make[2]: вход в каталог «/media/sda3/src/gcc/build/fixincludes»
+make[2]: Цель «all» не требует выполнения команд.
+make[2]: выход из каталога «/media/sda3/src/gcc/build/fixincludes»
+make[2]: вход в каталог «/media/sda3/src/gcc/build/lto-plugin»
+make  all-am
+make[3]: вход в каталог «/media/sda3/src/gcc/build/lto-plugin»
+make[3]: выход из каталога «/media/sda3/src/gcc/build/lto-plugin»
+make[2]: выход из каталога «/media/sda3/src/gcc/build/lto-plugin»
+make[2]: вход в каталог «/media/sda3/src/gcc/build/intl»
+make[2]: Цель «all» не требует выполнения команд.
+make[2]: выход из каталога «/media/sda3/src/gcc/build/intl»
+make[2]: вход в каталог «/media/sda3/src/gcc/build/build-x86_64-pc-linux-gnu/libiberty»
+make[3]: вход в каталог «/media/sda3/src/gcc/build/build-x86_64-pc-linux-gnu/libiberty/testsuite»
+make[3]: Цель «all» не требует выполнения команд.
+make[3]: выход из каталога «/media/sda3/src/gcc/build/build-x86_64-pc-linux-gnu/libiberty/testsuite»
+make[2]: выход из каталога «/media/sda3/src/gcc/build/build-x86_64-pc-linux-gnu/libiberty»
+make[2]: вход в каталог «/media/sda3/src/gcc/build/build-x86_64-pc-linux-gnu/fixincludes»
+make[2]: Цель «all» не требует выполнения команд.
+make[2]: выход из каталога «/media/sda3/src/gcc/build/build-x86_64-pc-linux-gnu/fixincludes»
+make[2]: вход в каталог «/media/sda3/src/gcc/build/build-x86_64-pc-linux-gnu/libcpp»
+test -f config.h || (rm -f stamp-h1 && make stamp-h1)
+make[2]: выход из каталога «/media/sda3/src/gcc/build/build-x86_64-pc-linux-gnu/libcpp»
+make[2]: вход в каталог «/media/sda3/src/gcc/build/libbacktrace»
+make  all-am
+make[3]: вход в каталог «/media/sda3/src/gcc/build/libbacktrace»
+true  DO=all multi-do # make
+make[3]: выход из каталога «/media/sda3/src/gcc/build/libbacktrace»
+make[2]: выход из каталога «/media/sda3/src/gcc/build/libbacktrace»
+make[2]: вход в каталог «/media/sda3/src/gcc/build/libcpp»
+test -f config.h || (rm -f stamp-h1 && make stamp-h1)
+make[2]: выход из каталога «/media/sda3/src/gcc/build/libcpp»
+make[2]: вход в каталог «/media/sda3/src/gcc/build/libdecnumber»
+make[2]: Цель «all» не требует выполнения команд.
+make[2]: выход из каталога «/media/sda3/src/gcc/build/libdecnumber»
+make[2]: вход в каталог «/media/sda3/src/gcc/build/gcc»
+running CONFIG_SHELL=/bin/sh /bin/sh /usr/src/gcc/gcc/configure --srcdir=../../gcc --cache-file=./config.cache --prefix=/usr --disable-multilib --disable-bootstrap --disable-libmpx --with-system-zlib --enable-languages=c,c++,lto --program-transform-name=s,y,y, --disable-option-checking --build=x86_64-pc-linux-gnu --host=x86_64-pc-linux-gnu --target=x86_64-pc-linux-gnu build_alias=x86_64-pc-linux-gnu host_alias=x86_64-pc-linux-gnu target_alias=x86_64-pc-linux-gnu CC=gcc CFLAGS=-g -O2 LDFLAGS=-static-libstdc++ -static-libgcc  CXX=g++ CXXFLAGS=-g -O2 GMPLIBS=-lmpc -lmpfr -lgmp GMPINC= ISLLIBS= ISLINC= --no-create --no-recursion
+configure: loading cache ./config.cache
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) x86_64-pc-linux-gnu
+checking target system type... (cached) x86_64-pc-linux-gnu
+checking LIBRARY_PATH variable... ok
+checking GCC_EXEC_PREFIX variable... ok
+checking whether to place generated files in the source directory... no
+checking whether a default linker was specified... no
+checking whether a default assembler was specified... no
+checking for x86_64-pc-linux-gnu-gcc... (cached) gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether g++ accepts -g... (cached) yes
+checking for x86_64-pc-linux-gnu-gnatbind... (cached) no
+checking for x86_64-pc-linux-gnu-gnatmake... (cached) no
+checking whether compiler driver understands Ada... (cached) no
+checking how to run the C++ preprocessor... (cached) g++ -E
+checking for grep that handles long lines and -e... (cached) /bin/grep
+checking for egrep... (cached) /bin/grep -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for minix/config.h... (cached) no
+checking whether it is safe to define __EXTENSIONS__... (cached) yes
+checking how to run the C preprocessor... (cached) gcc -E
+checking for inline... (cached) inline
+checking for special C compiler options needed for large files... (cached) no
+checking for _FILE_OFFSET_BITS value needed for large files... (cached) no
+checking size of void *... (cached) 8
+checking size of short... (cached) 2
+checking size of int... (cached) 4
+checking size of long... (cached) 8
+checking for long long... (cached) yes
+checking size of long long... (cached) 8
+checking for int8_t... (cached) yes
+checking for int16_t... (cached) yes
+checking for int32_t... (cached) yes
+checking for int64_t... (cached) yes
+checking for unsigned long long int... (cached) yes
+checking for long long int... (cached) yes
+checking for intmax_t... (cached) yes
+checking for intptr_t... (cached) yes
+checking for uint8_t... (cached) yes
+checking for uint16_t... (cached) yes
+checking for uint32_t... (cached) yes
+checking for uint64_t... (cached) yes
+checking for uintmax_t... (cached) yes
+checking for uintptr_t... (cached) yes
+checking for int64_t underlying type... (cached) long
+checking for std::swap in <utility>... (cached) yes
+checking whether g++ is affected by placement new aliasing bug... no
+checking whether g++ supports -W... (cached) yes
+checking whether g++ supports -Wall... (cached) yes
+checking whether g++ supports -Wnarrowing... (cached) yes
+checking whether g++ supports -Wwrite-strings... (cached) yes
+checking whether g++ supports -Wcast-qual... (cached) yes
+checking whether gcc supports -Wstrict-prototypes... (cached) yes
+checking whether gcc supports -Wmissing-prototypes... (cached) yes
+checking whether g++ supports -Wmissing-format-attribute... (cached) yes
+checking whether g++ supports -Woverloaded-virtual... (cached) yes
+checking whether gcc supports -Wold-style-definition... (cached) yes
+checking whether gcc supports -Wc++-compat... (cached) yes
+checking whether g++ supports -pedantic -Wlong-long -Wvariadic-macros -Woverlength-strings... (cached) yes
+checking whether gcc supports -fno-exceptions... (cached) yes
+checking whether gcc supports -fno-rtti... (cached) yes
+checking whether gcc supports -fasynchronous-unwind-tables... (cached) yes
+checking for valgrind.h... (cached) no
+checking for VALGRIND_DISCARD in <valgrind/memcheck.h>... no
+checking for VALGRIND_DISCARD in <memcheck.h>... no
+checking for multiarch configuration... auto
+configure: WARNING: fixed-point is not supported for this target, ignored
+checking whether make sets $(MAKE)... (cached) yes
+checking for gawk... (cached) gawk
+checking whether ln -s works... (cached) yes
+checking whether ln works... (cached) yes
+checking for x86_64-pc-linux-gnu-ranlib... (cached) ranlib
+checking for a BSD compatible install... /usr/bin/install -c
+checking for cmp's capabilities... (cached) gnucompare
+checking for mktemp... (cached) yes
+checking for makeinfo... (cached) makeinfo --split-size=5000000
+checking for modern makeinfo... (cached) yes
+checking for recent Pod::Man... yes
+checking for flex... (cached) flex
+checking for bison... (cached) bison
+checking for nm... (cached) nm
+checking for ar... (cached) ar
+checking for sphinx-build... (cached) texinfo
+checking for ANSI C header files... (cached) yes
+checking whether time.h and sys/time.h may both be included... (cached) yes
+checking whether string.h and strings.h may both be included... (cached) yes
+checking for sys/wait.h that is POSIX.1 compatible... (cached) yes
+checking whether termios.h defines TIOCGWINSZ... (cached) no
+checking whether sys/ioctl.h defines TIOCGWINSZ... (cached) yes
+checking for limits.h... (cached) yes
+checking for stddef.h... (cached) yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for time.h... (cached) yes
+checking for iconv.h... (cached) yes
+checking for fcntl.h... (cached) yes
+checking for ftw.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/file.h... (cached) yes
+checking for sys/time.h... (cached) yes
+checking for sys/mman.h... (cached) yes
+checking for sys/resource.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for sys/times.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for direct.h... (cached) no
+checking for malloc.h... (cached) yes
+checking for langinfo.h... (cached) yes
+checking for ldfcn.h... (cached) no
+checking for locale.h... (cached) yes
+checking for wchar.h... (cached) yes
+checking for thread.h... (cached) no
+checking for pthread.h... (cached) yes
+checking for CHAR_BIT... (cached) yes
+checking whether byte ordering is bigendian... (cached) no
+checking how to run the C++ preprocessor... g++ -E
+checking for unordered_map... (cached) yes
+checking for tr1/unordered_map... (cached) yes
+checking for ext/hash_map... (cached) yes
+checking dependency style of g++... (cached) gcc3
+checking for collect2 libraries... (cached) none required
+checking for library containing exc_resume... (cached) no
+checking for library containing kstat_open... (cached) no
+checking for library containing ldexp... (cached) none required
+checking for library containing dlopen... (cached) -ldl
+checking for inttypes.h... (cached) yes
+checking for times... (cached) yes
+checking for clock... (cached) yes
+checking for kill... (cached) yes
+checking for getrlimit... (cached) yes
+checking for setrlimit... (cached) yes
+checking for atoq... (cached) no
+checking for popen... (cached) yes
+checking for sysconf... (cached) yes
+checking for strsignal... (cached) yes
+checking for getrusage... (cached) yes
+checking for nl_langinfo... (cached) yes
+checking for gettimeofday... (cached) yes
+checking for mbstowcs... (cached) yes
+checking for wcswidth... (cached) yes
+checking for mmap... (cached) yes
+checking for setlocale... (cached) yes
+checking for clearerr_unlocked... (cached) yes
+checking for feof_unlocked... (cached) yes
+checking for ferror_unlocked... (cached) yes
+checking for fflush_unlocked... (cached) yes
+checking for fgetc_unlocked... (cached) yes
+checking for fgets_unlocked... (cached) yes
+checking for fileno_unlocked... (cached) yes
+checking for fprintf_unlocked... (cached) no
+checking for fputc_unlocked... (cached) yes
+checking for fputs_unlocked... (cached) yes
+checking for fread_unlocked... (cached) yes
+checking for fwrite_unlocked... (cached) yes
+checking for getchar_unlocked... (cached) yes
+checking for getc_unlocked... (cached) yes
+checking for putchar_unlocked... (cached) yes
+checking for putc_unlocked... (cached) yes
+checking for madvise... (cached) yes
+checking whether mbstowcs works... (cached) yes
+checking for ssize_t... (cached) yes
+checking for caddr_t... (cached) yes
+checking for sys/mman.h... (cached) yes
+checking for mmap... (cached) yes
+checking whether read-only mmap of a plain file works... (cached) yes
+checking whether mmap from /dev/zero works... (cached) yes
+checking for MAP_ANON(YMOUS)... (cached) yes
+checking whether mmap with MAP_ANON(YMOUS) works... (cached) yes
+checking for pid_t... (cached) yes
+checking for vfork.h... (cached) no
+checking for fork... (cached) yes
+checking for vfork... (cached) yes
+checking for working fork... (cached) yes
+checking for working vfork... (cached) yes
+checking for ld used by GCC... (cached) ld
+checking if the linker (ld) is GNU ld... (cached) yes
+checking for shared library run path origin... (cached) done
+checking for iconv... (cached) yes
+checking for iconv declaration... (cached) 
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+checking for LC_MESSAGES... (cached) yes
+checking for nl_langinfo and CODESET... (cached) yes
+checking whether basename is declared... (cached) yes
+checking whether strstr is declared... (cached) yes
+checking whether getenv is declared... (cached) yes
+checking whether atol is declared... (cached) yes
+checking whether atoll is declared... (cached) yes
+checking whether asprintf is declared... (cached) yes
+checking whether sbrk is declared... (cached) yes
+checking whether abort is declared... (cached) yes
+checking whether atof is declared... (cached) yes
+checking whether getcwd is declared... (cached) yes
+checking whether getwd is declared... (cached) yes
+checking whether madvise is declared... (cached) yes
+checking whether stpcpy is declared... (cached) yes
+checking whether strnlen is declared... (cached) yes
+checking whether strsignal is declared... (cached) yes
+checking whether strverscmp is declared... (cached) yes
+checking whether strtol is declared... (cached) yes
+checking whether strtoul is declared... (cached) yes
+checking whether strtoll is declared... (cached) yes
+checking whether strtoull is declared... (cached) yes
+checking whether setenv is declared... (cached) yes
+checking whether unsetenv is declared... (cached) yes
+checking whether errno is declared... (cached) yes
+checking whether snprintf is declared... (cached) yes
+checking whether vsnprintf is declared... (cached) yes
+checking whether vasprintf is declared... (cached) yes
+checking whether malloc is declared... (cached) yes
+checking whether realloc is declared... (cached) yes
+checking whether calloc is declared... (cached) yes
+checking whether free is declared... (cached) yes
+checking whether getopt is declared... (cached) no
+checking whether clock is declared... (cached) yes
+checking whether getpagesize is declared... (cached) yes
+checking whether ffs is declared... (cached) yes
+checking whether clearerr_unlocked is declared... (cached) yes
+checking whether feof_unlocked is declared... (cached) yes
+checking whether ferror_unlocked is declared... (cached) yes
+checking whether fflush_unlocked is declared... (cached) yes
+checking whether fgetc_unlocked is declared... (cached) yes
+checking whether fgets_unlocked is declared... (cached) yes
+checking whether fileno_unlocked is declared... (cached) yes
+checking whether fprintf_unlocked is declared... (cached) no
+checking whether fputc_unlocked is declared... (cached) yes
+checking whether fputs_unlocked is declared... (cached) yes
+checking whether fread_unlocked is declared... (cached) yes
+checking whether fwrite_unlocked is declared... (cached) yes
+checking whether getchar_unlocked is declared... (cached) yes
+checking whether getc_unlocked is declared... (cached) yes
+checking whether putchar_unlocked is declared... (cached) yes
+checking whether putc_unlocked is declared... (cached) yes
+checking whether getrlimit is declared... (cached) yes
+checking whether setrlimit is declared... (cached) yes
+checking whether getrusage is declared... (cached) yes
+checking whether ldgetname is declared... (cached) no
+checking whether times is declared... (cached) yes
+checking whether sigaltstack is declared... (cached) yes
+checking for struct tms... (cached) yes
+checking for clock_t... (cached) yes
+checking for F_SETLKW... (cached) yes
+checking if mkdir takes one argument... (cached) no
+Using `../../gcc/config/i386/i386.c' for machine-specific logic.
+Using `../../gcc/config/i386/i386.md' as machine description file.
+Using the following target machine macro files:
+	../../gcc/config/vxworks-dummy.h
+	../../gcc/config/i386/biarch64.h
+	../../gcc/config/i386/i386.h
+	../../gcc/config/i386/unix.h
+	../../gcc/config/i386/att.h
+	../../gcc/config/dbxelf.h
+	../../gcc/config/elfos.h
+	../../gcc/config/gnu-user.h
+	../../gcc/config/glibc-stdint.h
+	../../gcc/config/i386/x86-64.h
+	../../gcc/config/i386/gnu-user-common.h
+	../../gcc/config/i386/gnu-user64.h
+	../../gcc/config/linux.h
+	../../gcc/config/linux-android.h
+	../../gcc/config/i386/linux-common.h
+	../../gcc/config/i386/linux64.h
+	../../gcc/config/initfini-array.h
+Using host-linux.o for host machine hooks.
+checking for __cxa_atexit... (cached) yes
+checking whether NLS is requested... yes
+checking for catalogs to be installed...  be da de el es fi fr hr id ja nl ru sr sv tr uk vi zh_CN zh_TW
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) sed
+checking for fgrep... (cached) /bin/grep -F
+checking for ld used by gcc... (cached) ld
+checking if the linker (ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) nm
+checking the name lister (nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for ld option to reload object files... (cached) -r
+checking for x86_64-pc-linux-gnu-objdump... (cached) objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for x86_64-pc-linux-gnu-ar... (cached) ar
+checking for x86_64-pc-linux-gnu-strip... (cached) strip
+checking for x86_64-pc-linux-gnu-ranlib... (cached) ranlib
+checking command to parse nm output from gcc object... (cached) ok
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if gcc supports -fno-rtti -fno-exceptions... (cached) no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... (cached) yes
+checking if gcc static flag -static works... (cached) yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... (cached) no
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... (cached) ld -m elf_x86_64
+checking if the linker (ld -m elf_x86_64) is GNU ld... (cached) yes
+checking whether the g++ linker (ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... (cached) yes
+checking if g++ static flag -static works... (cached) yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking what assembler to use... /usr/bin/as
+checking whether we are using gold... no
+checking gold linker with split stack support as non default... no
+checking what linker to use... /usr/bin/ld
+checking what nm to use... /usr/bin/nm
+checking what objdump to use... /usr/bin/objdump
+checking what readelf to use... /usr/bin/readelf
+checking what otool to use... not found
+checking assembler flags... (cached) --64
+checking assembler for .balign and .p2align... (cached) yes
+checking assembler for .p2align with maximum skip... (cached) yes
+checking assembler for .literal16... (cached) no
+checking assembler for working .subsection -1... (cached) yes
+checking assembler for .weak... (cached) yes
+checking assembler for .weakref... (cached) yes
+checking assembler for .nsubspa comdat... (cached) no
+checking assembler for .hidden... (cached) yes
+checking linker for .hidden support... (cached) yes
+checking linker read-only and read-write section mixing... read-write
+checking for .preinit_array/.init_array/.fini_array support... (cached) yes
+checking assembler for .sleb128 and .uleb128... (cached) yes
+checking assembler for cfi directives... (cached) yes
+checking assembler for working cfi advance... (cached) yes
+checking assembler for cfi personality directive... (cached) yes
+checking assembler for cfi sections directive... (cached) yes
+checking assembler for eh_frame optimization... (cached) yes
+checking assembler for section exclude flag... (cached) yes
+checking assembler for section merging support... (cached) yes
+checking assembler for stabs directive... (cached) yes
+checking assembler for COMDAT group support (GNU as)... (cached) yes
+checking assembler for line table is_stmt support... (cached) yes
+checking assembler for line table discriminator support... (cached) yes
+checking assembler for thread-local storage support... (cached) yes
+checking linker -Bstatic/-Bdynamic option... yes
+checking linker --version-script option... yes
+checking linker soname option... yes
+checking linker --demangle support... yes
+checking linker plugin support... 2
+checking assembler for -xbrace_comment... (cached) no
+checking assembler for filds and fists mnemonics... (cached) yes
+checking assembler for fildq and fistpq mnemonics... (cached) yes
+checking assembler for cmov syntax... (cached) no
+checking assembler for ffreep mnemonic... (cached) yes
+checking assembler for .quad directive... (cached) yes
+checking assembler for sahf mnemonic... (cached) yes
+checking assembler for interunit movq mnemonic... (cached) yes
+checking assembler for hle prefixes... (cached) yes
+checking assembler for swap suffix... (cached) yes
+checking assembler for different section symbol subtraction... (cached) yes
+checking assembler for rep and lock prefix... (cached) yes
+checking assembler for ud2 mnemonic... (cached) yes
+checking assembler for R_386_TLS_GD_PLT reloc... (cached) no
+checking assembler for R_386_TLS_LDM_PLT reloc... (cached) no
+checking assembler for R_386_TLS_LDM reloc... (cached) no
+checking assembler for R_386_GOT32X reloc... (cached) yes
+checking assembler for GOTOFF in data... (cached) yes
+checking assembler for calling ___tls_get_addr via GOT... (cached) yes
+checking assembler for dwarf2 debug_line support... (cached) yes
+checking assembler for buggy dwarf2 .file directive... (cached) no
+checking assembler for dwarf2 debug_view support... (cached) no
+checking assembler for --gdwarf2 option... (cached) yes
+checking assembler for --gstabs option... (cached) yes
+checking assembler for --debug-prefix-map option... (cached) yes
+checking assembler for compressed debug sections... (cached) 2
+checking assembler for .lcomm with alignment... (cached) no
+checking for target glibc version... 2.25
+checking assembler for gnu_unique_object... (cached) yes
+checking assembler for tolerance to line number 0... (cached) yes
+checking support for thin archives... yes
+checking linker PT_GNU_EH_FRAME support... yes
+checking linker CIEv3 in .eh_frame support... yes
+checking linker position independent executable support... yes
+checking linker PIE support with copy reloc... yes
+checking linker EH-compatible garbage collection of sections... yes
+checking linker EH garbage collection of sections bug... no
+checking linker for compressed debug sections... 3
+checking linker --as-needed support... (cached) yes
+checking linker mapfile support for clearing hardware capabilities... no
+checking linker --build-id support... (cached) yes
+checking linker *_sol2 emulation support... (cached) no
+checking linker --sysroot support... (cached) yes
+checking __stack_chk_fail in target C library... (cached) yes
+checking sys/sdt.h in the target C library... no
+checking dl_iterate_phdr in target C library... unknown
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking whether to avoid linking multiple front-ends at once... no
+Links are now set up to build a native compiler for x86_64-pc-linux-gnu.
+checking for exported symbols... yes
+checking for -rdynamic... yes
+checking for library containing dlopen... (cached) -ldl
+checking for -fPIC -shared... yes
+gcc_driver_version: 9.0.1
+checking for -fno-PIE option... (cached) yes
+checking for -no-pie option... (cached) yes
+checking linker -z bndplt option... yes
+checking linker --push-state/--pop-state options... yes
+configure: creating ./config.status
+LANGUAGES="c c++ lto" \
+CONFIG_HEADERS= \
+CONFIG_SHELL="/bin/sh" \
+CONFIG_FILES=Makefile /bin/sh config.status
+config.status: creating Makefile
+config.status: executing depdir commands
+config.status: executing gccdepdir commands
+config.status: executing default commands
+CONFIG_HEADERS=auto-host.h:config.in \
+CONFIG_FILES= \
+LANGUAGES="c c++ lto" /bin/sh config.status
+config.status: creating auto-host.h
+config.status: auto-host.h is unchanged
+config.status: executing depdir commands
+config.status: executing gccdepdir commands
+config.status: executing default commands
+TARGET_CPU_DEFAULT="" \
+HEADERS="auto-host.h ansidecl.h" DEFINES="" \
+/bin/sh ../../gcc/mkconfig.sh config.h
+config.h is unchanged
+TARGET_CPU_DEFAULT="" \
+HEADERS="options.h insn-constants.h config/vxworks-dummy.h config/i386/biarch64.h config/i386/i386.h config/i386/unix.h config/i386/att.h config/dbxelf.h config/elfos.h config/gnu-user.h config/glibc-stdint.h config/i386/x86-64.h config/i386/gnu-user-common.h config/i386/gnu-user64.h config/linux.h config/linux-android.h config/i386/linux-common.h config/i386/linux64.h config/initfini-array.h defaults.h" DEFINES="LIBC_GLIBC=1 LIBC_UCLIBC=2 LIBC_BIONIC=3 LIBC_MUSL=4 DEFAULT_LIBC=LIBC_GLIBC ANDROID_DEFAULT=0" \
+/bin/sh ../../gcc/mkconfig.sh tm.h
+tm.h is unchanged
+TARGET_CPU_DEFAULT="" \
+HEADERS="config/i386/i386-protos.h config/linux-protos.h tm-preds.h" DEFINES="" \
+/bin/sh ../../gcc/mkconfig.sh tm_p.h
+tm_p.h is unchanged
+TARGET_CPU_DEFAULT="" \
+HEADERS="auto-host.h ansidecl.h" DEFINES="" \
+/bin/sh ../../gcc/mkconfig.sh bconfig.h
+bconfig.h is unchanged
+g++ -c   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H  -DGENERATOR_FILE -fno-PIE -I. -Ibuild -I../../gcc -I../../gcc/build -I../../gcc/../include  -I../../gcc/../libcpp/include  \
+-DBASEVER="\"9.0.1\"" -DDATESTAMP="\" 20190416\"" \
+-DREVISION="\"\"" \
+-DDEVPHASE="\" (experimental)\"" -DPKGVERSION="\"(GCC) \"" \
+-DBUGURL="\"<https://gcc.gnu.org/bugs/>\"" -o build/version.o ../../gcc/version.c
+g++   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H  -DGENERATOR_FILE -fno-PIE -static-libstdc++ -static-libgcc  -no-pie -o build/gengtype \
+    build/gengtype.o build/errors.o build/gengtype-lex.o build/gengtype-parse.o build/gengtype-state.o build/version.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+LC_ALL=C ; export LC_ALL ; \
+gawk -f ../../gcc/opt-gather.awk ../../gcc/ada/gcc-interface/lang.opt ../../gcc/brig/lang.opt ../../gcc/d/lang.opt ../../gcc/fortran/lang.opt ../../gcc/go/lang.opt ../../gcc/lto/lang.opt ../../gcc/c-family/c.opt ../../gcc/common.opt ../../gcc/config/fused-madd.opt ../../gcc/config/i386/i386.opt ../../gcc/config/gnu-user.opt ../../gcc/config/linux.opt ../../gcc/config/linux-android.opt > tmp-optionlist
+/bin/sh ../../gcc/../move-if-change tmp-optionlist optionlist
+echo timestamp > s-options
+/bin/sh ../../gcc/../move-if-change tmp-gi.list gtyp-input.list
+echo timestamp > s-gtyp-input
+build/gengtype  \
+                    -S ../../gcc -I gtyp-input.list -w tmp-gtype.state
+/bin/sh ../../gcc/../move-if-change tmp-gtype.state gtype.state
+build/gengtype  \
+                    -r gtype.state
+echo timestamp > s-gtype
+TARGET_CPU_DEFAULT="" \
+HEADERS="options.h insn-constants.h config/i386/i386.h config/i386/i386-protos.h defaults.h" DEFINES="" \
+/bin/sh ../../gcc/mkconfig.sh tm_d.h
+tm_d.h is unchanged
+if test no = yes \
+   || test -n "m64=../lib m32=../lib mx32=../libx32"; then \
+  /bin/sh ../../gcc/genmultilib \
+    "m64/m32" \
+    " 64  32" \
+    "" \
+    "" \
+    "" \
+    "" \
+    "m64=../lib m32=../lib mx32=../libx32" \
+    "" \
+    "" \
+    "" \
+    "no" \
+    > tmp-mlib.h; \
+else \
+  /bin/sh ../../gcc/genmultilib '' '' '' '' '' '' '' '' \
+    "" '' no \
+    > tmp-mlib.h; \
+fi
+/bin/sh ../../gcc/../move-if-change tmp-mlib.h multilib.h
+echo timestamp > s-mlib
+lsf="../../gcc/cp/lang-specs.h ../../gcc/lto/lang-specs.h"; for f in $lsf; do \
+    echo "#include \"$f\""; \
+done | sed 's|../../gcc/||' > tmp-specs.h
+/bin/sh ../../gcc/../move-if-change tmp-specs.h specs.h
+echo timestamp > s-specs
+rm -f tmp-all-tree.def
+echo '#include "tree.def"' > tmp-all-tree.def
+echo 'END_OF_BASE_TREE_CODES' >> tmp-all-tree.def
+echo '#include "c-family/c-common.def"' >> tmp-all-tree.def
+ltf="../../gcc/ada/gcc-interface/ada-tree.def ../../gcc/cp/cp-tree.def ../../gcc/d/d-tree.def ../../gcc/objc/objc-tree.def"; for f in $ltf; do \
+  echo "#include \"$f\""; \
+done | sed 's|../../gcc/||' >> tmp-all-tree.def
+/bin/sh ../../gcc/../move-if-change tmp-all-tree.def all-tree.def
+echo timestamp > s-alltree
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-lang.o -MT c/c-lang.o -MMD -MP -MF c/.deps/c-lang.TPo ../../gcc/c/c-lang.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/stub-objc.o -MT c-family/stub-objc.o -MMD -MP -MF c-family/.deps/stub-objc.TPo ../../gcc/c-family/stub-objc.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -I. -I../../gcc -I../../gcc/. -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o attribs.o -MT attribs.o -MMD -MP -MF ./.deps/attribs.TPo ../../gcc/attribs.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-errors.o -MT c/c-errors.o -MMD -MP -MF c/.deps/c-errors.TPo ../../gcc/c/c-errors.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-decl.o -MT c/c-decl.o -MMD -MP -MF c/.deps/c-decl.TPo ../../gcc/c/c-decl.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-typeck.o -MT c/c-typeck.o -MMD -MP -MF c/.deps/c-typeck.TPo ../../gcc/c/c-typeck.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-convert.o -MT c/c-convert.o -MMD -MP -MF c/.deps/c-convert.TPo ../../gcc/c/c-convert.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-aux-info.o -MT c/c-aux-info.o -MMD -MP -MF c/.deps/c-aux-info.TPo ../../gcc/c/c-aux-info.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-objc-common.o -MT c/c-objc-common.o -MMD -MP -MF c/.deps/c-objc-common.TPo ../../gcc/c/c-objc-common.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-parser.o -MT c/c-parser.o -MMD -MP -MF c/.deps/c-parser.TPo ../../gcc/c/c-parser.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/c-fold.o -MT c/c-fold.o -MMD -MP -MF c/.deps/c-fold.TPo ../../gcc/c/c-fold.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic -I../../gcc -I../../gcc/c -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c/gimple-parser.o -MT c/gimple-parser.o -MMD -MP -MF c/.deps/gimple-parser.TPo ../../gcc/c/gimple-parser.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-common.o -MT c-family/c-common.o -MMD -MP -MF c-family/.deps/c-common.TPo ../../gcc/c-family/c-common.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-cppbuiltin.o -MT c-family/c-cppbuiltin.o -MMD -MP -MF c-family/.deps/c-cppbuiltin.TPo ../../gcc/c-family/c-cppbuiltin.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-dump.o -MT c-family/c-dump.o -MMD -MP -MF c-family/.deps/c-dump.TPo ../../gcc/c-family/c-dump.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-format.o -MT c-family/c-format.o -MMD -MP -MF c-family/.deps/c-format.TPo ../../gcc/c-family/c-format.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-gimplify.o -MT c-family/c-gimplify.o -MMD -MP -MF c-family/.deps/c-gimplify.TPo ../../gcc/c-family/c-gimplify.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-indentation.o -MT c-family/c-indentation.o -MMD -MP -MF c-family/.deps/c-indentation.TPo ../../gcc/c-family/c-indentation.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-lex.o -MT c-family/c-lex.o -MMD -MP -MF c-family/.deps/c-lex.TPo ../../gcc/c-family/c-lex.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-omp.o -MT c-family/c-omp.o -MMD -MP -MF c-family/.deps/c-omp.TPo ../../gcc/c-family/c-omp.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND  -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-opts.o -MT c-family/c-opts.o -MMD -MP -MF c-family/.deps/c-opts.TPo ../../gcc/c-family/c-opts.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -DHOST_MACHINE=\"x86_64-pc-linux-gnu\" -DTARGET_MACHINE=\"x86_64-pc-linux-gnu\" -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-pch.o -MT c-family/c-pch.o -MMD -MP -MF c-family/.deps/c-pch.TPo ../../gcc/c-family/c-pch.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-ppoutput.o -MT c-family/c-ppoutput.o -MMD -MP -MF c-family/.deps/c-ppoutput.TPo ../../gcc/c-family/c-ppoutput.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-pragma.o -MT c-family/c-pragma.o -MMD -MP -MF c-family/.deps/c-pragma.TPo ../../gcc/c-family/c-pragma.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-pretty-print.o -MT c-family/c-pretty-print.o -MMD -MP -MF c-family/.deps/c-pretty-print.TPo ../../gcc/c-family/c-pretty-print.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-semantics.o -MT c-family/c-semantics.o -MMD -MP -MF c-family/.deps/c-semantics.TPo ../../gcc/c-family/c-semantics.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-ada-spec.o -MT c-family/c-ada-spec.o -MMD -MP -MF c-family/.deps/c-ada-spec.TPo ../../gcc/c-family/c-ada-spec.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-ubsan.o -MT c-family/c-ubsan.o -MMD -MP -MF c-family/.deps/c-ubsan.TPo ../../gcc/c-family/c-ubsan.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/known-headers.o -MT c-family/known-headers.o -MMD -MP -MF c-family/.deps/known-headers.TPo ../../gcc/c-family/known-headers.cc
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-attribs.o -MT c-family/c-attribs.o -MMD -MP -MF c-family/.deps/c-attribs.TPo ../../gcc/c-family/c-attribs.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-warn.o -MT c-family/c-warn.o -MMD -MP -MF c-family/.deps/c-warn.TPo ../../gcc/c-family/c-warn.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -Ic-family -I../../gcc -I../../gcc/c-family -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o c-family/c-spellcheck.o -MT c-family/c-spellcheck.o -MMD -MP -MF c-family/.deps/c-spellcheck.TPo ../../gcc/c-family/c-spellcheck.cc
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -I. -I../../gcc -I../../gcc/. -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o i386-c.o -MT i386-c.o -MMD -MP -MF ./.deps/i386-c.TPo ../../gcc/config/i386/i386-c.c
+g++ -fno-PIE -c  -DIN_GCC_FRONTEND -DIN_GCC_FRONTEND -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -I. -I../../gcc -I../../gcc/. -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o glibc-c.o -MT glibc-c.o -MMD -MP -MF ./.deps/glibc-c.TPo ../../gcc/config/glibc-c.c
+g++ -fno-PIE -c   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common -Wno-unused -DHAVE_CONFIG_H -I. -I. -I../../gcc -I../../gcc/. -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o gimple-match.o -MT gimple-match.o -MMD -MP -MF ./.deps/gimple-match.TPo gimple-match.c
+g++ -fno-PIE -c   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common -Wno-unused -DHAVE_CONFIG_H -I. -I. -I../../gcc -I../../gcc/. -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o generic-match.o -MT generic-match.o -MMD -MP -MF ./.deps/generic-match.TPo generic-match.c
+g++ -fno-PIE -c   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -I. -I../../gcc -I../../gcc/. -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o insn-attrtab.o -MT insn-attrtab.o -MMD -MP -MF ./.deps/insn-attrtab.TPo insn-attrtab.c
+g++ -fno-PIE -c   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -I. -I../../gcc -I../../gcc/. -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o insn-automata.o -MT insn-automata.o -MMD -MP -MF ./.deps/insn-automata.TPo insn-automata.c
+g++ -fno-PIE -c   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -I. -I../../gcc -I../../gcc/. -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o insn-dfatab.o -MT insn-dfatab.o -MMD -MP -MF ./.deps/insn-dfatab.TPo insn-dfatab.c
+g++ -fno-PIE -c   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -I. -I../../gcc -I../../gcc/. -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o insn-emit.o -MT insn-emit.o -MMD -MP -MF ./.deps/insn-emit.TPo insn-emit.c
+g++ -fno-PIE -c   -g -O2 -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings -fno-common  -DHAVE_CONFIG_H -I. -I. -I../../gcc -I../../gcc/. -I../../gcc/../include -I../../gcc/../libcpp/include  -I../../gcc/../libdecnumber -I../../gcc/../libdecnumber/bid -I../libdecnumber -I../../gcc/../libbacktrace   -o insn-latencytab.o -MT insn-latencytab.o -MMD -MP -MF ./.deps/insn-latencytab.TPo insn-latencytab.c
+make[2]: *** [Makefile:1116: insn-latencytab.o] Прерывание
+make[1]: *** [Makefile:4322: all-gcc] Прерывание
+make: *** [Makefile:956: all] Прерывание

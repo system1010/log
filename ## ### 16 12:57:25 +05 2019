@@ -1,0 +1,92 @@
+[WARN]: Zenity not available, will fallback to console users dialogs.
+[INFO]: Colobot: Gold Edition 0.1.11.1-alpha starting
+[INFO]: Creating CApplication
+[INFO]: Data path: /media/sda3/usr/share/games/colobot
+[INFO]: Save path: /root/.local/share/colobot
+[INFO]: Opening audio device...
+[INFO]: Done.
+[INFO]: CApplication created successfully
+[INFO]: Error on parsing config file: No such node (Experimental.OpenGLVersion)
+[INFO]: Error on parsing config file: No such node (Experimental.OpenGLProfile)
+[INFO]: Error on parsing config file: No such node (Experimental.MSAA)
+[INFO]: Error on parsing config file: No such node (Experimental.VSync)
+[INFO]: No joysticks detected
+[INFO]: Error on parsing config file: No such node (Experimental.GraphicsDevice)
+[INFO]: Creating CDevice - OpenGL 1.4
+[INFO]: OpenGL 3.0 Mesa 17.1.6
+[INFO]: Gallium 0.4 on AMD KABINI (DRM 2.50.0 / 5.1.0-rc4+, LLVM 4.0.1)
+[INFO]: Shadow mapping available (core)
+[INFO]: Anisotropic filtering available
+[INFO]: Maximum anisotropy: 16
+[INFO]: Multisampling supported, max samples: 8
+[INFO]: Auto-detecting VBO support
+[INFO]: Core VBO supported
+[INFO]: Maximum texture units: 8
+[INFO]: Maximum texture size: 16384
+[INFO]: Framebuffer supported (ARB)
+[INFO]: Maximum renderbuffer size: 16384
+[INFO]: CDevice created successfully
+[INFO]: Closing joystick
+[WARN]: Could not load file music/Intro1.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro2.ogg. Reason: Could not load file
+[INFO]: Created shadow map texture: 1024x1024, depth 32
+[WARN]: Could not load file music/Intro1.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro2.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro1.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro2.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro1.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro2.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro1.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro2.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro1.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro2.ogg. Reason: Could not load file
+[INFO]: Reseting world on phase change...
+[INFO]: Simulation speed = 1.00
+[INFO]: Loading level: levels/exercises/chapter002/level006/scene.txt
+[WARN]: This level is using deprecated way of defining win scene. Please change the win= parameter in EndingFile from 4 to "levels/other/win004.txt".
+[WARN]: This level is using deprecated way of defining lost scene. Please change the lost= parameter in EndingFile from 0 to "levels/other/lost000.txt".
+[ERROR]: Error opening file with PHYSFS: "textures/shadow00.png"
+[ERROR]: Couldn't load texture 'textures/shadow00.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow01.png"
+[ERROR]: Couldn't load texture 'textures/shadow01.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow02.png"
+[ERROR]: Couldn't load texture 'textures/shadow02.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow03.png"
+[ERROR]: Couldn't load texture 'textures/shadow03.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow04.png"
+[ERROR]: Couldn't load texture 'textures/shadow04.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow05.png"
+[ERROR]: Couldn't load texture 'textures/shadow05.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow06.png"
+[ERROR]: Couldn't load texture 'textures/shadow06.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow07.png"
+[ERROR]: Couldn't load texture 'textures/shadow07.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow08.png"
+[ERROR]: Couldn't load texture 'textures/shadow08.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow09.png"
+[ERROR]: Couldn't load texture 'textures/shadow09.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow10.png"
+[ERROR]: Couldn't load texture 'textures/shadow10.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow11.png"
+[ERROR]: Couldn't load texture 'textures/shadow11.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow12.png"
+[ERROR]: Couldn't load texture 'textures/shadow12.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow13.png"
+[ERROR]: Couldn't load texture 'textures/shadow13.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow14.png"
+[ERROR]: Couldn't load texture 'textures/shadow14.png': Unable to open file, blacklisting
+[ERROR]: Error opening file with PHYSFS: "textures/shadow15.png"
+[ERROR]: Couldn't load texture 'textures/shadow15.png': Unable to open file, blacklisting
+[INFO]: Start suspend
+[WARN]: Creating non-power-of-2 texture (200x150)!
+[INFO]: Stop suspend
+[INFO]: Reseting world on phase change...
+[INFO]: Simulation speed = 1.00
+[WARN]: Could not load file music/Intro1.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro2.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro1.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro2.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro1.ogg. Reason: Could not load file
+[WARN]: Could not load file music/Intro2.ogg. Reason: Could not load file
+[INFO]: Exiting with code 0
+[INFO]: Unloading files and closing device...
