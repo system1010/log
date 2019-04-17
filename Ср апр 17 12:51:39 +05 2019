@@ -1,0 +1,192 @@
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  DESCEND  objtool
+  CHK     include/generated/compile.h
+  CC      arch/x86/kernel/cpu/bugs.o
+  AR      arch/x86/kernel/cpu/built-in.a
+  CC      arch/x86/kernel/reboot.o
+  CC      arch/x86/kernel/smp.o
+  CC      arch/x86/kernel/crash.o
+  AR      arch/x86/kernel/built-in.a
+  CC      arch/x86/kvm/../../../virt/kvm/kvm_main.o
+  CC      arch/x86/kvm/../../../virt/kvm/coalesced_mmio.o
+  CC      arch/x86/kvm/../../../virt/kvm/eventfd.o
+  CC      arch/x86/kvm/../../../virt/kvm/irqchip.o
+  CC      arch/x86/kvm/../../../virt/kvm/vfio.o
+  CC      arch/x86/kvm/../../../virt/kvm/async_pf.o
+  CC      arch/x86/kvm/x86.o
+In file included from ./arch/x86/include/asm/atomic.h:265,
+                 from ./include/linux/atomic.h:7,
+                 from ./include/linux/jump_label.h:246,
+                 from ./arch/x86/include/asm/string_64.h:6,
+                 from ./arch/x86/include/asm/string.h:5,
+                 from ./include/linux/string.h:20,
+                 from ./include/linux/bitmap.h:9,
+                 from ./include/linux/cpumask.h:12,
+                 from ./arch/x86/include/asm/cpumask.h:5,
+                 from ./arch/x86/include/asm/msr.h:11,
+                 from ./arch/x86/include/asm/processor.h:21,
+                 from ./arch/x86/include/asm/cpufeature.h:5,
+                 from ./arch/x86/include/asm/thread_info.h:53,
+                 from ./include/linux/thread_info.h:38,
+                 from ./arch/x86/include/asm/preempt.h:7,
+                 from ./include/linux/preempt.h:78,
+                 from ./include/linux/hardirq.h:5,
+                 from ./include/linux/kvm_host.h:10,
+                 from arch/x86/kvm/x86.c:22:
+./arch/x86/include/asm/mshyperv.h: В функции «vmbus_signal_eom»:
+./arch/x86/include/asm/mshyperv.h:61:14: предупреждение: taking address of packed member of «struct hv_message_header» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   61 |  if (cmpxchg(&msg->header.message_type, old_msg_type,
+./include/asm-generic/atomic-instrumented.h:1682:26: замечание: в определении макроса «cmpxchg»
+ 1682 |  typeof(ptr) __ai_ptr = (ptr);     \
+      |                          ^~~
+arch/x86/kvm/x86.c: В функции «get_kvmclock_ns»:
+arch/x86/kvm/x86.c:2064:8: предупреждение: taking address of packed member of «struct pvclock_vcpu_time_info» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 2064 |        &hv_clock.tsc_to_system_mul);
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+arch/x86/kvm/x86.c: В функции «kvm_guest_time_update»:
+arch/x86/kvm/x86.c:2199:8: предупреждение: taking address of packed member of «struct pvclock_vcpu_time_info» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 2199 |        &vcpu->hv_clock.tsc_to_system_mul);
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      arch/x86/kvm/mmu.o
+  CC      arch/x86/kvm/emulate.o
+arch/x86/kvm/emulate.c: В функции «em_lgdt_lidt»:
+arch/x86/kvm/emulate.c:3841:9: предупреждение: taking address of packed member of «struct desc_ptr» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 3841 |         &desc_ptr.size, &desc_ptr.address,
+      |         ^~~~~~~~~~~~~~
+arch/x86/kvm/emulate.c:3841:25: предупреждение: taking address of packed member of «struct desc_ptr» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 3841 |         &desc_ptr.size, &desc_ptr.address,
+      |                         ^~~~~~~~~~~~~~~~~
+  CC      arch/x86/kvm/i8259.o
+  CC      arch/x86/kvm/irq.o
+  CC      arch/x86/kvm/lapic.o
+  CC      arch/x86/kvm/i8254.o
+  CC      arch/x86/kvm/ioapic.o
+  CC      arch/x86/kvm/irq_comm.o
+  CC      arch/x86/kvm/cpuid.o
+  CC      arch/x86/kvm/pmu.o
+  CC      arch/x86/kvm/mtrr.o
+  CC      arch/x86/kvm/hyperv.o
+  CC      arch/x86/kvm/page_track.o
+  CC      arch/x86/kvm/debugfs.o
+  CC      arch/x86/kvm/vmx/vmx.o
+In file included from ./arch/x86/include/asm/atomic.h:265,
+                 from ./include/linux/atomic.h:7,
+                 from ./include/linux/jump_label.h:246,
+                 from ./arch/x86/include/asm/string_64.h:6,
+                 from ./arch/x86/include/asm/string.h:5,
+                 from ./include/linux/string.h:20,
+                 from ./include/linux/bitmap.h:9,
+                 from ./include/linux/cpumask.h:12,
+                 from ./arch/x86/include/asm/cpumask.h:5,
+                 from ./arch/x86/include/asm/msr.h:11,
+                 from ./arch/x86/include/asm/processor.h:21,
+                 from ./arch/x86/include/asm/cpufeature.h:5,
+                 from ./arch/x86/include/asm/thread_info.h:53,
+                 from ./include/linux/thread_info.h:38,
+                 from ./arch/x86/include/asm/preempt.h:7,
+                 from ./include/linux/preempt.h:78,
+                 from ./include/linux/spinlock.h:51,
+                 from ./include/linux/wait.h:9,
+                 from ./include/linux/wait_bit.h:8,
+                 from ./include/linux/fs.h:6,
+                 from ./include/linux/highmem.h:5,
+                 from arch/x86/kvm/vmx/vmx.c:20:
+./arch/x86/include/asm/mshyperv.h: В функции «vmbus_signal_eom»:
+./arch/x86/include/asm/mshyperv.h:61:14: предупреждение: taking address of packed member of «struct hv_message_header» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   61 |  if (cmpxchg(&msg->header.message_type, old_msg_type,
+./include/asm-generic/atomic-instrumented.h:1682:26: замечание: в определении макроса «cmpxchg»
+ 1682 |  typeof(ptr) __ai_ptr = (ptr);     \
+      |                          ^~~
+  CC      arch/x86/kvm/vmx/pmu_intel.o
+  CC      arch/x86/kvm/vmx/vmcs12.o
+  CC      arch/x86/kvm/vmx/evmcs.o
+In file included from ./arch/x86/include/asm/atomic.h:265,
+                 from ./include/linux/atomic.h:7,
+                 from ./include/linux/jump_label.h:246,
+                 from ./arch/x86/include/asm/string_64.h:6,
+                 from ./arch/x86/include/asm/string.h:5,
+                 from ./include/linux/string.h:20,
+                 from ./include/linux/bitmap.h:9,
+                 from ./include/linux/cpumask.h:12,
+                 from ./include/linux/smp.h:13,
+                 from arch/x86/kvm/vmx/evmcs.c:4:
+./arch/x86/include/asm/mshyperv.h: В функции «vmbus_signal_eom»:
+./arch/x86/include/asm/mshyperv.h:61:14: предупреждение: taking address of packed member of «struct hv_message_header» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   61 |  if (cmpxchg(&msg->header.message_type, old_msg_type,
+./include/asm-generic/atomic-instrumented.h:1682:26: замечание: в определении макроса «cmpxchg»
+ 1682 |  typeof(ptr) __ai_ptr = (ptr);     \
+      |                          ^~~
+  CC      arch/x86/kvm/vmx/nested.o
+In file included from ./arch/x86/include/asm/atomic.h:265,
+                 from ./include/linux/atomic.h:7,
+                 from ./include/linux/jump_label.h:246,
+                 from ./arch/x86/include/asm/string_64.h:6,
+                 from ./arch/x86/include/asm/string.h:5,
+                 from ./include/linux/string.h:20,
+                 from ./include/linux/bitmap.h:9,
+                 from ./include/linux/cpumask.h:12,
+                 from ./arch/x86/include/asm/cpumask.h:5,
+                 from ./arch/x86/include/asm/msr.h:11,
+                 from ./arch/x86/include/asm/processor.h:21,
+                 from ./arch/x86/include/asm/cpufeature.h:5,
+                 from ./arch/x86/include/asm/thread_info.h:53,
+                 from ./include/linux/thread_info.h:38,
+                 from ./arch/x86/include/asm/preempt.h:7,
+                 from ./include/linux/preempt.h:78,
+                 from ./include/linux/percpu.h:6,
+                 from arch/x86/kvm/vmx/nested.c:4:
+./arch/x86/include/asm/mshyperv.h: В функции «vmbus_signal_eom»:
+./arch/x86/include/asm/mshyperv.h:61:14: предупреждение: taking address of packed member of «struct hv_message_header» may result in an unaligned pointer value [-Waddress-of-packed-member]
+   61 |  if (cmpxchg(&msg->header.message_type, old_msg_type,
+./include/asm-generic/atomic-instrumented.h:1682:26: замечание: в определении макроса «cmpxchg»
+ 1682 |  typeof(ptr) __ai_ptr = (ptr);     \
+      |                          ^~~
+arch/x86/kvm/vmx/nested.c: В функции «sync_vmcs12»:
+arch/x86/kvm/vmx/nested.c:3509:40: предупреждение: taking address of packed member of «struct vmcs12» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 3509 |   kvm_get_dr(vcpu, 7, (unsigned long *)&vmcs12->guest_dr7);
+      |                                        ^~~~~~~~~~~~~~~~~~
+  CC      arch/x86/kvm/svm.o
+arch/x86/kvm/svm.c: В функции «update_cr0_intercept»:
+arch/x86/kvm/svm.c:2506:14: предупреждение: taking address of packed member of «struct vmcb_save_area» may result in an unaligned pointer value [-Waddress-of-packed-member]
+ 2506 |  u64 *hcr0 = &svm->vmcb->save.cr0;
+      |              ^~~~~~~~~~~~~~~~~~~~
+  CC      arch/x86/kvm/pmu_amd.o
+  AR      arch/x86/kvm/built-in.a
+  AR      arch/x86/built-in.a
+  INSTALL usr/include/asm/ (62 files)
+  HOSTCC  samples/hidraw/hid-example
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  AR      init/built-in.a
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  VOFFSET arch/x86/boot/compressed/../voffset.h
+  CC      arch/x86/boot/compressed/misc.o
+  OBJCOPY arch/x86/boot/compressed/vmlinux.bin
+  RELOCS  arch/x86/boot/compressed/vmlinux.relocs
+  GZIP    arch/x86/boot/compressed/vmlinux.bin.gz
+  MKPIGGY arch/x86/boot/compressed/piggy.S
+  AS      arch/x86/boot/compressed/piggy.o
+  CC      arch/x86/boot/compressed/kaslr.o
+  LD      arch/x86/boot/compressed/vmlinux
+  ZOFFSET arch/x86/boot/zoffset.h
+  AS      arch/x86/boot/header.o
+  CC      arch/x86/boot/version.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  BUILD   arch/x86/boot/bzImage
+Setup is 16540 bytes (padded to 16896 bytes).
+System is 9421 kB
+CRC a9f3325
+Kernel: arch/x86/boot/bzImage is ready  (#61)
+  Building modules, stage 2.
+  MODPOST 24 modules
