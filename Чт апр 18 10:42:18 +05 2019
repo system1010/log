@@ -1,0 +1,187 @@
+asmlinkage __visible void __init start_kernel(void)
+{
+    char *command_line;  // a pointer to the kernel command line
+    char *after_dashes;  // a pointer to the kernel command line after "--", which will be passed to the init process
+
+    /*
+     * Need to run as early as possible, to initialize the
+     * lockdep hash:
+     */
+    lockdep_init();             // lock dependency validator, https://www.kernel.org/doc/Documentation/locking/lockdep-design.txt
+    set_task_stack_end_magic(&init_task);  // setup magic number in the end of stack of init_task for overflow detection
+    smp_setup_processor_id();   // assign SMP CPU id. archs can override it.
+    debug_objects_early_init(); // infrastructure for lifetime debugging of objects, https://lwn.net/Articles/271614/
+
+    /*
+     * Set up the the initial canary ASAP:
+     */
+    boot_init_stack_canary();   // stack smashing protector, http://wiki.osdev.org/Stack_Smashing_Protector
+
+    cgroup_init_early();        // initialize cgroup subsystems, https://en.wikipedia.org/wiki/Cgroups
+
+    local_irq_disable();        // disable IRQ first because interrupt vector table has not been setup yet
+    early_boot_irqs_disabled = true;
+
+/*
+ * Interrupts are still disabled. Do necessary setups, then
+ * enable them
+ */
+    boot_cpu_init();                  // activate the first processor. mark the boot cpu "present", "online" etc for SMP and UP case
+    page_address_init();              // initializes page_address_htable
+    pr_notice("%s", linux_banner);
+    setup_arch(&command_line);        // architecture-specific setup
+    mm_init_cpumask(&init_mm);        // => cpumask_clear(mm->cpu_vm_mask_var), for lazy TLB switches
+    setup_command_line(command_line); // store the untouched command line
+    setup_nr_cpu_ids();               // set "nr_cpu_ids" according to the last bit in possible mask
+    setup_per_cpu_areas();            // per cpu memory allocator
+    smp_prepare_boot_cpu(); /* arch-specific boot-cpu hooks */
+
+    build_all_zonelists(NULL, NULL);  // memory zones, https://www.kernel.org/doc/gorman/html/understand/understand005.html
+    page_alloc_init();                // add a handler for CPU hotplug
+
+    pr_notice("Kernel command line: %s\n", boot_command_line);
+    parse_early_param();              // parse options for early_param()
+    after_dashes = parse_args("Booting kernel",
+                  static_command_line, __start___param,  // parse options for module_param(), module_param_named(), core_param()
+                  __stop___param - __start___param,
+                  -1, -1, &unknown_bootoption);          // parse options for __setup()
+    if (!IS_ERR_OR_NULL(after_dashes))
+        parse_args("Setting init args", after_dashes, NULL, 0, -1, -1,  // after_dashes will be passed to the init process as argv
+               set_init_arg);
+
+    jump_label_init();         // Jump label: https://lwn.net/Articles/412072/
+
+    /*
+     * These use large bootmem allocations and must precede
+     * kmem_cache_init()
+     */
+    setup_log_buf(0);          // buf for printk
+    pidhash_init();            // pid hash table
+    vfs_caches_init_early();   // allocate and caches initialize for hash tables of dcache and inode
+    sort_main_extable();       // sort the kernel's built-in exception table (for page faults)
+    trap_init();               // architecture-specific, interrupt vector table, handle hardware traps, exceptions and faults.
+    mm_init();                 // memory management
+
+    /*
+     * Set up the scheduler prior starting any interrupts (such as the
+     * timer interrupt). Full topology setup happens at smp_init()
+     * time - but meanwhile we still have a functioning scheduler.
+     */
+    sched_init();
+    /*
+     * Disable preemption - early bootup scheduling is extremely
+     * fragile until we cpu_idle() for the first time.
+     */
+    preempt_disable();
+    if (WARN(!irqs_disabled(), "Interrupts were enabled *very* early, fixing it\n"))
+        local_irq_disable();
+    idr_init_cache();          // idr: ID radix, sparse array indexed by the id to obtain the pointer
+    rcu_init();                // Read-Copy Update mechanism, https://www.kernel.org/doc/Documentation/RCU/
+
+    /* trace_printk() and trace points may be used after this */
+    trace_init();              // https://www.kernel.org/doc/Documentation/trace/
+
+    context_tracking_init();   // prepare for using a static key in the context tracking subsystem
+    radix_tree_init();         // allocate a cache for radix_tree. [LWN] radix_tree: https://lwn.net/Articles/175432/
+    /* init some links before init_ISA_irqs() */
+    early_irq_init();          // allocate caches for irq_desc, interrupt descriptor
+    init_IRQ();                // architecture-specific, initialize kernel's interrupt subsystem and the interrupt controllers.
+    tick_init();               // initialize the tick control
+    rcu_init_nohz();
+    init_timers();             // init timer stats, register cpu notifier, and open softirq for timer
+    hrtimers_init();           // high-resolution timer, https://www.kernel.org/doc/Documentation/timers/hrtimers.txt
+    softirq_init();            // initialize tasklet_vec and open softirq for tasklet
+    timekeeping_init();        // https://www.kernel.org/doc/Documentation/timers/timekeeping.txt
+    time_init();               // architecture-specific, timer initialization
+    sched_clock_postinit();    // start the high-resolution timer to keep sched_clock() properly updated and sets the initial epoch
+    perf_event_init();         // perf is a profiler tool for Linux, https://perf.wiki.kernel.org/index.php/Tutorial
+    profile_init();            // initializes basic kernel profiler
+    call_function_init();      // SMP initializes call_single_queue and register notifier
+    WARN(!irqs_disabled(), "Interrupts were enabled early\n");
+    early_boot_irqs_disabled = false;
+    local_irq_enable();        // after this point, interrupts are enabled
+
+    kmem_cache_init_late();    // post-initialization of cache (slab)
+
+    /*
+     * HACK ALERT! This is early. We're enabling the console before
+     * we've done PCI setups etc, and console_init() must be aware of
+     * this. But we do want output early, in case something goes wrong.
+     */
+    console_init();            // call console initcalls to initialize the console device, usually it's tty device.
+    if (panic_later)
+        panic("Too many boot %s vars at `%s'", panic_later,
+              panic_param);
+
+    lockdep_info();            // print lockdep information
+
+    /*
+     * Need to run this when irqs are enabled, because it wants
+     * to self-test [hard/soft]-irqs on/off lock inversion bugs
+     * too:
+     */
+    locking_selftest();        // test various locking APIs: spinlocks, rwlocks, mutexes, and rwsemaphores
+
+#ifdef CONFIG_BLK_DEV_INITRD
+    if (initrd_start && !initrd_below_start_ok &&
+        page_to_pfn(virt_to_page((void *)initrd_start)) < min_low_pfn) {
+        pr_crit("initrd overwritten (0x%08lx < 0x%08lx) - disabling it.\n",
+            page_to_pfn(virt_to_page((void *)initrd_start)),
+            min_low_pfn);
+        initrd_start = 0;
+    }
+#endif
+    page_ext_init();           // memory page extension, allocates memory for extended data per page
+    debug_objects_mem_init();  // allocate a dedicated cache pool for debug objects
+    kmemleak_init();           // initialize kmemleak (memory leak check facility)
+    setup_per_cpu_pageset();   // allocate and initialize per cpu pagesets
+    numa_policy_init();        // allocate caches and do initialization for NUMA memory policy
+    if (late_time_init)        // default late_time_init is NULL. archs can override it
+        late_time_init();      // architecture-specific
+    sched_clock_init();        // set the time info for scheduler and make sched clock running
+    calibrate_delay();         // calibrate the delay loop
+    pidmap_init();             // initialize PID map for initial PID namespace
+    anon_vma_init();           // allocate a cache for "anon_vma" (anonymous memory), http://lwn.net/Kernel/Index/#anon_vma
+    acpi_early_init();         // initialize ACPI subsystem and populate the ACPI namespace
+#ifdef CONFIG_X86
+    if (efi_enabled(EFI_RUNTIME_SERVICES))  // Extensible Firmware Interface
+        efi_enter_virtual_mode();           // switch EFI to virtual mode, if possible
+#endif
+#ifdef CONFIG_X86_ESPFIX64
+    /* Should be run before the first non-init thread is created */
+    init_espfix_bsp();         // workaround to prevent leaking of 31:16 bits of the esp register, https://github.com/torvalds/linux/commit/3891a04aafd668686239349ea58f3314ea2af86b
+#endif
+    thread_info_cache_init();  // allocate cache for thread_info if THREAD_SIZE < PAGE_SIZE
+    cred_init();               // credential
+    fork_init();               // allocate a cache for task_struct
+    proc_caches_init();        // allocate caches for sighand_struct, signal_struct, files_struct, fs_struct, mm_struct, and vm_area_struct
+    buffer_init();             // allocate a cache for buffer_head
+    key_init();                // initialize the authentication token and access key management
+    security_init();           // initialize the security framework, do_security_initcalls
+    dbg_late_init();           // late init for kgdb
+    vfs_caches_init(totalram_pages);  // file system, including kernfs, sysfs, rootfs, mount tree
+    signals_init();            // allocate a cache for sigqueue
+    /* rootfs populating might need page-writeback */
+    page_writeback_init();     // set the ratio limits for the dirty pages
+    proc_root_init();          // initializes /proc filesystem, and creates several standard entries like /proc/fs and /proc/driver
+    nsfs_init();               // mount pseudo-filesystem: nsfs
+    cpuset_init();             // initialize top_cpuset and the cpuset internal file system
+    cgroup_init();             // initialize the rest of cgroups
+    taskstats_init_early();    // allocate a cache and initialize per-task statistics
+    delayacct_init();          // per-task delay accounting
+
+    check_bugs();              // check for architecture-dependent bugs
+
+    acpi_subsystem_init();     // enable ACPI subsystem
+    sfi_init_late();           // SFI: Simple Firmware Interface. Map SFI tables again by using ioremap
+
+    if (efi_enabled(EFI_RUNTIME_SERVICES)) {  // Extensible Firmware Interface
+        efi_late_init();
+        efi_free_boot_services();
+    }
+
+    ftrace_init();             // function trace, https://www.kernel.org/doc/Documentation/trace/ftrace.txt
+
+    /* Do the rest non-__init'ed, we're now alive */
+    rest_init();
+}
