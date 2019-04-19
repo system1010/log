@@ -1,0 +1,45 @@
+  Linux
+  ├── README
+  ├── Documentation
+  ├── include          // include files needed to build the kernel code
+  ├── lib              // kernel's library code
+  ├── init             // initialization code for the kernel
+  │   └── main.c       // start_kernel()
+  ├── arch             // architecture specific kernel code
+  │   └── *
+  │       ├── configs
+  │       ├── include
+  │       ├── lib
+  │       ├── boot
+  │       ├── kernel
+  │       ├── mm
+  │       ├── net
+  │       ├── pci
+  │       └── crypto
+  ├── kernel           // main kernel code
+  │   ├── cpu
+  │   ├── irq
+  │   ├── time
+  │   ├── sched
+  │   ├── events
+  │   ├── power
+  │   ├── debug
+  │   │   └── kdb
+  │   ├── gcov
+  │   ├── printk
+  │   └── trace
+  ├── mm               // memory management
+  ├── fs               // file system
+  ├── firmware
+  ├── drivers          // device drivers
+  ├── block            // block-device drivers
+  ├── sound            // sound drivers
+  ├── crypto           // encryption algorithms
+  ├── ipc              // inter-process communication
+  ├── net              // network protocols
+  ├── scripts          // scripts (for example awk and tk scripts) that are used when the kernel is configured
+  ├── security         // the security of the kernel
+  ├── tools            // the tools that interact with the kernel
+  ├── samples          // programming examples
+  ├── usr
+  └── virt             // virtualization
