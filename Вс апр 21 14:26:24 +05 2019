@@ -1,0 +1,22 @@
+CFS
+
+https://code.woboq.org/linux/linux/kernel/sched/fair.c.html#836
+https://code.woboq.org/linux/linux/kernel/sched/fair.c.html#646
+https://code.woboq.org/linux/linux/kernel/sched/fair.c.html#233
+
+https://code.woboq.org/linux/linux/kernel/sched/core.c.html#3094
+https://code.woboq.org/linux/linux/kernel/sched/fair.c.html#10649
+https://code.woboq.org/linux/linux/kernel/sched/fair.c.html#10156
+https://code.woboq.org/linux/linux/kernel/sched/fair.c.html#4227
+https://code.woboq.org/linux/linux/kernel/sched/fair.c.html#4048
+
+
+https://helix979.github.io/jkoo/post/os-scheduler/
+
+time slice of the current thread = (scheduling period)∗(weight of the current thread/sum of the weights of all threads)
+
+
+https://notes.shichao.io/lkd/ch4/
+
+Each process runs for a "timeslice" proportional to its weight divided by the total weight of all runnable threads.
+
