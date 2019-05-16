@@ -1,13 +1,17 @@
+  CC      arch/x86/kernel/asm-offsets.s
   CALL    scripts/checksyscalls.sh
   CALL    scripts/atomic/check-atomics.sh
   DESCEND  objtool
+  CC      init/main.o
   CHK     include/generated/compile.h
+  CC      init/version.o
+  CC      init/do_mounts.o
+  CC      init/do_mounts_initrd.o
+  CC      init/do_mounts_md.o
+  CC      init/initramfs.o
   CC      init/calibrate.o
   CC      init/init_task.o
-  CC      init/initramfs.o
   AR      init/built-in.a
-  AS      usr/initramfs_data.o
-  AR      usr/built-in.a
   AS      arch/x86/entry/entry_64.o
   AS      arch/x86/entry/thunk_64.o
   CC      arch/x86/entry/syscall_64.o
@@ -23,8 +27,6 @@
   CC      arch/x86/entry/vdso/vdso-image-64.o
   LDS     arch/x86/entry/vdso/vdso32/vdso32.lds
   CC      arch/x86/entry/vdso/vdso32/vclock_gettime.o
-  AS      arch/x86/entry/vdso/vdso32/system_call.o
-  AS      arch/x86/entry/vdso/vdso32/sigreturn.o
   VDSO    arch/x86/entry/vdso/vdso32.so.dbg
   OBJCOPY arch/x86/entry/vdso/vdso32.so
   VDSO2C  arch/x86/entry/vdso/vdso-image-32.c
@@ -32,7 +34,6 @@
   AR      arch/x86/entry/vdso/built-in.a
   CC      arch/x86/entry/vsyscall/vsyscall_gtod.o
   CC      arch/x86/entry/vsyscall/vsyscall_64.o
-  AS      arch/x86/entry/vsyscall/vsyscall_emu_64.o
   AR      arch/x86/entry/vsyscall/built-in.a
   AS      arch/x86/entry/entry_64_compat.o
   CC      arch/x86/entry/syscall_32.o
@@ -62,7 +63,6 @@
   AR      arch/x86/events/built-in.a
   CC      arch/x86/ia32/sys_ia32.o
   CC      arch/x86/ia32/ia32_signal.o
-  CC      arch/x86/ia32/audit.o
   AR      arch/x86/ia32/built-in.a
   CC      arch/x86/kernel/process_64.o
   CC      arch/x86/kernel/signal.o
@@ -101,11 +101,9 @@
   CC      arch/x86/kernel/rtc.o
   CC      arch/x86/kernel/pci-iommu_table.o
   CC      arch/x86/kernel/resource.o
-  AS      arch/x86/kernel/irqflags.o
   CC      arch/x86/kernel/process.o
   CC      arch/x86/kernel/acpi/boot.o
   CC      arch/x86/kernel/acpi/sleep.o
-  AS      arch/x86/kernel/acpi/wakeup_64.o
   CC      arch/x86/kernel/acpi/cppc_msr.o
   CC      arch/x86/kernel/acpi/cstate.o
   AR      arch/x86/kernel/acpi/built-in.a
@@ -130,8 +128,6 @@
   CC      arch/x86/kernel/cpu/aperfmperf.o
   CC      arch/x86/kernel/cpu/cpuid-deps.o
   CC      arch/x86/kernel/cpu/proc.o
-  MKCAP   arch/x86/kernel/cpu/capflags.c
-  CC      arch/x86/kernel/cpu/capflags.o
   CC      arch/x86/kernel/cpu/powerflags.o
   CC      arch/x86/kernel/cpu/intel.o
   CC      arch/x86/kernel/cpu/intel_pconfig.o
@@ -184,7 +180,6 @@
   CC      arch/x86/kernel/mpparse.o
   CC      arch/x86/kernel/trace_clock.o
   CC      arch/x86/kernel/machine_kexec_64.o
-  AS      arch/x86/kernel/relocate_kernel_64.o
   CC      arch/x86/kernel/crash.o
   CC      arch/x86/kernel/crash_dump_64.o
   CC      arch/x86/kernel/module.o
@@ -253,7 +248,6 @@ In file included from arch/x86/kernel/head64.c:35:
   CC      arch/x86/kvm/page_track.o
   CC      arch/x86/kvm/debugfs.o
   CC      arch/x86/kvm/vmx/vmx.o
-  AS      arch/x86/kvm/vmx/vmenter.o
   CC      arch/x86/kvm/vmx/pmu_intel.o
   CC      arch/x86/kvm/vmx/vmcs12.o
   CC      arch/x86/kvm/vmx/evmcs.o
@@ -287,18 +281,11 @@ In file included from arch/x86/kernel/head64.c:35:
   CC      arch/x86/platform/efi/quirks.o
   CC      arch/x86/platform/efi/efi.o
   CC      arch/x86/platform/efi/efi_64.o
-  AS      arch/x86/platform/efi/efi_stub_64.o
   AR      arch/x86/platform/efi/built-in.a
   AR      arch/x86/platform/built-in.a
   CC      arch/x86/realmode/init.o
-  AS      arch/x86/realmode/rm/header.o
-  AS      arch/x86/realmode/rm/trampoline_64.o
-  AS      arch/x86/realmode/rm/stack.o
-  AS      arch/x86/realmode/rm/reboot.o
-  AS      arch/x86/realmode/rm/wakeup_asm.o
   CC      arch/x86/realmode/rm/wakemain.o
   CC      arch/x86/realmode/rm/video-mode.o
-  AS      arch/x86/realmode/rm/copy.o
   CC      arch/x86/realmode/rm/regs.o
   CC      arch/x86/realmode/rm/video-vga.o
   CC      arch/x86/realmode/rm/video-vesa.o
@@ -482,13 +469,13 @@ kernel/sched/fair.c:72:8: замечание: в расширении макро
   CC      kernel/trace/ring_buffer.o
   CC      kernel/trace/trace.o
 В функции «ftrace_dump»,
-    включённом из «ftrace_dump» в kernel/trace/trace.c:8542:6:
-kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [8377, 8432] from the object at «iter» is out of the bounds of referenced subobject «seq» with type «struct trace_seq» at offset 4240 [-Warray-bounds]
- 8620 |   memset(&iter.seq, 0,
+    включённом из «ftrace_dump» в kernel/trace/trace.c:8836:6:
+kernel/trace/trace.c:8914:3: предупреждение: «memset» offset [8377, 8432] from the object at «iter» is out of the bounds of referenced subobject «seq» with type «struct trace_seq» at offset 4240 [-Warray-bounds]
+ 8914 |   memset(&iter.seq, 0,
       |   ^~~~~~~~~~~~~~~~~~~~
- 8621 |          sizeof(struct trace_iterator) -
+ 8915 |          sizeof(struct trace_iterator) -
       |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 8622 |          offsetof(struct trace_iterator, seq));
+ 8916 |          offsetof(struct trace_iterator, seq));
       |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   CC      kernel/trace/trace_output.o
   CC      kernel/trace/trace_seq.o
@@ -954,8 +941,6 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   CC      crypto/shash.o
   CC      crypto/akcipher.o
   CC      crypto/kpp.o
-  CC      crypto/rsapubkey.asn1.o
-  CC      crypto/rsaprivkey.asn1.o
   CC      crypto/rsa.o
   CC      crypto/rsa_helper.o
   CC      crypto/rsa-pkcs1pad.o
@@ -983,18 +968,14 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   CC      crypto/authencesn.o
   CC      crypto/rng.o
   CC      crypto/drbg.o
-  CC      crypto/jitterentropy.o
   CC      crypto/jitterentropy-kcapi.o
   CC      crypto/ghash-generic.o
   CC      crypto/asymmetric_keys/asymmetric_type.o
   CC      crypto/asymmetric_keys/restrict.o
   CC      crypto/asymmetric_keys/signature.o
   CC      crypto/asymmetric_keys/public_key.o
-  CC      crypto/asymmetric_keys/x509.asn1.o
-  CC      crypto/asymmetric_keys/x509_akid.asn1.o
   CC      crypto/asymmetric_keys/x509_cert_parser.o
   CC      crypto/asymmetric_keys/x509_public_key.o
-  CC      crypto/asymmetric_keys/pkcs7.asn1.o
   CC      crypto/asymmetric_keys/pkcs7_parser.o
   CC      crypto/asymmetric_keys/pkcs7_trust.o
   CC      crypto/asymmetric_keys/pkcs7_verify.o
@@ -1997,7 +1978,6 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   CC      drivers/tty/vt/selection.o
   CC      drivers/tty/vt/keyboard.o
   CC      drivers/tty/vt/consolemap.o
-  CC      drivers/tty/vt/consolemap_deftbl.o
   CC      drivers/tty/vt/vt.o
   CC      drivers/tty/vt/defkeymap.o
   AR      drivers/tty/vt/built-in.a
@@ -2409,15 +2389,12 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   CC      sound/ac97_bus.o
   CC      sound/last.o
   AR      sound/built-in.a
-  INSTALL usr/include/linux/ (507 files)
-  INSTALL usr/include/rdma/ (26 files)
-  HOSTCC  samples/hidraw/hid-example
+  INSTALL usr/include/linux/nfsd/ (5 files)
   CC [M]  samples/hw_breakpoint/data_breakpoint.o
   CC [M]  samples/kobject/kobject-example.o
   CC [M]  samples/kobject/kset-example.o
   CC [M]  samples/kprobes/kprobe_example.o
   CC [M]  samples/kprobes/kretprobe_example.o
-  HOSTCC  samples/pidfd/pidfd-metadata
   CC [M]  samples/trace_events/trace-events-sample.o
   CC      arch/x86/pci/i386.o
   CC      arch/x86/pci/init.o
@@ -2435,7 +2412,6 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   AR      arch/x86/pci/built-in.a
   CC      arch/x86/power/cpu.o
   CC      arch/x86/power/hibernate_64.o
-  AS      arch/x86/power/hibernate_asm_64.o
   CC      arch/x86/power/hibernate.o
   AR      arch/x86/power/built-in.a
   CC      arch/x86/video/fbdev.o
@@ -2848,7 +2824,6 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   CC      lib/hexdump.o
   CC      lib/kstrtox.o
   CC      lib/fonts/fonts.o
-  CC      lib/fonts/font_8x8.o
   CC      lib/fonts/font_8x16.o
   AR      lib/fonts/built-in.a
   CC      lib/lz4/lz4_decompress.o
@@ -2925,7 +2900,6 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   CC      lib/argv_split.o
   CC      lib/bug.o
   CC      lib/chacha.o
-  CC      lib/clz_tab.o
   CC      lib/cmdline.o
   CC      lib/cpumask.o
   CC      lib/ctype.o
@@ -2970,33 +2944,20 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   CC      arch/x86/lib/msr-smp.o
   CC      arch/x86/lib/cache-smp.o
   CC      arch/x86/lib/msr.o
-  AS      arch/x86/lib/msr-reg.o
   CC      arch/x86/lib/msr-reg-export.o
-  AS      arch/x86/lib/hweight.o
   CC      arch/x86/lib/iomem.o
-  AS      arch/x86/lib/iomap_copy_64.o
-  AS      arch/x86/lib/clear_page_64.o
   CC      arch/x86/lib/cmdline.o
-  AS      arch/x86/lib/cmpxchg16b_emu.o
-  AS      arch/x86/lib/copy_page_64.o
   AS      arch/x86/lib/copy_user_64.o
   CC      arch/x86/lib/cpu.o
-  AS      arch/x86/lib/csum-copy_64.o
   CC      arch/x86/lib/csum-partial_64.o
   CC      arch/x86/lib/csum-wrappers_64.o
   CC      arch/x86/lib/delay.o
   CC      arch/x86/lib/error-inject.o
   AS      arch/x86/lib/getuser.o
-  CC      arch/x86/lib/inat.o
   CC      arch/x86/lib/insn-eval.o
   CC      arch/x86/lib/insn.o
   CC      arch/x86/lib/kaslr.o
-  AS      arch/x86/lib/memcpy_64.o
-  AS      arch/x86/lib/memmove_64.o
-  AS      arch/x86/lib/memset_64.o
-  CC      arch/x86/lib/misc.o
   AS      arch/x86/lib/putuser.o
-  AS      arch/x86/lib/retpoline.o
   CC      arch/x86/lib/usercopy.o
   CC      arch/x86/lib/usercopy_64.o
   AR      arch/x86/lib/lib.a
@@ -3020,15 +2981,11 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   SYSMAP  System.map
   CC      arch/x86/boot/a20.o
   CC      arch/x86/boot/cmdline.o
-  AS      arch/x86/boot/copy.o
-  HOSTCC  arch/x86/boot/mkcpustr
-  CPUSTR  arch/x86/boot/cpustr.h
   CC      arch/x86/boot/cpu.o
   CC      arch/x86/boot/cpuflags.o
   CC      arch/x86/boot/cpucheck.o
   CC      arch/x86/boot/early_serial_console.o
   CC      arch/x86/boot/edd.o
-  LDS     arch/x86/boot/compressed/vmlinux.lds
   AS      arch/x86/boot/compressed/head_64.o
   VOFFSET arch/x86/boot/compressed/../voffset.h
   CC      arch/x86/boot/compressed/misc.o
@@ -3044,7 +3001,6 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   CC      arch/x86/boot/compressed/early_serial_console.o
   CC      arch/x86/boot/compressed/kaslr.o
   CC      arch/x86/boot/compressed/kaslr_64.o
-  AS      arch/x86/boot/compressed/mem_encrypt.o
   CC      arch/x86/boot/compressed/pgtable_64.o
   CC      arch/x86/boot/compressed/acpi.o
   LD      arch/x86/boot/compressed/vmlinux
@@ -3053,7 +3009,6 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   CC      arch/x86/boot/main.o
   CC      arch/x86/boot/memory.o
   CC      arch/x86/boot/pm.o
-  AS      arch/x86/boot/pmjump.o
   CC      arch/x86/boot/printf.o
   CC      arch/x86/boot/regs.o
   CC      arch/x86/boot/string.o
@@ -3069,9 +3024,9 @@ kernel/trace/trace.c:8620:3: предупреждение: «memset» offset [83
   OBJCOPY arch/x86/boot/vmlinux.bin
   BUILD   arch/x86/boot/bzImage
 Setup is 16540 bytes (padded to 16896 bytes).
-System is 9457 kB
-CRC 45898733
-Kernel: arch/x86/boot/bzImage is ready  (#54)
+System is 9461 kB
+CRC 9396ea6b
+Kernel: arch/x86/boot/bzImage is ready  (#55)
   Building modules, stage 2.
   MODPOST 24 modules
   CC      drivers/gpu/drm/radeon/radeon.mod.o
