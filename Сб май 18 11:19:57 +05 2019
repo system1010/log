@@ -1,0 +1,92 @@
+diff --git a/init/main.c b/init/main.c
+index 5a2c69b4d7b3..a877e27b648a 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -107,6 +107,9 @@ static int kernel_init(void *);
+ extern void init_IRQ(void);
+ extern void radix_tree_init(void);
+ 
++void start(void);
++int thread_function(void *data);
++
+ /*
+  * Debug helper: via this flag we know that we are in 'early bootup code'
+  * where only the boot processor is running with IRQ disabled.  This means
+@@ -446,6 +449,9 @@ noinline void __ref rest_init(void)
+ 	 * at least once to get things moving:
+ 	 */
+ 	schedule_preempt_disabled();
++	
++	start();
++	
+ 	/* Call into cpu_idle with preempt disabled */
+ 	cpu_startup_entry(CPUHP_ONLINE);
+ }
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index f35930f5e528..6d247c99cfe3 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -24,6 +24,63 @@
+ 
+ #include <trace/events/sched.h>
+ 
++static struct task_struct *task;
++static int data = 0x55; 
++struct rq *rq;
++static struct rb_root_cached *root;
++int i;
++int thread_function(void *data)
++{
++
++unsigned long tm = jiffies + msecs_to_jiffies(1000);
++          
++rq = task_rq(task);
++
++while(!kthread_should_stop()){
++if (time_after(jiffies, tm))
++{
++tm = jiffies + msecs_to_jiffies(1000);
++i++;
++int ret;
++if (i>20) ret = kthread_stop(task);
++
++root = &rq->cfs.tasks_timeline;
++
++struct rb_node *cfs_test=root->rb_root.rb_node;   
++
++struct rb_root *rbroot = &rq->cfs.tasks_timeline.rb_root;
++struct rb_node *node;
++int j=0;
++//preOrder
++for (node = rb_first(rbroot); node; node = rb_next(node))
++{
++//visit node
++struct sched_entity *entry;
++entry = rb_entry(node, struct sched_entity, run_node);
++//if (entry) printk("se->load.weight: %ld\n", entry->load.weight);
++struct task_struct *tsk;
++tsk = container_of(entry,struct task_struct, se);
++if (tsk) printk("task->comm: %s\n", tsk->comm);
++j++;
++}
++printk("thread: %i\n",j);
++//stuff
++if (cfs_test) {
++printk("color : %ld\n", cfs_test->__rb_parent_color);
++if (cfs_test->rb_left)
++printk("color left: %ld\n", cfs_test->rb_left->__rb_parent_color);
++}
++printk(KERN_NOTICE "rq->cfs.load.weight: %li\n", rq->cfs.load.weight);
++}
++schedule();
++}
++return 0;
++}
++
++void  start(void){      
++task = kthread_run(&thread_function,(void *)data,"THREAD");
++}
++
+ /*
+  * Targeted preemption latency for CPU-bound tasks:
+  *
