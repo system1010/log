@@ -1,0 +1,73 @@
+diff --git a/init/main.c b/init/main.c
+index 66a196c5e4c3..eba0d2393d37 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -108,6 +108,10 @@ static int kernel_init(void *);
+ extern void init_IRQ(void);
+ extern void radix_tree_init(void);
+ 
++void start(void);
++int thread_function(void *data);
++
++
+ /*
+  * Debug helper: via this flag we know that we are in 'early bootup code'
+  * where only the boot processor is running with IRQ disabled.  This means
+@@ -447,6 +451,9 @@ noinline void __ref rest_init(void)
+ 	 * at least once to get things moving:
+ 	 */
+ 	schedule_preempt_disabled();
++	
++	start();
++	
+ 	/* Call into cpu_idle with preempt disabled */
+ 	cpu_startup_entry(CPUHP_ONLINE);
+ }
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index f35930f5e528..e6104ccd42a6 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -24,6 +24,43 @@
+ 
+ #include <trace/events/sched.h>
+ 
++static struct task_struct *task;
++static int data = 0x55; 
++int i;
++
++void visit(struct rb_node *node);
++
++
++int thread_function(void *data){
++unsigned long tm = jiffies + msecs_to_jiffies(1000);
++struct rq *rq = task_rq(task);
++while(!kthread_should_stop()){
++if (time_after(jiffies, tm))
++{
++	tm = jiffies + msecs_to_jiffies(1000);
++	i++;
++	int ret;
++	if (i>20) ret = kthread_stop(task);
++	//preOrder
++	struct rb_node *node=NULL;
++	for (node = rb_first(&rq->cfs.tasks_timeline.rb_root); node; node = rb_next(node)) visit(node);
++	printk("rq->nr_running rq->cfs.nr_running : %li %li\n",rq->nr_running, rq->cfs.nr_running);
++	printk(KERN_NOTICE "rq->load.weight, rq->cfs.load.weight : %li %li", rq->load.weight, rq->cfs.load.weight);
++}
++schedule();
++}
++return 0;
++}
++void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
++
++void visit(struct rb_node *node){
++//visit node
++struct sched_entity *entry = rb_entry(node, struct sched_entity, run_node);
++struct task_struct *tsk = container_of(entry,struct task_struct, se);
++printk("color, tsk->comm, weight, vruntime: %ld %s %ld %lld", node->__rb_parent_color, tsk->comm, entry->load.weight, entry->vruntime);
++}
++
++
+ /*
+  * Targeted preemption latency for CPU-bound tasks:
+  *
