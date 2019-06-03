@@ -1,0 +1,199 @@
+diff --git a/init/main.c b/init/main.c
+index 66a196c5e4c3..eba0d2393d37 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -108,6 +108,10 @@ static int kernel_init(void *);
+ extern void init_IRQ(void);
+ extern void radix_tree_init(void);
+ 
++void start(void);
++int thread_function(void *data);
++
++
+ /*
+  * Debug helper: via this flag we know that we are in 'early bootup code'
+  * where only the boot processor is running with IRQ disabled.  This means
+@@ -447,6 +451,9 @@ noinline void __ref rest_init(void)
+ 	 * at least once to get things moving:
+ 	 */
+ 	schedule_preempt_disabled();
++	
++	start();
++	
+ 	/* Call into cpu_idle with preempt disabled */
+ 	cpu_startup_entry(CPUHP_ONLINE);
+ }
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index f35930f5e528..620d1ff3f4cb 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -24,6 +24,169 @@
+ 
+ #include <trace/events/sched.h>
+ 
++void visit(struct rb_node *node);
++
++
++struct Stack
++{
++	int top;
++	unsigned capacity;
++	struct rb_node* array[100];
++};
++
++struct Stack* createStack(unsigned capacity)
++{
++	struct Stack* stack = (struct Stack*) kmalloc(sizeof(struct Stack),GFP_KERNEL);
++	stack->capacity = capacity;
++	stack->top = 0;
++	//stack->array[] = (struct rb_node*) kmalloc(stack->capacity * sizeof(struct rb_node), GFP_KERNEL);
++	return stack;
++}
++void push(struct Stack* stack, struct rb_node* item)
++{
++//if (isFull(stack))
++//return;
++stack->array[++stack->top] = item;
++//printf("%c pushed to stackn", item->data);
++}
++struct rb_node* pop(struct Stack* stack)
++{
++//if (isEmpty(stack))
++//return INT_MIN;
++return stack->array[stack->top--];
++}
++//int isFull(struct Stack* stack)
++//{ return stack->top == stack->capacity - 1; }
++//int isEmpty(struct Stack* stack)
++//{ return stack->top == -1; }
++		
++	
++	
++
++	
++	
++static struct task_struct *task;
++static int data = 0x55; 
++int i;
++struct rq_flags rf;     
++int thread_function(void *data){
++unsigned long tm = jiffies + msecs_to_jiffies(1000);
++//struct rq *rq, *rq1;// = cpu_rq(0);
++long int a, b, c, d, a1, b1, c1, d1;
++struct rb_node *stack[100], *stack1[100];
++for(;;){
++	//struct Stack* stack = createStack(100);
++	if ((long)((jiffies) - (tm)) > 0){
++	tm = jiffies + msecs_to_jiffies(1000);
++	i++;
++	if (i>20) kthread_stop(task);
++	
++	
++	int cpu;
++
++        for_each_online_cpu(cpu)
++        {
++	        struct rq *rq = cpu_rq(cpu);
++	        printk( KERN_ALERT "rq->curr->pid = %d", rq->curr->pid);
++
++
++	struct rb_root *rbroot = &rq->cfs.tasks_timeline.rb_root;
++	struct rb_node *node=NULL;
++	int j=0;
++	rq_lock(rq, &rf);
++	for (node = rb_first(rbroot); node; node = rb_next(node)){
++	stack[j]=node;
++	j++;
++	}
++	a=rq->nr_running;
++	b=rq->cfs.nr_running;
++	c=rq->load.weight;
++	d=rq->cfs.load.weight;
++	rq_unlock_irq(rq, &rf);
++	/*
++	struct rb_root *rbroot1 = &rq1->cfs.tasks_timeline.rb_root;
++	struct rb_node *node1=NULL;
++
++	
++	int j1=0;
++	rq_lock(rq1, &rf);
++	for (node1 = rb_first(rbroot1); node1; node1 = rb_next(node1)){
++	stack1[j1]=node1;
++	j1++;
++	}
++	a1=rq1->nr_running;
++	b1=rq1->cfs.nr_running;
++	c1=rq1->load.weight;
++	d1=rq1->cfs.load.weight;
++	rq_unlock_irq(rq1, &rf);
++	*/
++	
++	
++	
++	
++	
++	int k;
++	for (k=0;k<j;k++)
++		if (stack[k]) 
++			visit(stack[k]);
++
++	printk("proc %i", j);	
++	printk("rq->nr_running rq->cfs.nr_running : %li %li\n", a, b);
++	printk(KERN_NOTICE "rq->load.weight, rq->cfs.load.weight : %li %li", c, d);
++	 printk("----------------^^^^CPU%i^^^^^-----------------------",cpu);
++	 
++	}
++        //rq = context_switch(rq, prev, next, &rf);
++
++	//task_current(cpu_rq(1),task);
++/*
++struct Stack* stack = createStack(100);
++
++struct rb_node* P=rq->cfs.tasks_timeline.rb_root.rb_node;
++
++while(1){
++        if(P){
++       		push(stack, P);
++       		//visit(P);
++       		P=P->rb_left;
++       		continue;
++        }else if (stack->top){
++        //printf("%cn", P->data);
++        //if (P->right!=NULL)printf("%cn", P->right->data);
++        //if (P->right==NULL && P->left==NULL && stack->top>=0)break;
++        //if (stack->top==-1)goto label2;
++        P=pop(stack);
++        //while(P->left!=NULL){
++   	visit(P);
++	//      if(stack->top==-1)break;
++	//      P=pop(stack);
++	//      x=1;
++	//}       
++	//if (x=1){
++		P=P->rb_right;
++		//x=-1;
++	//}
++	continue;
++}
++break;
++}   
++
++	
++	*/	
++
++	}else schedule();
++}
++return 0;
++}
++void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
++
++void visit(struct rb_node *node){
++//visit node
++struct sched_entity *entry = rb_entry(node, struct sched_entity, run_node);
++struct task_struct *tsk = container_of(entry,struct task_struct, se);
++printk("color, tsk->comm, weight, vruntime: %ld %s %ld %lld", node->__rb_parent_color, tsk->comm, entry->load.weight, entry->vruntime);
++}
++
+ /*
+  * Targeted preemption latency for CPU-bound tasks:
+  *
