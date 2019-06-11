@@ -1,0 +1,58 @@
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  DESCEND  objtool
+  CHK     include/generated/compile.h
+  CC      kernel/sched/fair.o
+kernel/sched/fair.c: В функции «thread_function»:
+kernel/sched/fair.c:46:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+   46 |  int tux;
+      |  ^~~
+kernel/sched/fair.c:60:1: ошибка: неизвестное имя типа «T1»
+   60 | T1 P=root
+      | ^~
+kernel/sched/fair.c:60:6: ошибка: «root» не описан (первое использование в этой функции)
+   60 | T1 P=root
+      |      ^~~~
+kernel/sched/fair.c:60:6: замечание: сообщение о каждом неописанном идентификаторе выдается один раз в каждой функции, где он встречается
+kernel/sched/fair.c:61:1: ошибка: expected «,» or «;» before «T2»
+   61 | T2 if P=NULL goto T4
+      | ^~
+kernel/sched/fair.c:60:1: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+   60 | T1 P=root
+      | ^~
+kernel/sched/fair.c:140:26: предупреждение: assignment to «struct rb_node *» from «int» makes pointer from integer without a cast [-Wint-conversion]
+  140 |         stack[++stacktop]=P;//push stack
+      |                          ^
+kernel/sched/fair.c:142:12: ошибка: неверный тип аргумента для операции «->» (задан «int»)
+  142 |         P=P->rb_left;
+      |            ^~
+kernel/sched/fair.c:149:3: предупреждение: assignment to «int» from «struct rb_node *» makes integer from pointer without a cast [-Wint-conversion]
+  149 |  P=stack[stacktop--];//pop stack
+      |   ^
+kernel/sched/fair.c:152:17: предупреждение: assignment to «struct rb_node *» from «int» makes pointer from integer without a cast [-Wint-conversion]
+  152 | /*T5*/ stack1[j]=P;//visit subtree
+      |                 ^
+kernel/sched/fair.c:159:5: ошибка: неверный тип аргумента для операции «->» (задан «int»)
+  159 |  P=P->rb_right;
+      |     ^~
+kernel/sched/fair.c:165:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+  165 |  long int a=rq->nr_running;
+      |  ^~~~
+kernel/sched/fair.c:172:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+  172 |  int k;
+      |  ^~~
+In file included from kernel/sched/sched.h:51,
+                 from kernel/sched/fair.c:23:
+kernel/sched/fair.c: В функции «start»:
+kernel/sched/fair.c:189:56: предупреждение: приведение к типу указателя от целого другого размера [-Wint-to-pointer-cast]
+  189 | void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
+      |                                                        ^
+./include/linux/kthread.h:26:35: замечание: в определении макроса «kthread_create»
+   26 |  kthread_create_on_node(threadfn, data, NUMA_NO_NODE, namefmt, ##arg)
+      |                                   ^~~~
+kernel/sched/fair.c:189:27: замечание: в расширении макроса «kthread_run»
+  189 | void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
+      |                           ^~~~~~~~~~~
+make[2]: *** [scripts/Makefile.build:279: kernel/sched/fair.o] Ошибка 1
+make[1]: *** [scripts/Makefile.build:489: kernel/sched] Ошибка 2
+make: *** [Makefile:1071: kernel] Ошибка 2
