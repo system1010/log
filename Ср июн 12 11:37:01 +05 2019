@@ -1,0 +1,47 @@
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  DESCEND  objtool
+  CHK     include/generated/compile.h
+  CC      kernel/sched/fair.o
+kernel/sched/fair.c:29:1: ошибка: expected identifier or «(» before «+» token
+   29 | +void push(struct Stack* stack, struct rb_node* item)
+      | ^
+kernel/sched/fair.c:36:28: предупреждение: «struct Stack» декларированное внутри списка параметров не будет видно вне этого определения или декларации
+   36 | struct rb_node* pop(struct Stack* stack)
+      |                            ^~~~~
+kernel/sched/fair.c: В функции «pop»:
+kernel/sched/fair.c:40:13: ошибка: доступ по указателю на неполный тип «struct Stack»
+   40 | return stack->array[stack->top--];
+      |             ^~
+kernel/sched/fair.c: В функции «thread_function»:
+kernel/sched/fair.c:67:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+   67 |  int tux;
+      |  ^~~
+kernel/sched/fair.c:113:8: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+  113 | /*T1*/ struct rb_node* P=rq->cfs.tasks_timeline.rb_root.rb_node;
+      |        ^~~~~~
+kernel/sched/fair.c:220:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+  220 |  long int a=rq->nr_running;
+      |  ^~~~
+kernel/sched/fair.c:227:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+  227 |  int k;
+      |  ^~~
+In file included from kernel/sched/sched.h:51,
+                 from kernel/sched/fair.c:23:
+kernel/sched/fair.c: В функции «start»:
+kernel/sched/fair.c:244:56: предупреждение: приведение к типу указателя от целого другого размера [-Wint-to-pointer-cast]
+  244 | void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
+      |                                                        ^
+./include/linux/kthread.h:26:35: замечание: в определении макроса «kthread_create»
+   26 |  kthread_create_on_node(threadfn, data, NUMA_NO_NODE, namefmt, ##arg)
+      |                                   ^~~~
+kernel/sched/fair.c:244:27: замечание: в расширении макроса «kthread_run»
+  244 | void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
+      |                           ^~~~~~~~~~~
+kernel/sched/fair.c: В функции «pop»:
+kernel/sched/fair.c:41:1: предупреждение: управление достигает конца не-void функции [-Wreturn-type]
+   41 | }
+      | ^
+make[2]: *** [scripts/Makefile.build:279: kernel/sched/fair.o] Ошибка 1
+make[1]: *** [scripts/Makefile.build:489: kernel/sched] Ошибка 2
+make: *** [Makefile:1071: kernel] Ошибка 2

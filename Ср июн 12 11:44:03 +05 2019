@@ -1,0 +1,40 @@
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  DESCEND  objtool
+  CHK     include/generated/compile.h
+  AR      kernel/built-in.a
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  AR      init/built-in.a
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  MODINFO modules.builtin.modinfo
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  VOFFSET arch/x86/boot/compressed/../voffset.h
+  CC      arch/x86/boot/compressed/misc.o
+  OBJCOPY arch/x86/boot/compressed/vmlinux.bin
+  RELOCS  arch/x86/boot/compressed/vmlinux.relocs
+  GZIP    arch/x86/boot/compressed/vmlinux.bin.gz
+  MKPIGGY arch/x86/boot/compressed/piggy.S
+  AS      arch/x86/boot/compressed/piggy.o
+  CC      arch/x86/boot/compressed/kaslr.o
+  LD      arch/x86/boot/compressed/vmlinux
+  ZOFFSET arch/x86/boot/zoffset.h
+  AS      arch/x86/boot/header.o
+  CC      arch/x86/boot/version.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  BUILD   arch/x86/boot/bzImage
+Setup is 16540 bytes (padded to 16896 bytes).
+System is 9469 kB
+CRC 14469e43
+Kernel: arch/x86/boot/bzImage is ready  (#35)
+  Building modules, stage 2.
+  MODPOST 24 modules
