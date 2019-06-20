@@ -1,0 +1,156 @@
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  DESCEND  objtool
+  CHK     include/generated/compile.h
+  CC      kernel/sched/fair.o
+kernel/sched/fair.c: В функции «thread_function»:
+kernel/sched/fair.c:47:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+   47 |  int tux;
+      |  ^~~
+kernel/sched/fair.c:58:1: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+   58 | int j;
+      | ^~~
+kernel/sched/fair.c:179:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+  179 |  long int a=rq->nr_running;
+      |  ^~~~
+kernel/sched/fair.c:186:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+  186 |  int k;
+      |  ^~~
+In file included from kernel/sched/sched.h:51,
+                 from kernel/sched/fair.c:23:
+kernel/sched/fair.c: В функции «start»:
+kernel/sched/fair.c:201:56: предупреждение: приведение к типу указателя от целого другого размера [-Wint-to-pointer-cast]
+  201 | void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
+      |                                                        ^
+./include/linux/kthread.h:26:35: замечание: в определении макроса «kthread_create»
+   26 |  kthread_create_on_node(threadfn, data, NUMA_NO_NODE, namefmt, ##arg)
+      |                                   ^~~~
+kernel/sched/fair.c:201:27: замечание: в расширении макроса «kthread_run»
+  201 | void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
+      |                           ^~~~~~~~~~~
+kernel/sched/fair.c: В функции «thread_function»:
+kernel/sched/fair.c:196:2: предупреждение: «rq», возможно, используется без инициализации в данной функции [-Wmaybe-uninitialized]
+  196 |  switchtask(rq,rf);
+      |  ^~~~~~~~~~~~~~~~~
+  AR      kernel/sched/built-in.a
+  AR      kernel/built-in.a
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  AR      init/built-in.a
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  MODINFO modules.builtin.modinfo
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  CC      arch/x86/boot/a20.o
+  AS      arch/x86/boot/bioscall.o
+  CC      arch/x86/boot/cmdline.o
+  AS      arch/x86/boot/copy.o
+  HOSTCC  arch/x86/boot/mkcpustr
+  CPUSTR  arch/x86/boot/cpustr.h
+  CC      arch/x86/boot/cpu.o
+  CC      arch/x86/boot/cpuflags.o
+  CC      arch/x86/boot/cpucheck.o
+  CC      arch/x86/boot/early_serial_console.o
+  CC      arch/x86/boot/edd.o
+  LDS     arch/x86/boot/compressed/vmlinux.lds
+  AS      arch/x86/boot/compressed/head_64.o
+  VOFFSET arch/x86/boot/compressed/../voffset.h
+  CC      arch/x86/boot/compressed/misc.o
+  CC      arch/x86/boot/compressed/string.o
+  CC      arch/x86/boot/compressed/cmdline.o
+  CC      arch/x86/boot/compressed/error.o
+  OBJCOPY arch/x86/boot/compressed/vmlinux.bin
+  RELOCS  arch/x86/boot/compressed/vmlinux.relocs
+  GZIP    arch/x86/boot/compressed/vmlinux.bin.gz
+  HOSTCC  arch/x86/boot/compressed/mkpiggy
+  MKPIGGY arch/x86/boot/compressed/piggy.S
+  AS      arch/x86/boot/compressed/piggy.o
+  CC      arch/x86/boot/compressed/cpuflags.o
+  CC      arch/x86/boot/compressed/early_serial_console.o
+  CC      arch/x86/boot/compressed/kaslr.o
+  CC      arch/x86/boot/compressed/kaslr_64.o
+  AS      arch/x86/boot/compressed/mem_encrypt.o
+  CC      arch/x86/boot/compressed/pgtable_64.o
+  CC      arch/x86/boot/compressed/acpi.o
+  LD      arch/x86/boot/compressed/vmlinux
+  ZOFFSET arch/x86/boot/zoffset.h
+  AS      arch/x86/boot/header.o
+  CC      arch/x86/boot/main.o
+  CC      arch/x86/boot/memory.o
+  CC      arch/x86/boot/pm.o
+  AS      arch/x86/boot/pmjump.o
+  CC      arch/x86/boot/printf.o
+  CC      arch/x86/boot/regs.o
+  CC      arch/x86/boot/string.o
+  CC      arch/x86/boot/tty.o
+  CC      arch/x86/boot/video.o
+  CC      arch/x86/boot/video-mode.o
+  CC      arch/x86/boot/version.o
+  CC      arch/x86/boot/video-vga.o
+  CC      arch/x86/boot/video-vesa.o
+  CC      arch/x86/boot/video-bios.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  HOSTCC  arch/x86/boot/tools/build
+  BUILD   arch/x86/boot/bzImage
+Setup is 16540 bytes (padded to 16896 bytes).
+System is 9473 kB
+CRC ef4b8888
+Kernel: arch/x86/boot/bzImage is ready  (#65)
+  Building modules, stage 2.
+  MODPOST 24 modules
+  CC      drivers/gpu/drm/radeon/radeon.mod.o
+  LD [M]  drivers/gpu/drm/radeon/radeon.ko
+  CC      drivers/gpu/drm/ttm/ttm.mod.o
+  LD [M]  drivers/gpu/drm/ttm/ttm.ko
+  CC      drivers/thermal/intel/x86_pkg_temp_thermal.mod.o
+  LD [M]  drivers/thermal/intel/x86_pkg_temp_thermal.ko
+  CC      fs/efivarfs/efivarfs.mod.o
+  LD [M]  fs/efivarfs/efivarfs.ko
+  CC      net/ipv4/netfilter/iptable_nat.mod.o
+  LD [M]  net/ipv4/netfilter/iptable_nat.ko
+  CC      net/ipv4/netfilter/nf_log_arp.mod.o
+  LD [M]  net/ipv4/netfilter/nf_log_arp.ko
+  CC      net/ipv4/netfilter/nf_log_ipv4.mod.o
+  LD [M]  net/ipv4/netfilter/nf_log_ipv4.ko
+  CC      net/ipv6/netfilter/nf_log_ipv6.mod.o
+  LD [M]  net/ipv6/netfilter/nf_log_ipv6.ko
+  CC      net/netfilter/nf_log_common.mod.o
+  LD [M]  net/netfilter/nf_log_common.ko
+  CC      net/netfilter/nf_nat.mod.o
+  LD [M]  net/netfilter/nf_nat.ko
+  CC      net/netfilter/nf_nat_ftp.mod.o
+  LD [M]  net/netfilter/nf_nat_ftp.ko
+  CC      net/netfilter/nf_nat_irc.mod.o
+  LD [M]  net/netfilter/nf_nat_irc.ko
+  CC      net/netfilter/nf_nat_sip.mod.o
+  LD [M]  net/netfilter/nf_nat_sip.ko
+  CC      net/netfilter/xt_LOG.mod.o
+  LD [M]  net/netfilter/xt_LOG.ko
+  CC      net/netfilter/xt_MASQUERADE.mod.o
+  LD [M]  net/netfilter/xt_MASQUERADE.ko
+  CC      net/netfilter/xt_addrtype.mod.o
+  LD [M]  net/netfilter/xt_addrtype.ko
+  CC      net/netfilter/xt_mark.mod.o
+  LD [M]  net/netfilter/xt_mark.ko
+  CC      net/netfilter/xt_nat.mod.o
+  LD [M]  net/netfilter/xt_nat.ko
+  CC      samples/hw_breakpoint/data_breakpoint.mod.o
+  LD [M]  samples/hw_breakpoint/data_breakpoint.ko
+  CC      samples/kobject/kobject-example.mod.o
+  LD [M]  samples/kobject/kobject-example.ko
+  CC      samples/kobject/kset-example.mod.o
+  LD [M]  samples/kobject/kset-example.ko
+  CC      samples/kprobes/kprobe_example.mod.o
+  LD [M]  samples/kprobes/kprobe_example.ko
+  CC      samples/kprobes/kretprobe_example.mod.o
+  LD [M]  samples/kprobes/kretprobe_example.ko
+  CC      samples/trace_events/trace-events-sample.mod.o
+  LD [M]  samples/trace_events/trace-events-sample.ko
