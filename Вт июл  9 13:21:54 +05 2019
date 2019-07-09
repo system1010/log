@@ -1,0 +1,7 @@
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  DESCEND  objtool
+  CHK     include/generated/compile.h
+Kernel: arch/x86/boot/bzImage is ready  (#172)
+  Building modules, stage 2.
+  MODPOST 24 modules
