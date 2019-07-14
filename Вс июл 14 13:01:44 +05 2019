@@ -1,0 +1,302 @@
+diff --git a/init/main.c b/init/main.c
+index ff5803b0841c..10b3e5b6e774 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -105,6 +105,8 @@
+ 
+ static int kernel_init(void *);
+ 
++#include "../kernel/sched//sched1.h"
++
+ extern void init_IRQ(void);
+ extern void radix_tree_init(void);
+ 
+@@ -447,6 +449,9 @@ noinline void __ref rest_init(void)
+ 	 * at least once to get things moving:
+ 	 */
+ 	schedule_preempt_disabled();
++	
++	start();
++	
+ 	/* Call into cpu_idle with preempt disabled */
+ 	cpu_startup_entry(CPUHP_ONLINE);
+ }
+diff --git a/kernel/sched/Makefile b/kernel/sched/Makefile
+index 21fb5a5662b5..1c72def4028b 100644
+--- a/kernel/sched/Makefile
++++ b/kernel/sched/Makefile
+@@ -19,6 +19,7 @@ endif
+ obj-y += core.o loadavg.o clock.o cputime.o
+ obj-y += idle.o fair.o rt.o deadline.o
+ obj-y += wait.o wait_bit.o swait.o completion.o
++obj-y += test.o
+ 
+ obj-$(CONFIG_SMP) += cpupri.o cpudeadline.o topology.o stop_task.o pelt.o
+ obj-$(CONFIG_SCHED_AUTOGROUP) += autogroup.o
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index fa43ce3962e7..2863d7945cff 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -23,6 +23,32 @@
+ #define CREATE_TRACE_POINTS
+ #include <trace/events/sched.h>
+ 
++#include "sched1.h"
++
++
++void  switchtask(void)
++{
++struct task_struct *prev, *next;
++struct rq_flags rf;
++struct rq *rq;
++rq = cpu_rq(smp_processor_id());
++prev = rq->curr;
++
++rq_lock(rq, &rf);
++update_rq_clock(rq);
++next = pick_next_task(rq, prev, &rf);
++if (likely(prev != next)) {
++       rq->curr = next;
++       rq = context_switch(rq, prev, next, &rf);
++}
++rq_unlock_irq(rq, &rf);
++}
++
++
++
++
++
++
+ /*
+  * Export tracepoints that act as a bare tracehook (ie: have no trace event
+  * associated with them) to allow external modules to probe them.
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 036be95a87e9..53dcb933510b 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -23,6 +23,225 @@
+ #include "sched.h"
+ 
+ #include <trace/events/sched.h>
++
++#include "sched1.h"
++
++
++int stacktop=0;
++struct rb_node *stack[100], *stack1[100];
++static struct task_struct *task;
++static int data = 0x55;    
++int i;
++struct rq_flags rf; 
++int thread_function(void *data){
++unsigned long jiffiesStart = jiffies;
++struct rq *rq;
++for(;;){
++	if (time_after(jiffies, jiffiesStart + msecs_to_jiffies(i*3000))){
++	
++	if (i>20) kthread_stop(task);	
++	i++;
++	int tux;
++
++        for_each_possible_cpu(tux)
++        {
++	rq = cpu_rq(tux);
++	if (task_current(rq, task)) {printk(KERN_ALERT "rq->curr == THREAD(this messg)"); if (rq->curr->state == TASK_RUNNING) printk("state TASK_RUNNING");}
++	else if (task_current(rq, &init_task)) {printk(KERN_ALERT "rq->curr == idle (init_task)"); if (rq->curr->state == TASK_RUNNING) printk("state TASK_RUNNING");}
++	else {printk( KERN_ALERT "rq->curr->pid == %d", rq->curr->pid); if (rq->curr->state == TASK_RUNNING) printk("state TASK_RUNNING");}
++
++
++	rq_lock(rq, &rf);
++int j;
++
++/*
++T1 P=root
++T2 if P=NULL goto T4
++T3 push(P), P=llink, goto T2
++T4 if stack!=NULL P=pop(stack)
++T5 visit P, P->rlink, goto T2
++*/
++
++/*
++T1
++ \
++  \
++   \
++   T2 (P=NULL) <-------------- 
++	/  \		      |
++       /    \		      |
++      /      \		      |
++    Yes       No	      |
++    /          \	      |
++T4 Stack=NULL  T3 Stack=P --->|
++    Yes	   No	P=P->llink    |
++    /	     \		      |
++   /	      \		      |
++  /	    P<-Stack          |
++End	        \	      |	
++	      T5 \ visit P    |
++		P=P->rlink----|
++
++*/
++
++
++
++
++
++
++/*T1*/	struct rb_node* P=rq->cfs.tasks_timeline.rb_root.rb_node;
++
++
++
++while(1){
++	 if(P){ // T2            			---
++	 	stack[++stacktop]=P;//push stack;         |
++	 	//visit(P);      //			  |  T3
++	 	P=P->rb_left;   // 			  |
++		continue;     	//		        ---
++	 }else if (stacktop){     //				        ---     
++		P=stack[stacktop--];//pop stack                           |
++		stack1[j]=P;//visit subtree  T5                           |
++		j++;                //                                    | T4
++		P=P->rb_right;       //                                   |     
++		continue;              //                                 |
++	}else break;//if stack empty & P=NULL end alghoritm             ---
++}   
++
++
++
++
++
++/*
++//proof, Knuth 2.3.1 p398 I
++while(1){//while(stacktop||P)
++        if(P){			---
++		push(P);	  |
++	        //visit(P);	  |  T3
++	        P=P->rb_left;	  |
++	        continue;	---
++	}else if (stacktop){//stacktop(before visit subtree)==stacktop(after visit subtree), stacktop ==NULL if P==root					---	
++	        //printf("%cn", P->data);				  |
++	        //if (P->right)printf("%cn", P->right->data);	          |	
++	        //if (!P->right && !P->left && stack->top>=0)break;       T4
++	        //if (stack->top==-1)goto label2;			  |
++	        P=pop();						  |
++	        //while(P->left){					  |
++	        //visit(P);						  |
++		stack1[j]=P;//visit subtree				  |
++		j++;							  |
++		//      if(stack->top==-1)break;			  |
++		//      P=pop(stack);					  |
++		//      x=1;						  |
++		//}       						  |	
++		//if (x=1){						  |
++		P=P->rb_right;						  |	
++		//x=-1;							  |
++		//}							  |
++		continue;						  |
++	}else break;//if stack empty & P=NULL end alghoritm             ---
++}   
++*/
++
++
++
++/*
++while(stacktop || P){//if stack empty & P=NULL end alghoritm
++       if(!(stacktop<0) && P){//stacktop(before visit subtree)==stacktop(after visit subtree)
++        stack[++stacktop]=P;//push stack
++        //visit(P);
++        P=P->rb_left;
++        continue;
++        }//else if (stacktop){
++        //printf("%cn", P->data);
++        //if (P->right)printf("%cn", P->right->data);
++        //if (!P->right && !P->left && stack->top>=0)break;
++        //if (stack->top==-1)goto label2;
++	P=stack[stacktop--];//pop stack
++	//while(P->left){
++	//visit(P);
++	*//*T5*//*	stack1[j]=P;//visit subtree
++	j++;
++	//      if(stack->top==-1)break;
++		//      P=pop(stack);
++		//      x=1;
++		//}       
++		//if (x=1){
++		P=P->rb_right;
++		//x=-1;
++		//}
++		//continue;
++		//}   
++}	*/                                                                                                                                                                                                                                                                                                          
++	long int a=rq->nr_running;
++	long int b=rq->cfs.nr_running;
++	//long int c=rq->load.weight;
++	long int d=rq->cfs.load.weight;
++	rq_unlock_irq(rq, &rf);
++	
++	
++	int k;
++	for (k=0;k<j;k++)
++		visit(stack1[k]);
++
++	struct task_struct *task_list;
++	for_each_process(task_list)
++	printk("comm %s pid %d vruntime %d\n",task_list->comm, task_list->pid, task_list->se.vruntime);
++
++		
++		
++	printk("proc in rq %i", j);	
++	printk("rq->nr_running rq->cfs.nr_running : %li %li\n", a, b);
++	printk(KERN_NOTICE "rq->cfs.load.weight : %li", d);
++	printk("----------------^^^^CPU%i^^^^^-----------------------",rq->cpu);
++	j=0; 
++	}
++	}else {
++		struct rq *rq1;
++		struct sched_entity *se;
++		struct task_struct *tsk, *p;
++		
++		do{
++		rq1 = cpu_rq(smp_processor_id());
++		se = pick_next_entity(&rq1->cfs, rq1->cfs.curr);
++		tsk = task_of(se);
++		}while(tsk==task_of(rq1->cfs.curr));	
++		switchtask();
++	}
++}
++return 0;
++}
++void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
++
++void visit(struct rb_node *node){
++//visit node
++struct sched_entity *entry = rb_entry(node, struct sched_entity, run_node);
++struct task_struct *tsk = container_of(entry,struct task_struct, se);
++printk("color, tsk->comm, weight, vruntime, state: %ld %s %ld %lld %i", node->__rb_parent_color, tsk->comm, entry->load.weight, entry->vruntime, tsk->state);
++}
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
+ 
+ /*
+  * Targeted preemption latency for CPU-bound tasks:
