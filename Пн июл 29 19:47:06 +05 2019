@@ -1,0 +1,84 @@
+  CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  DESCEND  objtool
+  CHK     include/generated/compile.h
+  CC      kernel/sched/fair.o
+kernel/sched/fair.c: В функции «thread_function»:
+kernel/sched/fair.c:72:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+   72 |  struct task_struct *task_list;
+      |  ^~~~~~
+kernel/sched/fair.c:74:34: предупреждение: формат «%d» ожидает аргумент типа «int», но аргумент 4 имеет тип «long int» [-Wformat=]
+   74 |    printk("comm %s pid %d state %d\n",task_list->comm, task_list->pid, task_list->state);
+      |                                 ~^                                     ~~~~~~~~~~~~~~~~
+      |                                  |                                              |
+      |                                  int                                            long int
+      |                                 %ld
+kernel/sched/fair.c:77:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+   77 |  int tux;
+      |  ^~~
+kernel/sched/fair.c:90:8: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+   90 | /*T1*/ struct rb_node* P=rq->cfs.tasks_timeline.rb_root.rb_node;
+      |        ^~~~~~
+kernel/sched/fair.c:115:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+  115 |  long int a=rq->nr_running;
+      |  ^~~~
+kernel/sched/fair.c:121:2: предупреждение: ISO C90 запрещает смешение деклараций и кода [-Wdeclaration-after-statement]
+  121 |  int k;
+      |  ^~~
+In file included from kernel/sched/sched.h:51,
+                 from kernel/sched/fair.c:23:
+kernel/sched/fair.c: В функции «start»:
+kernel/sched/fair.c:144:56: предупреждение: приведение к типу указателя от целого другого размера [-Wint-to-pointer-cast]
+  144 | void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
+      |                                                        ^
+./include/linux/kthread.h:26:35: замечание: в определении макроса «kthread_create»
+   26 |  kthread_create_on_node(threadfn, data, NUMA_NO_NODE, namefmt, ##arg)
+      |                                   ^~~~
+kernel/sched/fair.c:144:27: замечание: в расширении макроса «kthread_run»
+  144 | void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
+      |                           ^~~~~~~~~~~
+In file included from kernel/sched/fair.c:27:
+kernel/sched/fair.c: На верхнем уровне:
+kernel/sched/sched1.h:7:35: предупреждение: «pick_next_task» объявлена «static», но нигде не определена [-Wunused-function]
+    7 | static inline struct task_struct* pick_next_task(struct rq *rq, struct task_struct *prev, struct rq_flags *rf);
+      |                                   ^~~~~~~~~~~~~~
+kernel/sched/sched1.h:8:35: предупреждение: «context_switch» объявлена «static», но нигде не определена [-Wunused-function]
+    8 | static __always_inline struct rq* context_switch(struct rq *rq, struct task_struct *prev, struct task_struct *next, struct rq_flags *rf);
+      |                                   ^~~~~~~~~~~~~~
+  AR      kernel/sched/built-in.a
+  AR      kernel/built-in.a
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  AR      init/built-in.a
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  MODINFO modules.builtin.modinfo
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  VOFFSET arch/x86/boot/compressed/../voffset.h
+  CC      arch/x86/boot/compressed/misc.o
+  OBJCOPY arch/x86/boot/compressed/vmlinux.bin
+  RELOCS  arch/x86/boot/compressed/vmlinux.relocs
+  GZIP    arch/x86/boot/compressed/vmlinux.bin.gz
+  MKPIGGY arch/x86/boot/compressed/piggy.S
+  AS      arch/x86/boot/compressed/piggy.o
+  CC      arch/x86/boot/compressed/kaslr.o
+  LD      arch/x86/boot/compressed/vmlinux
+  ZOFFSET arch/x86/boot/zoffset.h
+  AS      arch/x86/boot/header.o
+  CC      arch/x86/boot/version.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  BUILD   arch/x86/boot/bzImage
+Setup is 16540 bytes (padded to 16896 bytes).
+System is 9597 kB
+CRC 14c98494
+Kernel: arch/x86/boot/bzImage is ready  (#265)
+  Building modules, stage 2.
+  MODPOST 24 modules
