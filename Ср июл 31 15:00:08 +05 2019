@@ -1,0 +1,211 @@
+diff --git a/init/main.c b/init/main.c
+index 96f8d5af52d6..a0bd6fef7ba2 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -105,6 +105,8 @@
+ 
+ static int kernel_init(void *);
+ 
++#include "../kernel/sched//sched1.h"
++
+ extern void init_IRQ(void);
+ extern void radix_tree_init(void);
+ 
+@@ -447,6 +449,9 @@ noinline void __ref rest_init(void)
+ 	 * at least once to get things moving:
+ 	 */
+ 	schedule_preempt_disabled();
++	
++	start();
++	
+ 	/* Call into cpu_idle with preempt disabled */
+ 	cpu_startup_entry(CPUHP_ONLINE);
+ }
+diff --git a/kernel/sched/Makefile b/kernel/sched/Makefile
+index 21fb5a5662b5..1c72def4028b 100644
+--- a/kernel/sched/Makefile
++++ b/kernel/sched/Makefile
+@@ -19,6 +19,7 @@ endif
+ obj-y += core.o loadavg.o clock.o cputime.o
+ obj-y += idle.o fair.o rt.o deadline.o
+ obj-y += wait.o wait_bit.o swait.o completion.o
++obj-y += test.o
+ 
+ obj-$(CONFIG_SMP) += cpupri.o cpudeadline.o topology.o stop_task.o pelt.o
+ obj-$(CONFIG_SCHED_AUTOGROUP) += autogroup.o
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 2b037f195473..87e3e2d3100a 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -23,6 +23,36 @@
+ #define CREATE_TRACE_POINTS
+ #include <trace/events/sched.h>
+ 
++
++
++#include "sched1.h"
++
++
++void  switchtask(void)
++{
++struct task_struct *prev, *next;
++struct rq_flags rf;
++struct rq *rq;
++rq = cpu_rq(smp_processor_id());
++prev = rq->curr;
++
++rq_lock(rq, &rf);
++update_rq_clock(rq);
++next = pick_next_task(rq, prev, &rf);
++if (likely(prev != next)) {
++       rq->curr = next;
++       rq = context_switch(rq, prev, next, &rf);
++}
++rq_unlock_irq(rq, &rf);
++}
++		
++
++
++
++
++
++
++
+ /*
+  * Export tracepoints that act as a bare tracehook (ie: have no trace event
+  * associated with them) to allow external modules to probe them.
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index bc9cfeaac8bd..7ee7a5f3ae3c 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -24,6 +24,130 @@
+ 
+ #include <trace/events/sched.h>
+ 
++#include "sched1.h" 
++/*
++ * 1. if jiffies not multiple 3 goto 4
++ * 2. if i>30 stop task
++ * 3. for each cpu(run queue) scan rbtree & visit rbnodes goto 1
++ * 4. deley untill next, context switch goto 1.
++ *
++ * */
++
++
++
++/*
++ *			if jiffies multiple 3(s)<-------|
++ *			/	   \			|
++ *		      Yes	   No			|
++ *		     /               \			|
++ *	rq  inorder rbtree pass	  schedule(next task)	|
++ *		    \			    \___________|
++ *		  if times <=30-----No------/
++ *			\
++ *			 Yes
++ *			   \
++ *			 stop task
++ *
++ * */
++
++
++
++struct rb_node *stack[100], *stack1[100];
++static struct task_struct *task;
++static int data = 0x55;    
++int stacktop=0, j=0;
++struct rq_flags rf; 
++int thread_function(void *data){
++unsigned long jiffiesStart = jiffies;
++struct rq *rq;
++for(;;){
++	
++	int l = ((int)(jiffies/HZ))-42949373;  
++	if (l>=30) kthread_stop(task);
++	if (!(l%3)){	
++
++	
++	//struct task_struct *task_list;  
++	//	for_each_process(task_list)
++	//		printk("comm %s pid %d state %d\n",task_list->comm, task_list->pid, task_list->state);
++	
++	
++	int tux;
++        for_each_online_cpu(tux)
++        {
++	rq = cpu_rq(tux);
++
++	if (task_current(rq, task)) {printk(KERN_ALERT "rq->curr == THREAD (this messg)"); if (rq->curr->state == TASK_RUNNING) printk("state TASK_RUNNING");}
++	else if (task_current(rq, &init_task)) {printk(KERN_ALERT "rq->curr == idle (init_task)"); if (rq->curr->state == TASK_RUNNING) printk("state TASK_RUNNING");}
++	else {printk( KERN_ALERT "rq->curr->pid == %d", rq->curr->pid);if (rq->curr->state == TASK_RUNNING) printk("state TASK_RUNNING");}
++
++	
++	rq_lock(rq, &rf);
++
++
++/*T1*/	struct rb_node* P=rq->cfs.tasks_timeline.rb_root.rb_node;
++
++
++	while(1){
++		if(P){ // T2                              
++			stack[++stacktop]=P;//push stack;  T3
++			P=P->rb_left;  
++		}else if (stacktop){// T4      
++			P=stack[stacktop--];//pop stack    
++			stack1[j++]=P;//visit subtree  T5
++			P=P->rb_right;        
++       		}else break;//if stack empty & P=NULL end alghoritm 
++	}
++/*
++	while(stacktop || P){//if stack empty & P=NULL end alghoritm
++        	if(!(stacktop<0) && P){//stacktop(before visit subtree)==stacktop(after visit subtree)
++        		stack[++stacktop]=P;//push stack
++        		P=P->rb_left;
++        		continue;
++        	}
++        	P=stack[stacktop--];//pop stack
++		stack1[j++]=P;//visit subtree   T5
++		P=P->rb_right;
++	}  
++*/
++	long int a=rq->nr_running;
++	long int b=rq->cfs.nr_running;
++	long int d=rq->cfs.load.weight;
++	
++	rq_unlock_irq(rq, &rf);
++
++	int k;
++	for (k=0;k<j;k++)
++		visit(stack1[k]);
++
++	printk("proc in rq %i", j);	
++	printk("rq->nr_running rq->cfs.nr_running : %li %li\n", a, b);
++	printk(KERN_NOTICE "rq->cfs.load.weight :  %li", d);
++	printk("----------------^^^^CPU%i^^^^^-----------------------",rq->cpu);
++	j=0;
++	}
++	} else {
++		struct rq *rq1;
++		struct sched_entity *se;
++		do{
++		rq1 = cpu_rq(smp_processor_id());
++		update_curr(&rq1->cfs);
++		se = pick_next_entity(&rq1->cfs, rq1->cfs.curr);
++		}while(se==rq1->cfs.curr);
++		switchtask();
++	}
++}
++return 0;
++}
++void  start(void) {task = kthread_run(&thread_function,(void *)data,"THREAD");}
++
++void visit(struct rb_node *node){
++	//visit node
++	struct sched_entity *entry = rb_entry(node, struct sched_entity, run_node);
++	struct task_struct *tsk = container_of(entry,struct task_struct, se);
++	printk("color, tsk->comm, weight, vruntime, state: %ld %s %ld %lld %li", node->__rb_parent_color, tsk->comm, entry->load.weight, entry->vruntime, tsk->state);
++}
++
+ /*
+  * Targeted preemption latency for CPU-bound tasks:
+  *
